@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 350px) and (max-width: 750px) {
+  .logooo {
+    transform: translateX(-35px) !important;
+  }
+}
+
+@layer base {
+  :root {
+    /* DR PAINT EXACT BRAND THEME */
+    --background: 0 0% 100%;
+    /* White */
+
+    --foreground: 222 47% 11%;
+    /* Deep black/navy */
+
+    --card: 0 0% 100%;
+
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+
+    --popover-foreground: 222 47% 11%;
+
+    /* OFFICIAL DR PAINT BLUE */
+    --primary: 212 54% 37%;
+    /* #2b5a93 */
+
+    --primary-foreground: 0 0% 100%;
+    /* White */
+
+    /* BLACK / DARK SURFACE */
+    --secondary: 222 47% 11%;
+    /* Dark black-blue */
+
+    --secondary-foreground: 0 0% 100%;
+
+    /* RED CTA */
+    --accent: 0 78% 52%;
+    /* Strong professional red */
+
+    --accent-foreground: 0 0% 100%;
+    /* White */
+
+    --muted: 210 20% 96%;
+
+    --muted-foreground: 215 16% 35%;
+
+    --destructive: 0 78% 52%;
+
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+
+    --input: 214 20% 96%;
+
+    --ring: 212 54% 37%;
+
+    --radius: 0.55rem;
+
+    /* CUSTOM BRAND */
+    --deep: 222 47% 11%;
+    --surface: 0 0% 100%;
+    --surface-light: 210 20% 97%;
+    --text-dark: 222 47% 11%;
+
+    /* SIDEBAR */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 100%;
+
+    --sidebar-primary: 212 54% 37%;
+    --sidebar-primary-foreground: 0 0% 100%;
+
+    --sidebar-accent: 0 78% 52%;
+    --sidebar-accent-foreground: 0 0% 100%;
+
+    --sidebar-border: 220 25% 18%;
+
+    --sidebar-ring: 212 54% 37%;
+
+    /* TYPOGRAPHY */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted)));
+  }
+
+  #root {
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  section {
+    position: relative;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+  }
+
+  .heading-xl {
+    @apply text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-medium;
+    font-family: var(--font-heading);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  .heading-lg {
+    @apply text-4xl md:text-5xl lg:text-6xl font-medium;
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium;
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl;
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .body-sm {
+    @apply text-sm md:text-base;
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  /* BLUE BRAND LINE */
+  .accent-line {
+    @apply w-14 h-1 rounded-full;
+    background: hsl(var(--primary));
+  }
+
+  .grid-editorial {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8;
+  }
+
+  /* OFFICIAL BRAND TEXT */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* PRIMARY BLUE BUTTON */
+  .bg-gradient-cta {
+    background: hsl(var(--primary));
+    color: white;
+  }
+
+  /* RED CTA BUTTON */
+  .drpaint-btn-primary {
+    background: hsl(var(--accent));
+    color: white;
+    transition: all 0.35s ease;
+    border-radius: 0.75rem;
+    font-weight: 600;
+  }
+
+  .drpaint-btn-primary:hover {
+    background: hsl(var(--accent) / 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(214, 40, 40, 0.28);
+  }
+
+  /* BLUE SECONDARY BUTTON */
+  .drpaint-btn-secondary {
+    background: hsl(var(--primary));
+    color: white;
+    transition: all 0.35s ease;
+    border-radius: 0.75rem;
+    font-weight: 600;
+  }
+
+  .drpaint-btn-secondary:hover {
+    background: hsl(var(--primary) / 0.9);
+    transform: translateY(-2px);
+  }
+
+  /* CARD SYSTEM */
+  .drpaint-card {
+    background: white;
+    border: 1px solid rgba(43, 90, 147, 0.08);
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    border-radius: 1rem;
+  }
+
+  .drpaint-shadow {
+    box-shadow: 0 10px 25px rgba(43, 90, 147, 0.12);
+  }
+
+  /* NAVBAR */
+  .navbar-glass {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(43, 90, 147, 0.08);
+  }
+
+  /* HERO OVERLAY */
+  .hero-overlay {
+    background: linear-gradient(135deg,
+        rgba(43, 90, 147, 0.9),
+        rgba(27, 31, 41, 0.82));
+  }
+
+  /* RED HIGHLIGHT */
+  .red-accent {
+    color: hsl(var(--accent));
+  }
+
+  .blue-accent {
+    color: hsl(var(--primary));
+  }
+}

@@ -1,0 +1,1120 @@
+{
+  "navbar": {
+    "services": [
+      {
+        "title": "RESIDENTIAL PAINTING",
+        "description": "Transform your home with expert interior and exterior painting backed by our Free Paint Guarantee",
+        "icon": "Home",
+        "items": [
+          "Interior Painting",
+          "Exterior Painting",
+          "Cabinet Painting",
+          "Deck & Fence Staining",
+          "Color Consultation"
+        ],
+        "features": [
+          "Free Paint Guarantee",
+          "5-Year Labor Warranty",
+          "95% Satisfaction Rate"
+        ]
+      },
+      {
+        "title": "COMMERCIAL PAINTING",
+        "description": "Professional painting for offices, retail, restaurants and commercial properties with after-hours availability",
+        "icon": "Building2",
+        "items": [
+          "Office Painting",
+          "Retail Store Painting",
+          "Warehouse Painting",
+          "Restaurant Painting",
+          "Night & Weekend Service"
+        ],
+        "features": [
+          "Flexible Scheduling",
+          "Minimal Disruption",
+          "OSHA Compliant"
+        ]
+      },
+      {
+        "title": "SPECIALTY SERVICES",
+        "description": "Complete property care beyond painting — from drywall to pressure washing and garage floors",
+        "icon": "Wrench",
+        "items": [
+          "Drywall Repair",
+          "Pressure Washing",
+          "Garage Floor Coatings",
+          "Deck & Driveway Coating",
+          "Cabinet Refinishing"
+        ],
+        "features": [
+          "Veteran Crew Leaders",
+          "8-Point Staff Screening",
+          "Free Virtual Estimates"
+        ]
+      }
+    ],
+    "companyLinks": [
+      {
+        "label": "Home",
+        "href": "#",
+        "icon": "Home"
+      },
+      {
+        "label": "About Us",
+        "href": "#about",
+        "icon": "Users"
+      },
+      {
+        "label": "Services",
+        "href": "#services",
+        "icon": "Briefcase"
+      },
+      {
+        "label": "Our Work",
+        "href": "#portfolio",
+        "icon": "Image"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact",
+        "icon": "Phone"
+      }
+    ],
+    "stats": [
+      {
+        "value": "107+",
+        "label": "Google Reviews",
+        "icon": "Star"
+      },
+      {
+        "value": "95%",
+        "label": "Satisfaction",
+        "icon": "ThumbsUp"
+      },
+      {
+        "value": "5",
+        "label": "Year Warranty",
+        "icon": "Shield"
+      },
+      {
+        "value": "8-Point",
+        "label": "Staff Screening",
+        "icon": "ClipboardCheck"
+      }
+    ],
+    "cta": {
+      "title": "Get Your Free Quote",
+      "description": "Same-day response from our painting pros",
+      "buttonText": "Call Now",
+      "buttonLink": "tel:+13862467999"
+    }
+  },
+  "hero": {
+    "badge": "Veteran-Owned & Operated",
+    "headlines": [
+      "Google's Most Rated",
+      "Palm Coast Painting",
+      "Contractor"
+    ],
+    "description": "The Most Sought After Painter in Flagler, St. Johns and Volusia Counties. Turn your space into an oasis with the help of a 5-star painting contractor built on trust, integrity, and military precision.",
+    "buttons": [
+      {
+        "text": "Get Free Estimate",
+        "href": "#contact",
+        "primary": true,
+        "icon": "FiArrowRight"
+      },
+      {
+        "text": "View Our Work",
+        "href": "#portfolio",
+        "primary": false,
+        "icon": "FiArrowRight"
+      }
+    ],
+    "stats": [
+      {
+        "value": "107+",
+        "label": "5-Star Google Reviews",
+        "icon": "FiStar"
+      },
+      {
+        "value": "2014",
+        "label": "Established",
+        "icon": "RiBuildingLine"
+      },
+      {
+        "value": "95%",
+        "label": "Satisfaction Rate",
+        "icon": "FiThumbsUp"
+      },
+      {
+        "value": "3",
+        "label": "Counties Served",
+        "icon": "RiShieldCheckLine"
+      }
+    ]
+  },
+  "about": {
+    "badge": "Since 2014",
+    "headline": {
+      "prefix": "Dr. Paint —",
+      "highlight": "Veteran-Owned",
+      "suffix": "Painting Company."
+    },
+    "description": "A <span class=\"font-semibold text-primary\">veteran-owned and operated</span> painting contractor built on trust, integrity, and flawless finishes. We do the prepping, take care of your property, and ensure no mess is left behind — so you can focus on enjoying your beautifully painted space.",
+    "image": {
+      "src": "DrPaintTeam",
+      "alt": "Dr. Paint veteran crew leaders painting a residential interior",
+      "badge": "Veteran-Owned Since 2014"
+    },
+    "stats": [
+      {
+        "value": 107,
+        "suffix": "+",
+        "label": "5-Star Google Reviews"
+      },
+      {
+        "value": 95,
+        "suffix": "%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": 5,
+        "suffix": "",
+        "label": "Full-Time Painters"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "FREE ESTIMATE",
+        "href": "#contact",
+        "primary": true
+      },
+      {
+        "text": "ABOUT OUR COMPANY",
+        "href": "#about-story",
+        "primary": false
+      }
+    ],
+    "trustBadges": {
+      "veteranOwned": true,
+      "satisfactionRate": 95
+    }
+  },
+  "aboutStory": {
+    "badge": "Our Story",
+    "headline": {
+      "prefix": "Meet Our",
+      "highlight": "Founder",
+      "suffix": "— Omar Rivera"
+    },
+    "description": [
+      "Dr. Paint's founder, Omar Rivera, is a former Active Duty Air Force member who transitioned to the Air Force Reserve Component. In January 2014, he founded Dr. Paint in Palm Coast, FL.",
+      "Omar began as the estimator, then painter, and the 'marketing guy' before making Dr. Paint one of the fastest growing painting companies in Central Florida. In less than a year, Dr. Paint grew into 5 full-time, on-staff painters and 2 administrative professionals.",
+      "Now Dr. Paint serves not only Palm Coast but all of Volusia, Flagler, and all counties throughout the St. Johns area. We've collected hundreds of five-star testimonials from happy residential and commercial property owners."
+    ],
+    "image": {
+      "src": "OmarRivera",
+      "alt": "Omar Rivera - Founder of Dr. Paint, veteran-owned painting company",
+      "badge": "Founder & CEO"
+    },
+    "stats": [
+      {
+        "value": 2014,
+        "suffix": "",
+        "label": "Year Founded"
+      },
+      {
+        "value": 5,
+        "suffix": "",
+        "label": "Full-Time Painters"
+      },
+      {
+        "value": 3,
+        "suffix": "",
+        "label": "Counties Served"
+      }
+    ]
+  },
+  "services": {
+    "badge": "Our Services",
+    "headline": {
+      "prefix": "Professional Painting Services in",
+      "highlight": "Palm Coast, FL",
+      "suffix": "& Surrounding Areas"
+    },
+    "description": [
+      "Dr. Paint is one of the most highly-rated local painting contractors on Google with a great team of trustworthy painters who are always on time and have customer desires as top priorities.",
+      "From colors and materials to deadlines being adhered to, you'll always get what you asked for — and our <span class=\"font-semibold text-primary\">95% satisfaction rate</span> speaks for itself."
+    ],
+    "stats": [
+      {
+        "value": 107,
+        "suffix": "+",
+        "label": "Google Reviews"
+      },
+      {
+        "value": 95,
+        "suffix": "%",
+        "label": "Satisfaction"
+      },
+      {
+        "value": 5,
+        "suffix": "",
+        "label": "Year Warranty"
+      }
+    ],
+    "services": [
+      {
+        "number": "01",
+        "title": "Residential Painting",
+        "description": "Expert interior and exterior painting services for your home. We transform living rooms, bedrooms, kitchens, and entire home exteriors with flawless finishes.",
+        "icon": "Home",
+        "tag": "Residential",
+        "features": [
+          "Interior Painting",
+          "Exterior Painting",
+          "Cabinet Painting",
+          "Color Consultation"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Commercial Painting",
+        "description": "Professional painting services for offices, retail stores, warehouses, and restaurants. We offer after-hours and weekend scheduling to minimize disruption.",
+        "icon": "Building2",
+        "tag": "Commercial",
+        "features": [
+          "Office Painting",
+          "Retail Stores",
+          "Warehouse Painting",
+          "Night/Weekend Service"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Drywall Repair",
+        "description": "Full drywall repair and patching services. We fix holes, cracks, and scratches before painting to ensure a perfectly smooth finish.",
+        "icon": "Hammer",
+        "tag": "Repair",
+        "features": [
+          "Hole Patching",
+          "Crack Repair",
+          "Texture Matching",
+          "Pre-Paint Preparation"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Pressure Washing",
+        "description": "Professional power washing for home exteriors, driveways, decks, and commercial buildings before painting or as standalone service.",
+        "icon": "Droplets",
+        "tag": "Exterior Care",
+        "features": [
+          "House Washing",
+          "Driveway Cleaning",
+          "Deck Cleaning",
+          "Pre-Paint Preparation"
+        ]
+      },
+      {
+        "number": "05",
+        "title": "Garage Floor Coatings",
+        "description": "Specialized concrete staining and coating systems for garage floors, driveways, and pool decks for durable, attractive surfaces.",
+        "icon": "Car",
+        "tag": "Flooring",
+        "features": [
+          "Concrete Staining",
+          "Epoxy Coatings",
+          "Driveway Coating",
+          "Pool Deck Painting"
+        ]
+      },
+      {
+        "number": "06",
+        "title": "Cabinet Painting",
+        "description": "Transform your kitchen or bathroom with professional cabinet painting and refinishing. A cost-effective alternative to full cabinet replacement.",
+        "icon": "PaintBucket",
+        "tag": "Refinishing",
+        "features": [
+          "Kitchen Cabinets",
+          "Bathroom Vanities",
+          "Hardware Removal",
+          "Smooth Factory Finish"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Ready to Transform Your Space?",
+      "description": "Dr. Paint provides personalized painting solutions and specializes in residential and commercial projects. Contact us to schedule your free estimate.",
+      "buttonText": "Get Free Quote",
+      "buttonLink": "#contact"
+    }
+  },
+  "process": {
+    "badge": "Our Process",
+    "headline": {
+      "prefix": "How We",
+      "highlight": "Paint Your Home",
+      "suffix": "Step by Step"
+    },
+    "description": "At Dr. Paint, we believe that the dedication, care, and time we put into each paint job sets us apart. We've fine-tuned our processes over the years to become true painting pros.",
+    "interior": {
+      "title": "Interior Painting Process",
+      "steps": [
+        "Review the painting plan, colors, and details with you",
+        "Prepare the room: remove wall items, cover furniture, put down protective paper, cover ceiling fans, remove switch/outlet covers",
+        "Patch all holes, cracks, and scratches in drywall",
+        "Paint ceilings first, then walls using brushes and 9 or 18-inch rollers — top to bottom",
+        "Paint baseboards with brushes",
+        "Clean up: reinstall switch plates, outlet covers, remove drop cloths, return furniture",
+        "Final walkthrough with you to ensure complete satisfaction",
+        "Customer satisfaction survey"
+      ]
+    },
+    "exterior": {
+      "title": "Exterior Painting Process",
+      "steps": [
+        "Initial review: walk around property confirming colors and areas to paint",
+        "High-quality power washing of exterior walls, soffits, and foundation",
+        "Preparation: seal cracks with masonry patch, mask windows and doors, caulk frames, cover lamps and cameras, protect garden plants, trench around foundation",
+        "Spray chalk primer and sealer",
+        "Paint soffits, facia, and gutters with specialized spray paint",
+        "Paint body of building using spray application and paint rolling",
+        "Paint trim with rollers and brushes, then paint doors (removing weatherstripping and hardware)",
+        "Allow paint to dry, check for touch-ups, restore everything to original position",
+        "Final walkthrough with you",
+        "Customer satisfaction survey"
+      ]
+    },
+    "decks": {
+      "title": "Decks & Driveways Process",
+      "steps": [
+        "Meet with you to confirm colors and areas",
+        "Surface clean with power washer",
+        "Seal cracks with concrete base caulking",
+        "Apply specialized concrete stain with rollers for complete coverage",
+        "Allow curing process (can take a few days)",
+        "Final inspection with you",
+        "Customer satisfaction survey"
+      ]
+    },
+    "cta": {
+      "title": "Personalized Painting Solutions",
+      "description": "Every job needs a personal touch. We plan around YOUR individual needs and desires. We never cut corners or make assumptions.",
+      "buttonText": "Request Free Estimate",
+      "buttonLink": "#contact"
+    }
+  },
+  "whyChooseUs": {
+    "section": {
+      "badge": "WHY CHOOSE US",
+      "headline": "Google's Most Rated <span class=\"text-primary\">Palm Coast Painting Contractor</span>",
+      "description": "We combine the best of three important factors we believe all successful businesses must have: trust, process, and leadership."
+    },
+    "features": [
+      {
+        "icon": "Shield",
+        "title": "Trustworthy Iron-Clad Guarantee",
+        "description": "Trust is our best and most important asset. We always arrive on time and keep our word. With our Make-It-Right Guarantee, we will quickly and thoroughly respond to any concerns until you're completely satisfied. We back our work with a 5-year labor and material warranty."
+      },
+      {
+        "icon": "CheckSquare",
+        "title": "Unique Painting Processes",
+        "description": "Many contractors execute projects with no system, resulting in inconsistency. We produce consistent quality with standard operating procedures, daily checklists, and ongoing supervision on every single project."
+      },
+      {
+        "icon": "Award",
+        "title": "Veteran Crew Leaders",
+        "description": "Good production systems are essential, but on-site leadership is critical. Our veteran crew leaders are thoroughly screened, field-tested, trained, and have years of experience. Problems are quickly anticipated and solved."
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Affordable & Transparent Pricing",
+        "description": "We prioritize getting the job done with efficiency while ensuring no hidden costs or surprise fees. Our experienced painters avoid costly mistakes, saving you hundreds in potential repairs."
+      },
+      {
+        "icon": "PaintBucket",
+        "title": "Free Paint Guarantee",
+        "description": "We take pride in delivering exactly what we promise. If our best efforts haven't satisfied you, the cost of your paint is on us. That's our commitment to 100% customer satisfaction."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Licensed, Insured & Veteran-Owned",
+        "description": "Every painter undergoes an 8-point screening process: application, questionnaire, personality assessment, in-person interview, reference check, hands-on test, and drug screening. Only the best wear the Dr. Paint uniform."
+      }
+    ],
+    "stats": [
+      {
+        "value": "107",
+        "suffix": "+",
+        "label": "5-Star Reviews"
+      },
+      {
+        "value": "95",
+        "suffix": "%",
+        "label": "Satisfaction"
+      },
+      {
+        "value": "5",
+        "suffix": "",
+        "label": "Year Warranty"
+      },
+      {
+        "value": "3",
+        "suffix": "",
+        "label": "Counties Served"
+      }
+    ],
+    "cta": {
+      "badge": "AVOID COSTLY MISTAKES",
+      "title": "Ready to Work With <span class=\"text-primary block mt-2\">Florida's Trusted Painters?</span>",
+      "description": "Avoid the costly mistakes of hiring the wrong painter. Get your free estimate today.",
+      "trustBadges": [
+        "Veteran-Owned",
+        "Licensed",
+        "Insured"
+      ],
+      "buttons": [
+        {
+          "text": "Get Free Quote",
+          "href": "#contact",
+          "primary": true
+        },
+        {
+          "text": "View Our Work",
+          "href": "#portfolio",
+          "primary": false
+        }
+      ]
+    }
+  },
+  "portfolio": {
+    "section": {
+      "badge": "Our Work",
+      "headline": "Featured <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70\">Projects</span>"
+    },
+    "projects": [
+      {
+        "number": "01",
+        "title": "Residential Interior Transformation",
+        "category": "Residential Painting",
+        "image": "portfolio1",
+        "location": "Palm Coast, FL",
+        "year": "2025",
+        "accent": "from-primary to-primary/80",
+        "scope": "Full Interior Repaint",
+        "desc": "Complete interior painting of a Palm Coast family home, including walls, ceilings, trim, and cabinet refinishing with premium low-VOC paints."
+      },
+      {
+        "number": "02",
+        "title": "Coastal Home Exterior",
+        "category": "Exterior Painting",
+        "image": "portfolio2",
+        "location": "Flagler Beach, FL",
+        "year": "2025",
+        "accent": "from-primary to-primary/70",
+        "scope": "Full Exterior Repaint",
+        "desc": "Complete exterior painting of a coastal property including pressure washing, caulking, and application of weather-resistant elastomeric paint."
+      },
+      {
+        "number": "03",
+        "title": "Restaurant Refresh",
+        "category": "Commercial Painting",
+        "image": "portfolio3",
+        "location": "St. Augustine, FL",
+        "year": "2024",
+        "accent": "from-primary/90 to-primary/60",
+        "scope": "After-Hours Commercial",
+        "desc": "Full interior repaint of a popular St. Augustine restaurant completed during night hours to ensure zero disruption to business operations."
+      },
+      {
+        "number": "04",
+        "title": "Retail Store Renovation",
+        "category": "Commercial Painting",
+        "image": "portfolio4",
+        "location": "Ormond Beach, FL",
+        "year": "2024",
+        "accent": "from-primary to-primary/80",
+        "scope": "Weekend Completion",
+        "desc": "Interior and exterior painting for a retail store completed over a weekend to minimize impact on sales operations."
+      },
+      {
+        "number": "05",
+        "title": "Garage Floor & Driveway Coating",
+        "category": "Specialty Coatings",
+        "image": "portfolio5",
+        "location": "Palm Coast, FL",
+        "year": "2025",
+        "accent": "from-primary/80 to-primary/60",
+        "scope": "Floor Coating System",
+        "desc": "Professional concrete staining and protective coating for a residential garage floor and extended driveway."
+      }
+    ],
+    "button": {
+      "text": "See More Projects",
+      "link": "#portfolio"
+    }
+  },
+  "testimonials": {
+    "section": {
+      "badge": "Client Testimonials",
+      "headline": "Real Stories from Real Clients",
+      "description": "With over 107 Google 5-Star Reviews, hear what our clients have to say about their experience with Dr. Paint",
+      "featured": "Google's Most Rated Palm Coast Painting Contractor"
+    },
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Sarah M.",
+        "position": "Homeowner",
+        "company": "Residential Client",
+        "avatar": "SM",
+        "text": "Dr. Paint transformed our living room and kitchen! The team was punctual, professional, and the attention to detail was incredible. Our home has never looked better. Highly recommend!"
+      },
+      {
+        "id": 2,
+        "name": "David T.",
+        "position": "Business Owner",
+        "company": "Restaurant Owner",
+        "avatar": "DT",
+        "text": "They painted our restaurant overnight with zero disruption to our business. Opened the next morning to a completely transformed space. True professionals!"
+      },
+      {
+        "id": 3,
+        "name": "Lisa R.",
+        "position": "Homeowner",
+        "company": "Residential Client",
+        "avatar": "LR",
+        "text": "The Free Paint Guarantee gave me peace of mind, but I never needed it — the job was perfect the first time. Omar's team is the best in Palm Coast."
+      },
+      {
+        "id": 4,
+        "name": "Michael P.",
+        "position": "Property Manager",
+        "company": "Commercial Client",
+        "avatar": "MP",
+        "text": "As a property manager, I've worked with many painters. Dr. Paint stands out for their reliability, communication, and quality. They're my only call now."
+      },
+      {
+        "id": 5,
+        "name": "Omar Rivera",
+        "position": "Founder",
+        "company": "Dr. Paint",
+        "avatar": "OR",
+        "text": "We built Dr. Paint on trust, integrity, and military precision. Every project gets our full commitment to excellence — that's the veteran-owned difference."
+      }
+    ],
+    "videos": [
+      {
+        "id": 1,
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Modern Interior Painting",
+        "thumbnail": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80",
+        "duration": "1:24"
+      },
+      {
+        "id": 2,
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Coastal Exterior Transformation",
+        "thumbnail": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
+        "duration": "2:15"
+      },
+      {
+        "id": 3,
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Professional Cabinet Refinishing",
+        "thumbnail": "https://images.unsplash.com/photo-1556911223-e2702cc71fbc?auto=format&fit=crop&w=400&q=80",
+        "duration": "1:45"
+      }
+    ],
+    "stats": {
+      "reviews": "107+",
+      "rating": "5.0",
+      "platform": "Google Reviews",
+      "satisfaction": "95%",
+      "totalVideos": 107
+    }
+  },
+  "faq": {
+    "section": {
+      "badge": "Knowledge Base",
+      "headline": "Frequently Asked Questions",
+      "description": "Expert answers to common questions about painting, our process, warranties, and what to look for in a painting contractor."
+    },
+    "categories": [
+      {
+        "id": "all",
+        "label": "All Questions",
+        "icon": null
+      },
+      {
+        "id": "general",
+        "label": "General",
+        "icon": "Home"
+      },
+      {
+        "id": "process",
+        "label": "Our Process",
+        "icon": "Tools"
+      },
+      {
+        "id": "warranty",
+        "label": "Warranty & Payment",
+        "icon": "Shield"
+      },
+      {
+        "id": "commercial",
+        "label": "Commercial",
+        "icon": "Building2"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "category": "general",
+        "question": "What should I look for in a painting contractor?",
+        "answer": "Here are a few 'green flags' that you're working with a reputable company: the contractor is focused on reliability, integrity, and customer service; has multiple years of experience in your community; offers a warranty or quality guarantee; works with industry-leading products and reputable brands; can provide testimonials from satisfied customers; and hires experienced, trustworthy staff who take the time to listen to you.",
+        "metadata": [
+          {
+            "label": "Key factors",
+            "value": "Experience, warranty, reviews"
+          },
+          {
+            "label": "Red flag",
+            "value": "No references available"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "category": "warranty",
+        "question": "Do you offer a warranty on your work?",
+        "answer": "Yes, we offer a 5-year labor and material warranty on our painting work. We will return if there is any issue with the work we did, even if it was completed days or weeks prior. This is part of our commitment to 100% customer satisfaction. We also offer our Free Paint Guarantee: if our best efforts haven't satisfied you, the cost of your paint is on us.",
+        "metadata": [
+          {
+            "label": "Labor warranty",
+            "value": "5 years"
+          },
+          {
+            "label": "Paint guarantee",
+            "value": "Free if unsatisfied"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "category": "process",
+        "question": "How does your painting process work?",
+        "answer": "We begin by reviewing the painting plan, colors, and details with you. We then prepare the room by removing wall items, covering furniture, putting down protective paper, and covering fixtures. We patch any drywall damage, then paint top to bottom (ceilings first, then walls, then trim). After drying, we do a complete cleanup, restore everything to its original position, and conduct a final walkthrough with you to ensure satisfaction.",
+        "metadata": [
+          {
+            "label": "Interior steps",
+            "value": "Review → Prep → Paint → Clean → Walkthrough"
+          },
+          {
+            "label": "Exterior",
+            "value": "Power wash → Seal → Paint → Final check"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "category": "commercial",
+        "question": "Can you work for my business?",
+        "answer": "Yes! We offer a full suite of commercial painting services for offices, retail stores, warehouses, and restaurants. In order to keep your operations running smoothly during the day, we can even paint at night or during other non-business hours, including weekends.",
+        "metadata": [
+          {
+            "label": "Commercial spaces",
+            "value": "Offices, retail, restaurants"
+          },
+          {
+            "label": "Availability",
+            "value": "Nights & weekends"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "category": "general",
+        "question": "Do you offer virtual estimates?",
+        "answer": "Yes, we can do a project estimate via video chat. This allows us to see your space, understand your needs, and provide an accurate quote without requiring an in-person visit. It's a convenient option that many of our clients appreciate.",
+        "metadata": [
+          {
+            "label": "Virtual option",
+            "value": "Video chat available"
+          },
+          {
+            "label": "Response time",
+            "value": "Same-day typically"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "category": "warranty",
+        "question": "Do you offer payment plans?",
+        "answer": "Yes, we offer flexible payment plans to help make your painting project more affordable. Contact us to discuss financing options that work for your budget.",
+        "metadata": [
+          {
+            "label": "Options",
+            "value": "Flexible plans available"
+          },
+          {
+            "label": "How to apply",
+            "value": "Contact for details"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "category": "general",
+        "question": "Do you use low or no VOC paint?",
+        "answer": "Yes, we use premium, industry-leading paints including low-VOC and no-VOC options from trusted brands. We're happy to discuss the best paint products for your specific needs, especially if you have children, pets, or health concerns.",
+        "metadata": [
+          {
+            "label": "VOC options",
+            "value": "Low & no-VOC available"
+          },
+          {
+            "label": "Best for",
+            "value": "Families, pets, sensitive spaces"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "category": "process",
+        "question": "Do you clean up after you paint?",
+        "answer": "Absolutely. Cleanup is a critical part of our process. We put back all items that were removed from the walls, reinstall switch plates and outlet covers, take away all drop cloths and protective paper, and return all furniture to its original position. We leave your space spotless.",
+        "metadata": [
+          {
+            "label": "Cleanup included",
+            "value": "Always"
+          },
+          {
+            "label": "Result",
+            "value": "Spotless finish"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "category": "general",
+        "question": "What forms of payment do you accept?",
+        "answer": "We accept multiple forms of payment for your convenience. Contact us to confirm the payment methods we currently support.",
+        "metadata": [
+          {
+            "label": "Payment methods",
+            "value": "Multiple options"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "category": "process",
+        "question": "What happens if it rains when the job has already started?",
+        "answer": "For exterior painting projects affected by rain, we monitor weather conditions closely. If rain occurs, we pause exterior work and protect all prepped surfaces. We resume as soon as conditions are optimal for application. Your project timeline will be communicated transparently throughout.",
+        "metadata": [
+          {
+            "label": "Rain protocol",
+            "value": "Pause & protect"
+          },
+          {
+            "label": "Communication",
+            "value": "Transparent updates"
+          }
+        ]
+      }
+    ],
+    "knowledgeCard": {
+      "title": "Don't See Your Question?",
+      "description": "Our painting specialists are ready to help with your specific project needs.",
+      "buttonText": "Contact Our Team",
+      "buttonLink": "#contact"
+    }
+  },
+  "quote": {
+    "section": {
+      "badge": "GET YOUR FREE QUOTE",
+      "headline": "Request Your <span class=\"font-black italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Estimate</span>",
+      "description": "Avoid the costly mistakes of hiring the wrong painter. Get your free estimate today — same-day response from our painting pros."
+    },
+    "services": [
+      {
+        "id": 1,
+        "title": "Residential Painting",
+        "desc": "Interior & exterior home painting",
+        "icon": "⌗"
+      },
+      {
+        "id": 2,
+        "title": "Commercial Painting",
+        "desc": "Business & office solutions",
+        "icon": "⎔"
+      },
+      {
+        "id": 3,
+        "title": "Drywall Repair",
+        "desc": "Patching & texture matching",
+        "icon": "⌖"
+      },
+      {
+        "id": 4,
+        "title": "Pressure Washing",
+        "desc": "House, deck & driveway cleaning",
+        "icon": "⌘"
+      },
+      {
+        "id": 5,
+        "title": "Garage Floors",
+        "desc": "Concrete staining & coatings",
+        "icon": "⚡"
+      },
+      {
+        "id": 6,
+        "title": "Cabinet Painting",
+        "desc": "Kitchen & bath refinishing",
+        "icon": "◈"
+      }
+    ],
+    "projectTypes": [
+      {
+        "value": "residential-interior",
+        "label": "Residential Interior"
+      },
+      {
+        "value": "residential-exterior",
+        "label": "Residential Exterior"
+      },
+      {
+        "value": "commercial-interior",
+        "label": "Commercial Interior"
+      },
+      {
+        "value": "commercial-exterior",
+        "label": "Commercial Exterior"
+      },
+      {
+        "value": "specialty",
+        "label": "Specialty (Drywall, Floors, etc.)"
+      }
+    ],
+    "timelines": [
+      {
+        "value": "urgent",
+        "label": "Urgent (ASAP)"
+      },
+      {
+        "value": "standard",
+        "label": "Standard (1-4 weeks)"
+      },
+      {
+        "value": "planned",
+        "label": "Planned (1-3 months)"
+      },
+      {
+        "value": "future",
+        "label": "Future Project (3+ months)"
+      }
+    ],
+    "email": "info@drpaint.com",
+    "success": {
+      "title": "Estimate Request Received",
+      "message": "Your painting project inquiry has been sent to our team.",
+      "response": "We'll respond with your free estimate within 24 hours.",
+      "buttonText": "Close"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "Dr. Paint",
+      "tagline": "TRUST • INTEGRITY • FLAWLESS FINISHES",
+      "description": "Veteran-owned and operated painting company serving Palm Coast, Flagler, Volusia, and St. Johns counties since 2014. Built on trust, military precision, and an unwavering commitment to customer satisfaction."
+    },
+    "services": {
+      "title": "Our Services",
+      "main": [
+        {
+          "label": "Residential Painting",
+          "href": "/residential-painting",
+          "icon": "Home"
+        },
+        {
+          "label": "Commercial Painting",
+          "href": "/commercial-painting",
+          "icon": "Building2"
+        },
+        {
+          "label": "Drywall Repair",
+          "href": "/drywall-repair",
+          "icon": "Hammer"
+        },
+        {
+          "label": "Pressure Washing",
+          "href": "/pressure-washing",
+          "icon": "Droplets"
+        },
+        {
+          "label": "Garage Floor Coatings",
+          "href": "/garage-floors",
+          "icon": "Car"
+        },
+        {
+          "label": "Cabinet Painting",
+          "href": "/cabinet-painting",
+          "icon": "PaintBucket"
+        }
+      ],
+      "materials": {
+        "title": "Service Areas",
+        "items": [
+          {
+            "label": "Palm Coast, FL",
+            "href": "/palm-coast"
+          },
+          {
+            "label": "Flagler County",
+            "href": "/flagler-county"
+          },
+          {
+            "label": "Volusia County",
+            "href": "/volusia-county"
+          },
+          {
+            "label": "St. Johns County",
+            "href": "/st-johns-county"
+          }
+        ]
+      }
+    },
+    "contact": {
+      "title": "Reach Us",
+      "email": "info@drpaint.com",
+      "phone": "+1 (386) 246-7999",
+      "address": "1504 Old Moody Blvd Unit 1, Bunnell, FL 32110",
+      "emergency": "",
+      "areas": "Palm Coast • Flagler County • Volusia County • St. Johns County & Surrounding Florida Communities"
+    },
+    "certifications": [
+      {
+        "cert": "Veteran-Owned",
+        "number": "Since 2014",
+        "icon": "Shield"
+      },
+      {
+        "cert": "Licensed",
+        "number": "Florida",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "Insured",
+        "number": "Full Coverage",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "5-Star Rated",
+        "number": "107+ Reviews",
+        "icon": "Star"
+      },
+      {
+        "cert": "5-Year Warranty",
+        "number": "Labor & Material",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "Free Paint",
+        "number": "Guarantee",
+        "icon": "ThumbsUp"
+      }
+    ],
+    "quickLinks": [
+      {
+        "label": "Free Estimate",
+        "href": "#contact",
+        "icon": "Phone"
+      },
+      {
+        "label": "Our Process",
+        "href": "#process",
+        "icon": "ClipboardCheck"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq",
+        "icon": "MessageSquare"
+      }
+    ],
+    "social": [
+      {
+        "platform": "Google",
+        "icon": "Star",
+        "href": "#"
+      },
+      {
+        "platform": "Facebook",
+        "icon": "Facebook",
+        "href": "#"
+      },
+      {
+        "platform": "Instagram",
+        "icon": "Instagram",
+        "href": "#"
+      }
+    ],
+    "bottom": {
+      "copyright": "© 2026 Dr. Paint",
+      "rights": "All rights reserved",
+      "links": [
+        {
+          "label": "Privacy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Terms",
+          "href": "/terms"
+        },
+        {
+          "label": "Sitemap",
+          "href": "/sitemap"
+        }
+      ],
+      "tagline": "TRUST • INTEGRITY • FLAWLESS FINISHES",
+      "designCredits": "Website Design By Purely Digital Marketing"
+    },
+    "marquee": {
+      "texts": [
+        "VETERAN-OWNED • TRUST • INTEGRITY",
+        "SINCE 2014",
+        "FREE PAINT GUARANTEE • 5-YEAR WARRANTY"
+      ]
+    }
+  },
+  "leadership": {
+    "section": {
+      "badge": "Leadership",
+      "headline": "Built on <span class=\"text-primary\">Trust</span> & Military Precision",
+      "description": "Our leadership team brings decades of experience and a commitment to excellence that defines the Dr. Paint difference."
+    },
+    "ceo": {
+      "name": "Omar Rivera",
+      "title": "Founder & CEO",
+      "alt": "Omar Rivera - Founder of Dr. Paint",
+      "badges": {
+        "top": "Veteran-Owned",
+        "bottom": "Founder & CEO"
+      },
+      "quotes": [
+        "We built Dr. Paint on trust, integrity, and military precision. Every project gets our full commitment to excellence — that's the veteran-owned difference."
+      ],
+      "description": [
+        "Omar Rivera is a former Active Duty Air Force member who founded Dr. Paint in 2014 with a vision to bring military-grade precision and reliability to the painting industry.",
+        "Under his leadership, Dr. Paint has grown into one of the most trusted painting contractors in Central Florida, serving thousands of happy residential and commercial clients."
+      ],
+      "social": {
+        "linkedin": "#",
+        "email": "info@drpaint.com"
+      }
+    }
+  }
+}
