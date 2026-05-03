@@ -2,7 +2,6 @@ import { useState, Suspense, lazy } from "react";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import LoadingScreen from "@/components/LoadingScreen";
 
 // Lazy load heavy components
 const PaintingExperts = lazy(() => import("@/components/PaintingExperts"));
@@ -25,49 +24,40 @@ const Index = () => {
       {/* Background gradients disabled for performance */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-background" />
 
-      <AnimatePresence>
-        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      </AnimatePresence>
+      {/* All content with relative z-index to appear above grid */}
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Suspense fallback={<div className="h-96 bg-background" />}>
+          <section id="paintingexperts" className="bg-background">
+            <PaintingExperts />
+          </section>
 
-      {!loading && (
-        <>
-          {/* All content with relative z-index to appear above grid */}
-          <div className="relative z-10">
-            <Navbar />
-            <Hero />
-            
-            <Suspense fallback={<div className="h-96 bg-background" />}>
-              <section id="paintingexperts" className="bg-background">
-                <PaintingExperts />
-              </section>
+          <section id="services" className="bg-muted/50">
+            <Services />
+          </section>
+          <TeamValues />
+          <section id="portfolio">
+            <Portfolio />
+          </section>
+          <PaintGuarantee />
+          <Testimonials />
+          <section id="about">
+            <HowWeWork />
+          </section>
 
-              <section id="services" className="bg-muted/50">
-                <Services />
-              </section>
-              <TeamValues />
-              <section id="portfolio">
-                <Portfolio />
-              </section>
-              <PaintGuarantee />
-              <Testimonials />
-              <section id="about">
-                <HowWeWork />
-              </section>
+          <section id="contact">
+            <QAForm />
+          </section>
+          <section id="faq">
+            <FAQ />
+          </section>
+          <Footer />
 
-              <section id="contact">
-                <QAForm />
-              </section>
-              <section id="faq">
-                <FAQ />
-              </section>
-              <Footer />
-
-              {/* ✅ Quick Quote Widget - Only appears on Index page */}
-              <QuickQuote />
-            </Suspense>
-          </div>
-        </>
-      )}
+          {/* ✅ Quick Quote Widget - Only appears on Index page */}
+          <QuickQuote />
+        </Suspense>
+      </div>
     </div>
   );
 };

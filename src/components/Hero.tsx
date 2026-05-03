@@ -150,9 +150,9 @@ const PaintingInquiryForm = () => {
   return (
     <div className="w-full max-w-lg mx-auto lg:mx-0">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-border"
       >
         <div className="relative flex-shrink-0 bg-gradient-to-r from-primary/5 to-primary/10 border-b border-border">
@@ -554,13 +554,12 @@ const Hero = () => {
         <img
           src={heroBg}
           alt="DR Paint - Professional painting services"
+          loading="eager"
+          fetchPriority="high"
           className="w-full h-full object-cover absolute inset-0 opacity-80"
         />
-        {/* ORIGINAL DARK GRADIENT OVERLAYS */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_right,black,transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.1),transparent_70%)]" />
       </div>
 
       <div className="relative z-10 min-h-screen flex items-center pt-32 pb-16 lg:py-24">
@@ -569,9 +568,9 @@ const Hero = () => {
             <div className="lg:col-span-7 flex flex-col items-center lg:items-start gap-6 text-center lg:text-left">
               <motion.div
                 className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mx-auto lg:mx-0 border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-white text-xs uppercase tracking-[0.2em] font-bold">
@@ -581,27 +580,27 @@ const Hero = () => {
 
               <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white lg:leading-[1.1] tracking-tight uppercase"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 {headlines.join(" ")}
               </motion.h1>
 
               <motion.p
                 className="text-base sm:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 {description}
               </motion.p>
 
               <motion.div
                 className=" w-full"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full">
                   {buttons.map((button, idx) => {
@@ -641,9 +640,9 @@ const Hero = () => {
 
               <motion.div
                 className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 pt-6 border-t border-border w-full"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 {stats.map((stat, idx) => {
                   const StatIcon =
@@ -670,7 +669,6 @@ const Hero = () => {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="absolute -inset-4 bg-primary/10 rounded-[40px] blur-3xl -z-10" />
               <PaintingInquiryForm />
             </div>
           </div>
