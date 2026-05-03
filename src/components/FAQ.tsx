@@ -127,14 +127,7 @@ const SubtleBackground = () => (
     />
     <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
     <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
-    <motion.div
-      animate={{
-        x: [0, 20, 0, -20, 0],
-        y: [0, -15, 25, 15, 0],
-      }}
-      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-      className="absolute top-40 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
-    />
+    <div className="absolute top-40 -right-20 w-[500px] h-[500px] bg-primary/[0.03] rounded-full" />
   </div>
 );
 

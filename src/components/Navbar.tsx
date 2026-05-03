@@ -4,10 +4,7 @@ import {
   ChevronDown,
   X,
   Menu,
-  Quote,
   Star,
-  Shield,
-  Zap,
   Calendar,
   Building2,
   Home,
@@ -16,13 +13,14 @@ import {
   MessageSquare,
   Phone,
   FileText,
-  CheckCircle,
   Wrench,
-  ClipboardCheck,
-  Clock,
+  PaintBucket,
+  ArrowRight,
+  ShieldCheck,
+  Zap
 } from "lucide-react";
-import logo from "../assets/orrlogoreal.png";
-import logo2nd from "../assets/orrlogo.png";
+import logo from "../assets/drpaintlogo.png";
+import logo2nd from "../assets/drpaintlogo.png";
 import completeData from "../src/data/completeData.json";
 
 const iconMap = {
@@ -31,521 +29,234 @@ const iconMap = {
   Users: () => <Users className="h-5 w-5" />,
   MessageSquare: () => <MessageSquare className="h-5 w-5" />,
   Phone: () => <Phone className="h-5 w-5" />,
-  ClipboardCheck: () => <ClipboardCheck className="h-5 w-5" />,
   Star: () => <Star className="h-5 w-5" />,
-  Clock: () => <Clock className="h-5 w-5" />,
-  Shield: () => <Shield className="h-5 w-5" />,
-  Image: () => <Briefcase className="h-5 w-5" />,
+  Shield: () => <ShieldCheck className="h-5 w-5" />,
   FileText: () => <FileText className="h-5 w-5" />,
 };
+
 const serviceIconMap = {
-  Home: ({ isHovered = false }: { isHovered?: boolean }) => (
-    <Home
-      className={`h-5 w-5 ${isHovered ? "text-primary-foreground" : "text-primary"} transition-colors duration-300`}
-    />
-  ),
-  Building2: ({ isHovered = false }: { isHovered?: boolean }) => (
-    <Building2
-      className={`h-5 w-5 ${isHovered ? "text-primary-foreground" : "text-primary"} transition-colors duration-300`}
-    />
-  ),
-  Wrench: ({ isHovered = false }: { isHovered?: boolean }) => (
-    <Wrench
-      className={`h-5 w-5 ${isHovered ? "text-primary-foreground" : "text-primary"} transition-colors duration-300`}
-    />
-  ),
+  Home: () => <Home className="h-6 w-6 text-primary" />,
+  Building2: () => <Building2 className="h-6 w-6 text-primary" />,
+  Wrench: () => <Wrench className="h-6 w-6 text-primary" />,
 };
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [isHoveringMegaMenu, setIsHoveringMegaMenu] = useState(false);
-  const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const lastScrollY = useRef(0);
 
-  const servicesButtonRef = useRef<HTMLButtonElement>(null);
-  const megaMenuRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const { services, companyLinks, stats, cta } = completeData.navbar;
+  const { services, companyLinks, cta } = completeData.navbar;
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+      
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleServicesMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setActiveMegaMenu("services");
-  };
-
+  const handleServicesMouseEnter = () => setActiveMegaMenu("services");
   const handleServicesMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      if (!isHoveringMegaMenu) {
-        setActiveMegaMenu(null);
-      }
+    setTimeout(() => {
+      if (!isHoveringMegaMenu) setActiveMegaMenu(null);
     }, 150);
   };
-
-  const handleMegaMenuMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsHoveringMegaMenu(true);
-    setActiveMegaMenu("services");
-  };
-
-  const handleMegaMenuMouseLeave = () => {
-    setIsHoveringMegaMenu(false);
-    timeoutRef.current = setTimeout(() => {
-      setActiveMegaMenu(null);
-      setHoveredService(null);
-    }, 150);
-  };
-
-  const handleLinkClick = () => {
-    setActiveMegaMenu(null);
-    setIsMenuOpen(false);
-    setHoveredService(null);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        megaMenuRef.current &&
-        !megaMenuRef.current.contains(event.target as Node) &&
-        servicesButtonRef.current &&
-        !servicesButtonRef.current.contains(event.target as Node)
-      ) {
-        setActiveMegaMenu(null);
-        setHoveredService(null);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsMenuOpen(false);
-        setActiveMegaMenu(null);
-        setHoveredService(null);
-      }
-    };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMenuOpen]);
 
   return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm py-3 border-b border-border"
-            : "bg-transparent py-5"
-        }`}
-      >
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between">
-            <motion.a
-              href="#"
-              className="flex logooo items-center space-x-3 group"
-              onClick={handleLinkClick}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="h-20 w-36 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img
-                  src={logo}
-                  alt="DR Paint Logo"
-                  className="h-full w-full object-contain p-1"
-                />
-              </div>
-            </motion.a>
+    <><nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      } ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-xl py-1 border-b border-white/20"
+          : "bg-white/80 py-2"
+      }`}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+        {/* Logo Section */}
+        <motion.a
+          href="#"
+          className="relative h-16 w-32 md:w-40"
+          whileHover={{ scale: 1.02 }}
+        >
+          <img src={logo} alt="Logo" className="h-full w-full object-contain" />
+        </motion.a>
 
-            <div className="hidden lg:flex items-center space-x-2">
-              <div className="relative">
-                <motion.button
-                  ref={servicesButtonRef}
-                  onMouseEnter={handleServicesMouseEnter}
-                  onMouseLeave={handleServicesMouseLeave}
-                  className="flex items-center space-x-2 px-5 py-2.5 transition-all duration-300 font-semibold rounded-xl relative group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-2">
+          <div className="relative">
+            <button
+              onMouseEnter={handleServicesMouseEnter}
+              onMouseLeave={handleServicesMouseLeave}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all text-black hover:bg-black/5`}
+            >
+              <PaintBucket className="h-4 w-4" />
+              Services
+              <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${activeMegaMenu === "services" ? "rotate-180" : ""}`} />
+            </button>
+
+            {/* Crystal Mega Menu */}
+            <AnimatePresence>
+              {activeMegaMenu === "services" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 20, scale: 0.98 }}
+                  onMouseEnter={() => setIsHoveringMegaMenu(true)}
+                  onMouseLeave={() => {
+                    setIsHoveringMegaMenu(false);
+                    setActiveMegaMenu(null);
+                  }}
+                  className="absolute left-0 top-full mt-4 w-[800px] bg-white/95 backdrop-blur-2xl rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border border-white/20 p-8 flex gap-8"
                 >
-                  <span className="flex items-center space-x-2">
-                    <Wrench className={`h-4 w-4 transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`} />
-                    <span className={`${scrolled ? 'text-foreground' : 'text-white'}`}>
-                      Services
-                    </span>
-                  </span>
-                  <motion.span
-                    animate={{
-                      rotate: activeMegaMenu === "services" ? 180 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown className={`h-4 w-4 ml-1 transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`} />
-                  </motion.span>
-                  <span className="absolute inset-0 bg-primary/5 rounded-xl scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300" />
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-1/2 transition-all duration-500" />
-                </motion.button>
-
-                <AnimatePresence>
-                  {activeMegaMenu === "services" && (
+                  {/* Visual Feature Sidebar */}
+                  <div className="w-64 bg-gradient-to-br from-primary to-primary/80 rounded-[1.5rem] p-8 text-white flex flex-col justify-between overflow-hidden relative group">
+                    <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none" />
+                    <div className="relative z-10">
+                      <Star className="h-8 w-8 mb-6 text-white/50" />
+                      <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-none mb-4">
+                        Top Rated <br /> Excellence
+                      </h3>
+                      <p className="text-white/70 text-[10px] uppercase font-bold tracking-[0.2em]">
+                        Over 200 Five-Star <br /> Google Reviews
+                      </p>
+                    </div>
                     <motion.div
-                      ref={megaMenuRef}
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      onMouseEnter={handleMegaMenuMouseEnter}
-                      onMouseLeave={handleMegaMenuMouseLeave}
-                      className="absolute left-1/2 transform -translate-x-1/2 xl:left-0 xl:transform-none top-full mt-2 w-[90vw] max-w-[900px] bg-card rounded-2xl shadow-2xl border border-border p-6 overflow-hidden"
-                      style={{ zIndex: 1000 }}
+                      whileHover={{ x: 5 }}
+                      className="relative z-10 flex items-center gap-3 text-xs font-black uppercase tracking-widest"
                     >
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        {services.map((service) => {
-                          const ServiceIcon =
-                            serviceIconMap[
-                              service.icon as keyof typeof serviceIconMap
-                            ] || serviceIconMap.Home;
-                          return (
-                            <motion.a
-                              key={service.title}
-                              href="#services"
-                              onClick={handleLinkClick}
-                              onMouseEnter={() => {
-                                setHoveredService(service.title);
-                                setIsHoveringMegaMenu(true);
-                              }}
-                              onMouseLeave={() => {
-                                setHoveredService(null);
-                              }}
-                              className="group block p-5 rounded-xl border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-card"
-                              whileHover={{ y: -3 }}
-                            >
-                              <div className="flex items-start space-x-3 mb-4">
-                                <div
-                                  className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                                    hoveredService === service.title
-                                      ? "bg-primary"
-                                      : "bg-primary/10 group-hover:bg-primary"
-                                  }`}
-                                >
-                                  <ServiceIcon
-                                    isHovered={hoveredService === service.title}
-                                  />
-                                </div>
-                                <div>
-                                  <h3
-                                    className={`font-bold text-base mb-1 transition-colors ${
-                                      hoveredService === service.title
-                                        ? "text-primary"
-                                        : "text-card-foreground group-hover:text-primary"
-                                    }`}
-                                  >
-                                    {service.title}
-                                  </h3>
-                                  <p className="text-muted-foreground text-xs">
-                                    {service.description}
-                                  </p>
-                                </div>
-                              </div>
-
-                              <div className="space-y-2 mb-4">
-                                {service.items.map((item) => (
-                                  <div
-                                    key={item}
-                                    className="flex items-center text-sm transition-colors"
-                                  >
-                                    <ChevronDown
-                                      className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${
-                                        hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-muted-foreground group-hover:text-primary"
-                                      }`}
-                                    />
-                                    <span
-                                      className={`truncate transition-colors ${
-                                        hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-card-foreground group-hover:text-primary"
-                                      }`}
-                                    >
-                                      {item}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-
-                              <div className="flex flex-wrap gap-1.5">
-                                {service.features.map((feature) => (
-                                  <span
-                                    key={feature}
-                                    className={`px-2 py-1 text-xs rounded-full border transition-colors ${
-                                      hoveredService === service.title
-                                        ? "bg-primary/10 text-primary border-primary/20"
-                                        : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
-                                    }`}
-                                  >
-                                    {feature}
-                                  </span>
-                                ))}
-                              </div>
-                            </motion.a>
-                          );
-                        })}
-                      </div>
+                      View Gallery <ArrowRight className="h-4 w-4" />
                     </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                  </div>
 
-              <div className="flex items-center space-x-1 ml-2">
-                {companyLinks.slice(1).map((link) => {
-                  const LinkIcon =
-                    iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
-                  return (
-                    <motion.a
-                      key={link.label}
-                      href={link.href}
-                      onClick={handleLinkClick}
-                      onMouseEnter={() => setActiveMegaMenu(null)}
-                      className="flex items-center space-x-2 px-4 py-2.5 transition-all duration-300 font-semibold rounded-xl relative group"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <div className={`${scrolled ? 'text-foreground' : 'text-white'}`}>
-                        <LinkIcon />
-                      </div>
-                      <span className={`${scrolled ? 'text-foreground' : 'text-white'}`}>
-                        {link.label}
-                      </span>
-                      <span className="absolute inset-0 bg-primary/5 rounded-xl scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300" />
-                      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-1/2 transition-all duration-500" />
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </div>
-
-            <motion.div
-              className="hidden lg:flex items-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <a
-                href="#contact"
-                onClick={handleLinkClick}
-                onMouseEnter={() => setActiveMegaMenu(null)}
-                className="group relative px-7 py-3.5 rounded-xl font-semibold transition-all duration-300 bg-white text-black hover:bg-primary hover:text-white "
-              >
-                <span className="relative z-10 flex items-center space-x-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>Get Free Quote</span>
-                </span>
-              </a>
-            </motion.div>
-
-            <div className="flex items-center space-x-4 lg:hidden">
-              <motion.button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2.5 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
-                aria-label="Toggle menu"
-                whileTap={{ scale: 0.9 }}
-              >
-                <AnimatePresence mode="wait" initial={false}>
-                  {isMenuOpen ? (
-                    <motion.div
-                      key="close"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                    >
-                      <X className="h-6 w-6 text-foreground" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                    >
-                      <Menu className="h-6 w-6 text-foreground" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            </div>
+                  {/* Services Grid */}
+                  <div className="flex-1 grid grid-cols-2 gap-4">
+                    {services.map((service) => {
+                      const Icon = serviceIconMap[service.icon as keyof typeof serviceIconMap] || serviceIconMap.Home;
+                      return (
+                        <motion.a
+                          key={service.title}
+                          href="#services"
+                          whileHover={{ x: 5 }}
+                          className="p-5 rounded-[1.5rem] transition-all hover:bg-black/5 group"
+                        >
+                          <div className="flex items-center gap-4 mb-3">
+                            <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                              <Icon />
+                            </div>
+                            <h4 className="text-sm font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
+                              {service.title}
+                            </h4>
+                          </div>
+                          <p className="text-[10px] text-muted-foreground leading-relaxed uppercase font-bold tracking-widest">
+                            Professional {service.title.split(' ')[0]} solutions for every project.
+                          </p>
+                        </motion.a>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
-      </nav>
 
+          {companyLinks.slice(1).map((link) => {
+            const Icon = iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all text-black hover:bg-black/5`}
+              >
+                <Icon />
+                {link.label}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* CTA & Mobile Menu */}
+        <div className="flex items-center gap-4">
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden lg:flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-none text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/20"
+          >
+            <Calendar className="h-4 w-4" />
+            Free Quote
+          </motion.a>
+
+          <button
+            onClick={() => setIsMenuOpen(true)}
+            className={`lg:hidden p-2 rounded-full transition-all ${scrolled ? "text-foreground" : "text-white"}`}
+          >
+            <Menu className="h-8 w-8" />
+          </button>
+        </div>
+      </div>
+    </nav>
+
+      {/* Modern Full-Screen Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            className="fixed inset-0 z-[60] bg-background p-8 flex flex-col justify-between"
+          >
+            <div className="flex justify-between items-center">
+              <img src={logo2nd} alt="Logo" className="h-10 w-auto" />
+              <button onClick={() => setIsMenuOpen(false)} className="p-2 bg-muted rounded-full">
+                <X className="h-8 w-8" />
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {services.map(s => (
+                <a
+                  key={s.title}
+                  href="#services"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-4xl font-black uppercase italic tracking-tighter text-foreground hover:text-primary"
+                >
+                  {s.title}
+                </a>
+              ))}
+              <div className="h-px bg-border my-8" />
+              {companyLinks.map(l => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-xl font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+
+            <a
+              href="#contact"
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
-            />
-
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{
-                type: "tween",
-                duration: 0.4,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className="fixed top-0 right-0 h-full w-full max-w-md bg-card z-50 lg:hidden shadow-2xl border-l border-border overflow-hidden"
+              className="w-full bg-primary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest"
             >
-              <div className="flex flex-col h-full">
-                <div className="p-6 border-b border-border flex-shrink-0">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="h-12 w-36 rounded-xl flex items-center justify-center overflow-hidden">
-                        <img
-                          src={logo2nd}
-                          alt="DR Paint Logo"
-                          className="h-full w-full object-contain"
-                        />
-                      </div>
-                    </div>
-                    <motion.button
-                      onClick={() => setIsMenuOpen(false)}
-                      className="p-2 rounded-lg hover:bg-muted transition-colors"
-                      whileHover={{ rotate: 90 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <X className="h-5 w-5 text-card-foreground" />
-                    </motion.button>
-                  </div>
-                </div>
-
-                <div className="flex-1 overflow-y-auto">
-                  <div className="p-6 space-y-6">
-                    <div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-4">
-                        Our Services
-                      </h3>
-                      <div className="space-y-3">
-                        {services.map((service) => {
-                          const ServiceIcon =
-                            serviceIconMap[
-                              service.icon as keyof typeof serviceIconMap
-                            ] || serviceIconMap.Home;
-                          return (
-                            <motion.a
-                              key={service.title}
-                              href="#services"
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block p-4 rounded-xl border border-border hover:border-primary/30 hover:bg-muted transition-all duration-300 active:scale-[0.98]"
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <div className="flex items-center space-x-3">
-                                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                                  <ServiceIcon isHovered={false} />
-                                </div>
-                                <div>
-                                  <h4 className="font-semibold text-card-foreground text-base">
-                                    {service.title}
-                                  </h4>
-                                  <p className="text-sm text-muted-foreground mb-3">
-                                    {service.description}
-                                  </p>
-                                  <div className="grid grid-cols-2 gap-2">
-                                    {service.items.map((item: string) => (
-                                      <div
-                                        key={item}
-                                        className="flex items-center text-xs text-muted-foreground"
-                                      >
-                                        <div className="w-1 h-1 rounded-full bg-primary/40 mr-2" />
-                                        {item}
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </motion.a>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-4">
-                        Quick Links
-                      </h3>
-                      <div className="space-y-2">
-                        {companyLinks.map((link) => {
-                          const LinkIcon =
-                            iconMap[link.icon as keyof typeof iconMap] ||
-                            iconMap.Home;
-                          return (
-                            <motion.a
-                              key={link.label}
-                              href={link.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="flex items-center space-x-3 p-3 rounded-xl hover:bg-muted transition-all duration-300 active:scale-[0.98]"
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <div className="text-primary group-hover:scale-110 transition-transform">
-                                <LinkIcon />
-                              </div>
-                              <span className="font-semibold text-card-foreground text-base">
-                                {link.label}
-                              </span>
-                            </motion.a>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 border-t border-border bg-muted flex-shrink-0">
-                  <div className="space-y-4">
-                    <a
-                      href="#quote"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block w-full py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-semibold rounded-xl text-center  transition-all duration-300 active:scale-[0.98]"
-                    >
-                      Get Free Quote Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
+              Book Your Transformation
+            </a>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

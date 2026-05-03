@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroBg from "@/assets/drpaintbg.jpg"; // CHANGE: new roofing background image
+import { Paintbrush, Palette, Droplets } from "lucide-react";
+import PaintDivider from "./ui/PaintDivider";
+
+import heroBg from "@/assets/drpaintbg.jpg";
 import {
   FiArrowRight,
   FiChevronDown,
@@ -32,7 +33,7 @@ import {
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
 import completeData from "../src/data/completeData.json";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 // MODERN PROFESSIONAL FORM COMPONENT - UPDATED FOR PAINTING SERVICES
 const PaintingInquiryForm = () => {
@@ -525,23 +526,11 @@ const PaintingInquiryForm = () => {
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredButton, setHoveredButton] = useState<number | null>(null);
 
   const { badge, headlines, description, buttons, stats } = completeData.hero;
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      setMousePosition({
-        x: (clientX - innerWidth / 2) * 0.005,
-        y: (clientY - innerHeight / 2) * 0.005,
-      });
-    };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const iconComponents = {
     FiArrowRight: FiArrowRight,
@@ -565,12 +554,12 @@ const Hero = () => {
         <img
           src={heroBg}
           alt="DR Paint - Professional painting services"
-          className="w-full h-full object-cover absolute inset-0 opacity-70"
+          className="w-full h-full object-cover absolute inset-0 opacity-80"
         />
-        {/* REFINED BALANCED OVERLAYS */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+        {/* ORIGINAL DARK GRADIENT OVERLAYS */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
-        <div className="absolute inset-0 backdrop-blur-[1.5px] [mask-image:linear-gradient(to_right,black,transparent_70%)]" />
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_right,black,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.1),transparent_70%)]" />
       </div>
 
@@ -579,7 +568,7 @@ const Hero = () => {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-7 flex flex-col items-center lg:items-start gap-6 text-center lg:text-left">
               <motion.div
-                className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md rounded-full px-4 py-2 mx-auto lg:mx-0 border border-white/10"
+                className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mx-auto lg:mx-0 border border-white/10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -590,72 +579,59 @@ const Hero = () => {
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white lg:leading-[0.95] tracking-tight drop-shadow-2xl">
-                {headlines.map((line, i) => (
-                  <motion.span
-                    key={i}
-                    className="block overflow-hidden py-1"
-                  >
-                    <motion.span
-                      initial={{ y: "100%" }}
-                      animate={{ y: 0 }}
-                      transition={{
-                        duration: 0.8,
-                        delay: 0.2 + 0.1 * i,
-                        ease: [0.16, 1, 0.3, 1]
-                      }}
-                      className="block text-white"
-                    >
-                      {line}
-                    </motion.span>
-                  </motion.span>
-                ))}
-              </h1>
+              <motion.h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white lg:leading-[1.1] tracking-tight uppercase"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+              >
+                {headlines.join(" ")}
+              </motion.h1>
 
               <motion.p
                 className="text-base sm:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
                 {description}
               </motion.p>
 
               <motion.div
                 className=" w-full"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full">
                   {buttons.map((button, idx) => {
-                    const Icon =
-                      iconComponents[
-                      button.icon as keyof typeof iconComponents
-                      ];
+                    const Icon = iconComponents[button.icon as keyof typeof iconComponents];
+                    const isFirst = idx === 0;
+                    const isHovered = hoveredButton !== null;
 
-                    return button.primary ? (
+                    // Logic: Swap styles if any button is hovered
+                    const useSecondaryStyle = (isFirst && isHovered) || (!isFirst && !isHovered);
+
+                    return (
                       <motion.a
                         key={idx}
                         href={button.href}
-                        className="group relative overflow-hidden px-8 py-4 rounded-none sm:rounded-2xl w-full sm:w-auto inline-flex items-center justify-center gap-3 text-base font-bold bg-primary text-white shadow-xl shadow-primary/30 transition-all duration-300 hover:scale-105 active:scale-95"
+                        onMouseEnter={() => setHoveredButton(idx)}
+                        onMouseLeave={() => setHoveredButton(null)}
+                        className={`
+                          group relative overflow-hidden px-8 py-4 rounded-none sm:rounded-2xl w-full sm:w-auto 
+                          inline-flex items-center justify-center gap-3 text-base font-bold transition-all duration-500
+                          ${useSecondaryStyle
+                            ? "bg-white text-primary shadow-xl"
+                            : "bg-primary text-white shadow-xl shadow-primary/30"
+                          }
+                          hover:scale-105 active:scale-95
+                        `}
                         whileHover={{ y: -4 }}
                       >
-                        <span>{button.text}</span>
+                        <span className="relative z-10">{button.text}</span>
                         {Icon && (
-                          <Icon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        )}
-                      </motion.a>
-                    ) : (
-                      <motion.a
-                        key={idx}
-                        href={button.href}
-                        className="group relative overflow-hidden px-8 py-4 rounded-none sm:rounded-2xl w-full sm:w-auto inline-flex items-center justify-center gap-3 text-base font-bold bg-white/10 backdrop-blur-md text-white border-2 border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-white/40"
-                        whileHover={{ y: -4 }}
-                      >
-                        <span>{button.text}</span>
-                        {Icon && (
-                          <Icon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                          <Icon className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                         )}
                       </motion.a>
                     );
@@ -665,9 +641,9 @@ const Hero = () => {
 
               <motion.div
                 className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 pt-6 border-t border-border w-full"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
               >
                 {stats.map((stat, idx) => {
                   const StatIcon =
@@ -694,11 +670,16 @@ const Hero = () => {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="absolute -inset-4 bg-primary/5 rounded-[40px] blur-3xl -z-10 animate-pulse" />
+              <div className="absolute -inset-4 bg-primary/10 rounded-[40px] blur-3xl -z-10" />
               <PaintingInquiryForm />
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Integrated Paint Divider - Transitions to the next section */}
+      <div className="absolute bottom-0 left-0 w-full z-1 pointer-events-none">
+        <PaintDivider color="hsl(var(--primary))" className="translate-y-[1px]" />
       </div>
     </section >
   );

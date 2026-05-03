@@ -132,27 +132,25 @@ const CinematicBackground = () => {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <motion.div
-        className="absolute top-20 left-20 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]"
+        className="absolute top-20 left-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px]"
         animate={{
-          x: [0, 100, 0, -50, 0],
-          y: [0, -50, 100, 50, 0],
-          scale: [1, 1.2, 0.8, 1.1, 1],
+          x: [0, 50, 0],
+          y: [0, -30, 0],
         }}
         transition={{
-          duration: 30,
+          duration: 20,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-20 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]"
+        className="absolute bottom-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px]"
         animate={{
-          x: [0, -100, 50, -30, 0],
-          y: [0, 50, -50, 30, 0],
-          scale: [1, 0.8, 1.2, 0.9, 1],
+          x: [0, -50, 0],
+          y: [0, 30, 0],
         }}
         transition={{
-          duration: 25,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2,
@@ -172,7 +170,7 @@ const CinematicBackground = () => {
 
       <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background opacity-30" />
 
-      {[...Array(20)].map((_, i) => (
+      {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-px h-px bg-primary/30"
@@ -200,7 +198,7 @@ const CinematicBackground = () => {
 const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const inView = useInView(cardRef, { once: true, margin: "-100px" });
 
   const FeatureIcon =
@@ -213,16 +211,20 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
   const rotateX = useTransform(springY, [-0.5, 0.5], [5, -5]);
   const rotateY = useTransform(springX, [-0.5, 0.5], [-5, 5]);
 
+
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!cardRef.current) return;
-    const rect = (cardRef.current as HTMLElement).getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.4;
-    const yPct = (mouseY / rect.height - 0.5) * 0.4;
-    x.set(xPct);
-    y.set(yPct);
-    setMousePosition({ x: mouseX, y: mouseY });
+    const rect = cardRef.current.getBoundingClientRect();
+    const xPos = e.clientX - rect.left;
+    const yPos = e.clientY - rect.top;
+    
+    // Set motion values for tilt
+    x.set(xPos / rect.width - 0.5);
+    y.set(yPos / rect.height - 0.5);
+    
+    // Set state for particles
+    setMousePosition({ x: xPos, y: yPos });
   };
 
   const handleMouseLeave = () => {
@@ -255,7 +257,7 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
         <motion.div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
           style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--primary)/0.03), transparent 60%)`,
+            background: `radial-gradient(circle at center, hsl(var(--primary)/0.03), transparent 70%)`,
           }}
         />
 

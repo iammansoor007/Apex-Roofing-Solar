@@ -93,10 +93,10 @@ const PremiumLoader = ({ onComplete }: LoaderProps) => {
   const [phase, setPhase] = useState<1 | 2 | 3 | 4>(1);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(2), 700);
-    const t2 = setTimeout(() => setPhase(3), 1500);
-    const t3 = setTimeout(() => setPhase(4), 2400);
-    const t4 = setTimeout(() => onComplete(), 2800);
+    const t1 = setTimeout(() => setPhase(2), 400);
+    const t2 = setTimeout(() => setPhase(3), 1000);
+    const t3 = setTimeout(() => setPhase(4), 1600);
+    const t4 = setTimeout(() => onComplete(), 1900);
 
     return () => {
       clearTimeout(t1);

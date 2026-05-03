@@ -1,7 +1,8 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import AboutImg from "@/assets/orradvantage.png";
+import AboutImg from "@/assets/drpaintimage1.png";
 import completeData from "../src/data/completeData.json";
+import PaintDivider from "./ui/PaintDivider";
 
 const Counter = memo(
   ({
@@ -71,70 +72,17 @@ const Counter = memo(
 Counter.displayName = "Counter";
 
 const ParticlesBackground = memo(() => {
-  const particlesInit = useCallback(async (engine: any) => {
-    const { loadSlim } = await import("tsparticles-slim");
-    await loadSlim(engine);
-  }, []);
-
-  const options = useMemo(
-    () => ({
-      fullScreen: { enable: false },
-      particles: {
-        number: {
-          value: 12,
-          density: { enable: true, area: 800 },
-        },
-        color: { value: ["hsl(var(--primary))", "hsl(var(--primary)/80)"] },
-        shape: { type: "circle" },
-        opacity: {
-          value: 0.15,
-          random: true,
-          animation: { enable: true, speed: 0.5, minimumValue: 0.05 },
-        },
-        size: {
-          value: { min: 0.5, max: 2 },
-          random: true,
-          animation: { enable: true, speed: 2, minimumValue: 0.5 },
-        },
-        move: {
-          enable: true,
-          speed: 0.3,
-          direction: "top" as const,
-          random: true,
-          straight: false,
-          outModes: { default: "out" as const },
-        },
-        links: {
-          enable: true,
-          distance: 150,
-          color: "hsl(var(--primary))",
-          opacity: 0.1,
-          width: 0.5,
-        },
-      },
-      detectRetina: true,
-      fpsLimit: 30,
-    }),
-    [],
-  );
-
-  const [ParticlesComponent, setParticlesComponent] = useState<any>(null);
-
-  useEffect(() => {
-    import("react-tsparticles").then((module) => {
-      setParticlesComponent(() => module.default);
-    });
-  }, []);
-
-  if (!ParticlesComponent) return null;
-
   return (
-    <ParticlesComponent
-      id="painting-particles"
-      init={particlesInit}
-      options={options}
-      className="absolute inset-0 pointer-events-none"
-    />
+    <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="currentColor" className="text-primary" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dotPattern)" />
+      </svg>
+    </div>
   );
 });
 
@@ -229,49 +177,16 @@ export default function AboutSection() {
     >
       <div className="absolute inset-0">
         <ParticlesBackground />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_hsl(var(--primary)/0.02)_0%,_transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(var(--primary)/0.02)_0%,_transparent_50%)]" />
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' patternUnits='userSpaceOnUse' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='hsl(var(--primary))' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="absolute inset-0 bg-primary/[0.02]" />
       </div>
 
-      {!shouldReduceMotion && (
-        <>
-          <motion.div
-            animate={{
-              x: [0, 40, 0],
-              y: [0, -40, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              x: [0, -40, 0],
-              y: [0, 40, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-              delay: 2,
-            }}
-            className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-3xl"
-          />
-        </>
-      )}
+      {/* STATIC DECORATIVE ELEMENTS FOR PERFORMANCE */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full opacity-50" />
+        <div className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-primary/5 rounded-full opacity-50" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-99">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 xl:gap-16 items-stretch ">
           <motion.div
             variants={variants}
@@ -529,6 +444,11 @@ export default function AboutSection() {
             </linearGradient>
           </defs>
         </svg>
+      </div>
+
+      {/* Integrated Paint Divider - Transitions to Services */}
+      <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
+        <PaintDivider color="hsl(var(--primary))" className="translate-y-[1px]" />
       </div>
     </section>
   );

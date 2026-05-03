@@ -1,59 +1,29 @@
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import LeadCapture from "@/components/LeadCapture";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import Mission from "@/components/Mission";
-import TeamValues from "@/components/TeamValues";
-import QAForm from "@/components/QAForm";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
-import PaintingExperts from "@/components/PaintingExperts";
-import HowWeWork from "@/components/HowWeWork";
-import QuickQuote from "@/components/QuickQuote"; // ✅ Import the QuickQuote widget
+
+// Lazy load heavy components
+const PaintingExperts = lazy(() => import("@/components/PaintingExperts"));
+const Services = lazy(() => import("@/components/Services"));
+const TeamValues = lazy(() => import("@/components/TeamValues"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const HowWeWork = lazy(() => import("@/components/HowWeWork"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const PaintGuarantee = lazy(() => import("@/components/PaintGuarantee"));
+const QAForm = lazy(() => import("@/components/QAForm"));
+const FAQ = lazy(() => import("@/components/FAQ"));
+const Footer = lazy(() => import("@/components/Footer"));
+const QuickQuote = lazy(() => import("@/components/QuickQuote"));
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative overflow-x-hidden">
-      {/* ====================== */}
-      {/* SUBTLE BLUE GRID BACKGROUND */}
-      {/* ====================== */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Primary grid - very subtle */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        {/* Secondary grid - even more subtle, offset */}
-        <div
-          className="absolute inset-0 opacity-[0.01]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
-            `,
-            backgroundSize: '120px 120px',
-            backgroundPosition: '30px 30px',
-          }}
-        />
-
-        {/* Soft blue gradient overlays for depth */}
-        <div className="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-blue-50/10 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-full h-[50vh] bg-gradient-to-t from-blue-50/10 to-transparent pointer-events-none" />
-      </div>
+    <div className="relative overflow-x-hidden transform-gpu">
+      {/* Background gradients disabled for performance */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-background" />
 
       <AnimatePresence>
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
@@ -65,31 +35,36 @@ const Index = () => {
           <div className="relative z-10">
             <Navbar />
             <Hero />
-            <section id="paintingexperts">
-              <PaintingExperts />
-            </section>
-            <section id="services">
-              <Services />
-            </section>
-            <TeamValues />
-            <section id="portfolio">
-              <Portfolio />
-            </section>
-            <Testimonials />
-            <section id="about">
-              <HowWeWork />
-            </section>
+            
+            <Suspense fallback={<div className="h-96 bg-background" />}>
+              <section id="paintingexperts" className="bg-background">
+                <PaintingExperts />
+              </section>
 
-            <section id="contact">
-              <QAForm />
-            </section>
-            <section id="faq">
-              <FAQ />
-            </section>
-            <Footer />
+              <section id="services" className="bg-muted/50">
+                <Services />
+              </section>
+              <TeamValues />
+              <section id="portfolio">
+                <Portfolio />
+              </section>
+              <PaintGuarantee />
+              <Testimonials />
+              <section id="about">
+                <HowWeWork />
+              </section>
 
-            {/* ✅ Quick Quote Widget - Only appears on Index page */}
-            <QuickQuote />
+              <section id="contact">
+                <QAForm />
+              </section>
+              <section id="faq">
+                <FAQ />
+              </section>
+              <Footer />
+
+              {/* ✅ Quick Quote Widget - Only appears on Index page */}
+              <QuickQuote />
+            </Suspense>
           </div>
         </>
       )}

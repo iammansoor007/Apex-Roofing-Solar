@@ -153,19 +153,19 @@ ${formData.message}
                     delay: 1
                 }}
             >
-                {[...Array(3)].map((_, i) => (
+                {isHovered && [...Array(2)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute inset-0 rounded-full"
                         style={{
-                            background: `radial-gradient(circle, hsl(var(--primary)/${0.3 - i * 0.1}) 0%, transparent 70%)`,
+                            background: `radial-gradient(circle, hsl(var(--primary)/${0.2 - i * 0.1}) 0%, transparent 70%)`,
                         }}
                         animate={{
-                            scale: [1, 1.8, 1],
-                            opacity: [0.5, 0, 0.5],
+                            scale: [1, 1.5, 1],
+                            opacity: [0.3, 0, 0.3],
                         }}
                         transition={{
-                            duration: 2.5,
+                            duration: 2,
                             delay: i * 0.3,
                             repeat: Infinity,
                             ease: "easeInOut"
@@ -242,17 +242,7 @@ ${formData.message}
                         <Flag className="w-7 h-7 md:w-9 md:h-9 text-white" />
                     </motion.div>
 
-                    <motion.div
-                        className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-                        animate={{
-                            scale: [1, 1.3, 1],
-                        }}
-                        transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white" />
 
                     <AnimatePresence>
                         {isHovered && (

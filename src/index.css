@@ -85,6 +85,11 @@
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
   }
+
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-display: optional;
+  }
 }
 
 @layer base {
@@ -101,11 +106,12 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted)));
   }
 
   #root {
     position: relative;
+    width: 100%;
+    min-height: 100vh;
   }
 
   h1,
@@ -121,6 +127,15 @@
 
   section {
     position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
+  }
+
+  /* Exempt hero and navbar from content-visibility auto to ensure they are always ready */
+  #hero, 
+  .navbar,
+  header {
+    content-visibility: visible !important;
   }
 }
 
@@ -251,5 +266,12 @@
 
   .blue-accent {
     color: hsl(var(--primary));
+  }
+
+  .will-change-gpu {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 }

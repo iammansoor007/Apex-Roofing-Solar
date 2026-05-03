@@ -82,7 +82,7 @@
     ],
     "stats": [
       {
-        "value": "107+",
+        "value": "200+",
         "label": "Google Reviews",
         "icon": "Star"
       },
@@ -133,7 +133,7 @@
     ],
     "stats": [
       {
-        "value": "107+",
+        "value": "200+",
         "label": "5-Star Google Reviews",
         "icon": "FiStar"
       },
@@ -169,7 +169,7 @@
     },
     "stats": [
       {
-        "value": 107,
+        "value": 200,
         "suffix": "+",
         "label": "5-Star Google Reviews"
       },
@@ -249,7 +249,7 @@
     ],
     "stats": [
       {
-        "value": 107,
+        "value": 200,
         "suffix": "+",
         "label": "Google Reviews"
       },
@@ -276,7 +276,8 @@
           "Exterior Painting",
           "Cabinet Painting",
           "Color Consultation"
-        ]
+        ],
+        "image": "/src/assets/residentalpaint.jpg"
       },
       {
         "number": "02",
@@ -289,7 +290,8 @@
           "Retail Stores",
           "Warehouse Painting",
           "Night/Weekend Service"
-        ]
+        ],
+        "image": "https://www.alpinepaintingandrestoration.com/wp-content/uploads/2024/08/commercial-painting-explained-1536x1018.jpg"
       },
       {
         "number": "03",
@@ -302,7 +304,8 @@
           "Crack Repair",
           "Texture Matching",
           "Pre-Paint Preparation"
-        ]
+        ],
+        "image": "/src/assets/drywall.png"
       },
       {
         "number": "04",
@@ -315,7 +318,8 @@
           "Driveway Cleaning",
           "Deck Cleaning",
           "Pre-Paint Preparation"
-        ]
+        ],
+        "image": "https://cdn-hgdmn.nitrocdn.com/xHAjjCwFvgmPXNuKFYowfWQDhlYRTAXv/assets/images/optimized/rev-24ded4d/wiseguysprowash.com/wp-content/uploads/2021/08/driveway-pressure-washing-1536x800.webp"
       },
       {
         "number": "05",
@@ -328,7 +332,8 @@
           "Epoxy Coatings",
           "Driveway Coating",
           "Pool Deck Painting"
-        ]
+        ],
+        "image": "/src/assets/garagedoor.png"
       },
       {
         "number": "06",
@@ -341,7 +346,8 @@
           "Bathroom Vanities",
           "Hardware Removal",
           "Smooth Factory Finish"
-        ]
+        ],
+        "image": "/src/assets/cabientpainting.png"
       }
     ],
     "cta": {
@@ -446,7 +452,7 @@
     ],
     "stats": [
       {
-        "value": "107",
+        "value": "200",
         "suffix": "+",
         "label": "5-Star Reviews"
       },
@@ -508,7 +514,7 @@
       },
       {
         "number": "02",
-        "title": "Coastal Home Exterior",
+        "title": "Coastal Home Renovation",
         "category": "Exterior Painting",
         "image": "portfolio2",
         "location": "Flagler Beach, FL",
@@ -549,6 +555,17 @@
         "accent": "from-primary/80 to-primary/60",
         "scope": "Floor Coating System",
         "desc": "Professional concrete staining and protective coating for a residential garage floor and extended driveway."
+      },
+      {
+        "number": "06",
+        "title": "Modern Office Transformation",
+        "category": "Commercial Painting",
+        "image": "portfolio1",
+        "location": "Palm Coast, FL",
+        "year": "2025",
+        "accent": "from-primary/90 to-primary/70",
+        "scope": "Interior Commercial",
+        "desc": "Complete interior repaint of a modern office complex, featuring high-durability coatings and a sophisticated color palette."
       }
     ],
     "button": {
@@ -560,7 +577,7 @@
     "section": {
       "badge": "Client Testimonials",
       "headline": "Real Stories from Real Clients",
-      "description": "With over 107 Google 5-Star Reviews, hear what our clients have to say about their experience with Dr. Paint",
+      "description": "With over 200 Google 5-Star Reviews, hear what our clients have to say about their experience with Dr. Paint",
       "featured": "Google's Most Rated Palm Coast Painting Contractor"
     },
     "testimonials": [
@@ -608,32 +625,41 @@
     "videos": [
       {
         "id": 1,
-        "videoId": "dQw4w9WgXcQ",
-        "title": "Modern Interior Painting",
-        "thumbnail": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80",
-        "duration": "1:24"
+        "videoId": "Tk7kxG9o0HE",
+        "title": "Client Testimonial — Home Transformation",
+        "name": "Happy Homeowner"
       },
       {
         "id": 2,
-        "videoId": "dQw4w9WgXcQ",
-        "title": "Coastal Exterior Transformation",
-        "thumbnail": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80",
-        "duration": "2:15"
+        "videoId": "p8fLtcZ7qoc",
+        "title": "Client Testimonial — Interior Painting",
+        "name": "Satisfied Client"
       },
       {
         "id": 3,
-        "videoId": "dQw4w9WgXcQ",
-        "title": "Professional Cabinet Refinishing",
-        "thumbnail": "https://images.unsplash.com/photo-1556911223-e2702cc71fbc?auto=format&fit=crop&w=400&q=80",
-        "duration": "1:45"
+        "videoId": "c7h3_pF8Xiw",
+        "title": "Client Testimonial — Exterior Project",
+        "name": "Verified Customer"
+      },
+      {
+        "id": 4,
+        "videoId": "R9-kmUESHV0",
+        "title": "Client Testimonial — Cabinet Refinishing",
+        "name": "5-Star Reviewer"
+      },
+      {
+        "id": 5,
+        "videoId": "mvSJ_yEiKpU",
+        "title": "Client Testimonial — Commercial Project",
+        "name": "Business Owner"
       }
     ],
     "stats": {
-      "reviews": "107+",
+      "reviews": "200+",
       "rating": "5.0",
       "platform": "Google Reviews",
       "satisfaction": "95%",
-      "totalVideos": 107
+      "totalVideos": 200
     }
   },
   "faq": {
@@ -1014,7 +1040,7 @@
       },
       {
         "cert": "5-Star Rated",
-        "number": "107+ Reviews",
+        "number": "200+ Reviews",
         "icon": "Star"
       },
       {

@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import serviceDetail from "@/assets/orrroofing3.jpg";
+import serviceDetail from "@/assets/drpaintimage3.png";
 import {
   Wrench,
   Home,
@@ -30,8 +30,22 @@ import {
   Star,
 } from "lucide-react";
 import completeData from "../src/data/completeData.json";
+import PaintDivider from "./ui/PaintDivider";
+import residentialPaint from "@/assets/residentalpaint.jpg";
+import drywallRepair from "@/assets/drywall.png";
+import garageDoor from "@/assets/garagedoor.png";
+import cabinetPainting from "@/assets/cabientpainting.png";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const serviceImageMap: Record<string, string> = {
+  "01": residentialPaint,
+  "02": "https://www.alpinepaintingandrestoration.com/wp-content/uploads/2024/08/commercial-painting-explained-1536x1018.jpg",
+  "03": drywallRepair,
+  "04": "https://cdn-hgdmn.nitrocdn.com/xHAjjCwFvgmPXNuKFYowfWQDhlYRTAXv/assets/images/optimized/rev-24ded4d/wiseguysprowash.com/wp-content/uploads/2021/08/driveway-pressure-washing-1536x800.webp",
+  "05": garageDoor,
+  "06": cabinetPainting,
+};
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix: string }) => {
   const ref = useRef(null);
@@ -103,7 +117,7 @@ const CompactServiceCard = ({ service }: { service: any }) => {
       <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500" />
       <div className="relative bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 p-6">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full" />
-        
+
         <div className="relative z-10 flex items-start gap-4">
           <div className="relative">
             <div className="p-2 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
@@ -189,16 +203,17 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
     >
       {/* Animated border gradient */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur group-hover:blur-md" />
-      
+
       {/* Card content */}
       <div className="relative bg-card rounded-2xl overflow-hidden border border-border group-hover:border-primary/30 transition-all duration-500">
         {/* Image Section - FIXED: Removed dark overlay that was causing fading */}
         <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
-          {service.image && !imageError ? (
+          {(serviceImageMap[service.number] || service.image) && !imageError ? (
             <>
               <motion.img
-                src={service.image}
+                src={serviceImageMap[service.number] || service.image}
                 alt={service.title}
+                loading="lazy"
                 className="w-full h-full object-cover"
                 animate={{
                   scale: isHovered ? 1.1 : 1,
@@ -214,14 +229,14 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
               <ServiceIcon className="w-20 h-20 text-primary/30" />
             </div>
           )}
-          
+
           {/* Category badge */}
           <div className="absolute top-4 left-4 z-10">
             <div className="bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/20 shadow-lg">
               {service.tag}
             </div>
           </div>
-          
+
           {/* Number badge */}
           <div className="absolute bottom-4 right-4 z-10">
             <div className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
@@ -257,14 +272,20 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ x: 5 }}
-            className="w-full py-2.5 rounded-xl bg-primary/5 hover:bg-primary text-primary hover:text-white border border-primary/20 hover:border-primary transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2 group/btn"
-          >
-            <span>Learn More</span>
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </motion.button>
+          {/* CTA Button - Always Visible */}
+          <div className="relative mt-auto">
+            <motion.a
+              href="#contact"
+              whileHover={{ x: 4 }}
+              whileTap={{ scale: 0.98 }}
+              className="group/btn relative w-full flex items-center justify-between gap-3 bg-primary hover:bg-foreground text-white px-5 py-4 transition-all duration-300"
+            >
+              <span className="font-black text-xs uppercase tracking-widest">
+                Get Free Estimate
+              </span>
+              <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
+            </motion.a>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -401,8 +422,7 @@ const Services = () => {
                 ))}
               </div>
 
-              {/* Featured Service */}
-              <CompactServiceCard service={featuredService} />
+
             </motion.div>
           </div>
 
@@ -424,7 +444,7 @@ const Services = () => {
                     className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent"
                     style={{ opacity: overlayOpacity }}
                   />
-                  
+
                   {/* Floating badge */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -469,7 +489,7 @@ const Services = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(1).map((service: any, index: number) => (
+            {services.map((service: any, index: number) => (
               <ServiceCard
                 key={service.number}
                 service={service}
@@ -479,28 +499,50 @@ const Services = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-24 text-center">
-          <div className="relative bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-3xl p-12 border border-primary/20">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {cta.title}
-              </h3>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-                {cta.description}
-              </p>
-              <motion.a
-                href={cta.buttonLink}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              >
-                <span>{cta.buttonText}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+        {/* CTA Section - Industrial Bold Style */}
+        <div className="mt-28 relative z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-primary rounded-xl p-10 md:p-16 relative overflow-hidden shadow-[0_30px_60px_-15px_rgba(var(--primary-rgb),0.3)]"
+          >
+            {/* Subtle Texture Overlay */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] mix-blend-overlay" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+              <div className="text-center lg:text-left max-w-2xl">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-6">
+                  {cta.title}
+                </h3>
+                <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed">
+                  {cta.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center gap-4 w-full lg:max-w-md mx-auto">
+                <motion.a
+                  href={cta.buttonLink}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group/cta w-full px-8 py-6 bg-gradient-to-b from-white to-gray-100 text-primary font-black rounded-none uppercase tracking-[0.3em] text-center shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-4"
+                >
+                  <span>{cta.buttonText}</span>
+                  <ArrowRight className="w-6 h-6 group-hover/cta:translate-x-2 transition-transform" />
+                </motion.a>
+
+                <motion.a
+                  href="tel:+1234567890"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full px-8 py-6 text-white font-black border-2 border-white/40 rounded-none hover:bg-white/10 hover:border-white uppercase tracking-[0.3em] text-center transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-sm"
+                >
+                  <span>Call Now</span>
+                </motion.a>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -534,6 +576,11 @@ const Services = () => {
             </linearGradient>
           </defs>
         </svg>
+      </div>
+
+      {/* Integrated Paint Divider - Transitions to next section */}
+      <div className="absolute bottom-0 left-0 w-full z-1 pointer-events-none">
+        <PaintDivider color="hsl(var(--primary))" className="translate-y-[1px]" />
       </div>
     </section>
   );

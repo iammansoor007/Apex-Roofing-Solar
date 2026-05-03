@@ -16,32 +16,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Icons = {
   Quote: () => (
-    <svg
-      width="36"
-      height="36"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="text-primary"
-    >
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" className="text-primary">
       <path d="M10 11H6V7H10V11Z" stroke="currentColor" strokeWidth="1.5" />
       <path d="M18 11H14V7H18V11Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
   Verified: () => (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="text-primary"
-    >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M8 12L11 15L16 9"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   Play: () => (
@@ -52,99 +35,50 @@ const Icons = {
   ),
   Close: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M18 6L6 18M6 6L18 18"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   ArrowLeft: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="text-primary"
-    >
-      <path
-        d="M19 12H5M5 12L11 18M5 12L11 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   ArrowRight: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="text-primary"
-    >
-      <path
-        d="M5 12H19M19 12L13 18M19 12L13 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   Google: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="text-primary"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
       <path
         d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10c2.4 0 4.6-.85 6.3-2.28l-2.5-2.5c-.97.58-2.1.9-3.3.9-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6h-3l4 4 4-4h-3z"
-        stroke="currentColor"
-        strokeWidth="1.5"
+        stroke="currentColor" strokeWidth="1.5"
       />
     </svg>
   ),
   Star: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
       <path
         d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="currentColor"
+        stroke="currentColor" strokeWidth="1.5" fill="currentColor"
       />
     </svg>
   ),
 };
 
+// ── Video Modal ───────────────────────────────────────────────────────────────
 const VideoModal = ({
-  isOpen,
-  onClose,
-  videoId,
-  title,
+  isOpen, onClose, videoId, title,
 }: {
-  isOpen: boolean;
-  onClose: () => void;
-  videoId: string;
-  title: string;
+  isOpen: boolean; onClose: () => void; videoId: string; title: string;
 }) => {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
 
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
+    const handleEsc = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
@@ -163,19 +97,17 @@ const VideoModal = ({
         <motion.button
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
         >
           <Icons.Close />
         </motion.button>
-
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ type: "spring", damping: 25 }}
-          className="relative w-full max-w-5xl aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl"
+          className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           <iframe
@@ -192,22 +124,12 @@ const VideoModal = ({
   );
 };
 
-const VideoThumbnailCard = ({
-  video,
-  onClick,
-}: {
-  video: any;
-  onClick: () => void;
-}) => {
+// ── Video Thumbnail Card ──────────────────────────────────────────────────────
+const VideoThumbnailCard = ({ video, onClick }: { video: any; onClick: () => void }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`);
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, margin: "-50px" });
-
-  const formatViews = (views: number) => {
-    if (views >= 1000) return `${(views / 1000).toFixed(1)}K`;
-    return views.toString();
-  };
 
   return (
     <motion.div
@@ -220,20 +142,15 @@ const VideoThumbnailCard = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative aspect-video rounded-lg md:rounded-xl overflow-hidden bg-muted shadow-md">
+      <div className="relative aspect-video rounded-xl overflow-hidden bg-muted shadow-md">
         <img
-          src={
-            imageError
-              ? "https://via.placeholder.com/320x180?text=DR+Paint"
-              : `https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`
-          }
-          alt={video.name}
+          src={imgSrc}
+          alt={video.title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          onError={() => setImageError(true)}
+          onError={() => setImgSrc(`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`)}
         />
-
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" />
-
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity" />
@@ -242,40 +159,22 @@ const VideoThumbnailCard = ({
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-          <div className="flex items-center gap-2 text-white/90 text-xs">
-            <span>{video.duration}</span>
-            {video.views && (
-              <>
-                <span>•</span>
-                <span>{formatViews(video.views)} views</span>
-              </>
-            )}
-          </div>
-        </div>
       </div>
-
       <div className="mt-2 md:mt-3">
-        <h4 className="font-semibold text-foreground text-sm md:text-base line-clamp-1">
-          {video.name}
-        </h4>
-        <p className="text-xs md:text-sm text-muted-foreground line-clamp-1">
-          {video.title}
-        </p>
+        <h4 className="font-semibold text-foreground text-sm md:text-base line-clamp-1">{video.title}</h4>
+        {video.name && (
+          <p className="text-xs md:text-sm text-muted-foreground line-clamp-1">{video.name}</p>
+        )}
       </div>
     </motion.div>
   );
 };
 
+// ── Testimonial Card ──────────────────────────────────────────────────────────
 const TestimonialCard = ({
-  testimonial,
-  isActive = false,
-  onPlayVideo,
+  testimonial, isActive = false, onPlayVideo,
 }: {
-  testimonial: any;
-  isActive?: boolean;
-  onPlayVideo: (videoId: string, title: string) => void;
+  testimonial: any; isActive?: boolean; onPlayVideo: (videoId: string, title: string) => void;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
@@ -288,15 +187,11 @@ const TestimonialCard = ({
   const rotateY = useTransform(springX, [-0.2, 0.2], [-1, 1]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (window.innerWidth < 768) return;
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
     if (!cardRef.current) return;
     const rect = (cardRef.current as HTMLElement).getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.05;
-    const yPct = (mouseY / rect.height - 0.5) * 0.05;
-    x.set(xPct);
-    y.set(yPct);
+    x.set(((e.clientX - rect.left) / rect.width - 0.5) * 0.05);
+    y.set(((e.clientY - rect.top) / rect.height - 0.5) * 0.05);
   };
 
   const handleMouseLeave = () => {
@@ -312,106 +207,96 @@ const TestimonialCard = ({
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       style={{
-        rotateX: window.innerWidth >= 768 ? rotateX : 0,
-        rotateY: window.innerWidth >= 768 ? rotateY : 0,
+        rotateX: typeof window !== "undefined" && window.innerWidth >= 768 ? rotateX : 0,
+        rotateY: typeof window !== "undefined" && window.innerWidth >= 768 ? rotateY : 0,
         transformPerspective: 1000,
       }}
       className="relative w-full mx-auto"
     >
       <div
         className={`
-        relative bg-card rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10
-        border transition-all duration-300
-        min-h-[320px] md:min-h-[360px] lg:min-h-[400px]
-        flex flex-col
-        ${
-          isActive
-            ? "border-primary/30 shadow-xl shadow-primary/10"
-            : "border-primary/10 shadow-lg shadow-primary/5"
-        }
-      `}
+          relative bg-card rounded-none p-8 md:p-12
+          border-2 transition-all duration-500
+          min-h-[380px] md:min-h-[420px]
+          flex flex-col overflow-hidden
+          ${isActive
+            ? "border-primary shadow-[0_30px_60px_-15px_rgba(var(--primary-rgb),0.3)] z-20 scale-105"
+            : "border-white/10 shadow-lg opacity-60 grayscale-[50%] hover:grayscale-0 hover:opacity-100"
+          }
+        `}
       >
-        <div className="mb-4 md:mb-6 text-primary/40 flex-shrink-0">
-          <Icons.Quote />
+        {/* Subtle Paint Stroke Texture */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] mix-blend-overlay" />
+        {/* Dynamic Background Gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"}`} />
+
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="text-primary"><Icons.Quote /></div>
+          <div className="flex gap-1 text-primary">
+            {[...Array(5)].map((_, i) => <Icons.Star key={i} />)}
+          </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto mb-4 md:mb-6 pr-2 custom-scrollbar">
-          <p className="text-foreground/80 text-base md:text-lg lg:text-xl leading-relaxed font-light">
+        {/* Quote Text */}
+        <div className="flex-1 mb-8">
+          <p className="text-foreground/90 text-lg md:text-xl lg:text-2xl leading-relaxed font-black uppercase italic tracking-tighter">
             "{testimonial.text}"
           </p>
         </div>
 
-        <div className="flex items-center justify-between gap-4 flex-shrink-0 mt-auto">
-          <div className="flex items-center gap-3 md:gap-4 min-w-0">
-            <div className="relative flex-shrink-0">
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-md" />
-              <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary font-medium text-sm md:text-base lg:text-lg">
-                {testimonial.avatar}
-              </div>
+        {/* Footer */}
+        <div className="flex items-center justify-between gap-6 pt-8 border-t border-border mt-auto">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-none bg-primary flex items-center justify-center text-white font-black text-lg md:text-xl shadow-lg flex-shrink-0">
+              {testimonial.avatar}
             </div>
-
             <div className="min-w-0">
-              <div className="flex items-center gap-1 md:gap-2 flex-wrap">
-                <h4 className="font-semibold text-foreground text-sm md:text-base lg:text-lg truncate">
+              <div className="flex items-center gap-2">
+                <h4 className="font-black text-foreground text-sm md:text-lg uppercase tracking-widest truncate">
                   {testimonial.name}
                 </h4>
-                <span className="text-primary flex-shrink-0">
-                  <Icons.Verified />
-                </span>
+                <Icons.Verified />
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground truncate">
-                {testimonial.position}, {testimonial.company}
+              <p className="text-xs md:text-sm text-primary font-bold uppercase tracking-[0.2em] mt-1">
+                {testimonial.position}
               </p>
             </div>
           </div>
-
           {testimonial.videoId && (
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => onPlayVideo(testimonial.videoId, testimonial.name)}
-              className="relative group flex-shrink-0"
+              className="group w-12 h-12 md:w-14 md:h-14 bg-white text-primary rounded-none flex items-center justify-center shadow-xl border border-primary/20 flex-shrink-0"
             >
-              <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity" />
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
-                <Icons.Play />
-              </div>
+              <Icons.Play />
             </motion.button>
           )}
         </div>
 
-        <div className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 border-t border-r border-primary/20" />
-        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-6 h-6 md:w-8 md:h-8 border-b border-l border-primary/20" />
+        {/* Industrial Corner Decoration */}
+        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/20" />
+        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/20" />
       </div>
     </motion.div>
   );
 };
 
+// ── Scrollbar styles ──────────────────────────────────────────────────────────
 const scrollbarStyles = `
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-    border-radius: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary)/0.8);
-  }
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: hsl(var(--muted)); border-radius: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(var(--primary)); border-radius: 4px; }
 `;
 
+// ── Main Section ──────────────────────────────────────────────────────────────
 const Testimonials = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [selectedVideoTitle, setSelectedVideoTitle] = useState<string | null>(
-    null,
-  );
+  const [selectedVideoTitle, setSelectedVideoTitle] = useState<string | null>(null);
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   const { section, testimonials, videos, stats } = completeData.testimonials;
@@ -429,32 +314,20 @@ const Testimonials = () => {
     setShowVideoModal(true);
   };
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffect(() => { setIsClient(true); }, []);
 
   useEffect(() => {
     if (!sectionRef.current || !isClient) return;
-
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".reveal-element",
         { y: 20, opacity: 0 },
         {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        },
+          y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none reverse" },
+        }
       );
     }, sectionRef);
-
     return () => ctx.revert();
   }, [isClient]);
 
@@ -467,42 +340,32 @@ const Testimonials = () => {
         className="relative bg-background py-12 md:py-16 lg:py-20 overflow-hidden"
       >
         <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
-                linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
-              `,
-              backgroundSize: "40px 40px",
-            }}
-          />
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: `linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
             <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2 md:mb-3 block">
               {section.badge}
             </span>
-
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
               dangerouslySetInnerHTML={{ __html: section.headline }}
             />
             <p className="text-sm md:text-base lg:text-lg text-muted-foreground px-4">
               {section.description}
             </p>
-
             <div className="flex items-center justify-center gap-2 mt-3 md:mt-4">
               <Icons.Google />
-              <span className="text-xs md:text-sm text-muted-foreground">
-                {section.featured}
-              </span>
+              <span className="text-xs md:text-sm text-muted-foreground">{section.featured}</span>
             </div>
-
             <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-4 md:mt-6 rounded-full" />
           </div>
 
+          {/* Featured Testimonial Slider */}
           <div className="max-w-4xl mx-auto mb-12 md:mb-16 lg:mb-20">
             <AnimatePresence mode="wait">
               <motion.div
@@ -520,41 +383,29 @@ const Testimonials = () => {
               </motion.div>
             </AnimatePresence>
 
+            {/* Slider Navigation */}
             <div className="flex items-center justify-between mt-4 md:mt-6">
               <div className="flex items-center gap-2">
                 <span className="text-xs md:text-sm font-mono font-medium text-primary">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
-                <span className="text-xs md:text-sm font-mono text-border">
-                  /
-                </span>
+                <span className="text-xs md:text-sm font-mono text-border">/</span>
                 <span className="text-xs md:text-sm font-mono text-muted-foreground">
                   {String(testimonials.length).padStart(2, "0")}
                 </span>
               </div>
-
               <div className="flex gap-2">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() =>
-                    setActiveIndex(
-                      (prev) =>
-                        (prev - 1 + testimonials.length) % testimonials.length,
-                    )
-                  }
-                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveIndex((p) => (p - 1 + testimonials.length) % testimonials.length)}
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all"
                 >
                   <Icons.ArrowLeft />
                 </motion.button>
-
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() =>
-                    setActiveIndex((prev) => (prev + 1) % testimonials.length)
-                  }
-                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveIndex((p) => (p + 1) % testimonials.length)}
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all"
                 >
                   <Icons.ArrowRight />
                 </motion.button>
@@ -562,13 +413,14 @@ const Testimonials = () => {
             </div>
           </div>
 
+          {/* Video Testimonials Grid */}
           <div className="mb-12 md:mb-16 lg:mb-20 reveal-element">
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
               <div className="w-4 md:w-6 h-px bg-gradient-to-r from-primary to-primary/60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground">
-                Customer Stories
+                Video Testimonials
               </span>
-              <span className="text-[10px] md:text-xs text-primary ml-auto md:ml-2">
+              <span className="text-[10px] md:text-xs text-primary ml-auto">
                 {stats.totalVideos} reviews on Google
               </span>
             </div>
@@ -585,7 +437,7 @@ const Testimonials = () => {
 
             <div className="text-center mt-4 md:mt-6">
               <a
-                href="https://g.page/r/drpaint"
+                href="https://maps.app.goo.gl/sHTGJ82Kg8Ti8QBp6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
@@ -596,23 +448,18 @@ const Testimonials = () => {
             </div>
           </div>
 
+          {/* Stats Footer */}
           <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4 pt-4 md:pt-6 mt-4 md:mt-6 border-t border-primary/10 reveal-element">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="flex -space-x-2">
                 {testimonials.slice(0, 4).map((t: any, i: number) => (
-                  <div
-                    key={i}
-                    className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-card flex items-center justify-center text-primary text-[8px] md:text-xs font-medium shadow-sm"
-                  >
+                  <div key={i} className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-card flex items-center justify-center text-primary text-[8px] md:text-xs font-medium shadow-sm">
                     {t.avatar}
                   </div>
                 ))}
               </div>
               <div className="text-xs md:text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">
-                  {stats.subscribers}
-                </span>{" "}
-                5-star reviews
+                <span className="font-semibold text-foreground">{stats.subscribers}</span> 5-star reviews
               </div>
             </div>
           </div>

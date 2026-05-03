@@ -14,11 +14,11 @@ import completeData from "../src/data/completeData.json";
 gsap.registerPlugin(ScrollTrigger);
 
 const Images = {
-  Hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+  Hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
   Pattern:
-    "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
   Abstract:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
 };
 
 const Icons = {
@@ -331,50 +331,7 @@ const ParallaxLayer = ({
   );
 };
 
-const QuantumParticles = () => {
-  const particles = [...Array(20)].map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 0.5,
-    duration: Math.random() * 20 + 20,
-    delay: Math.random() * 5,
-    opacity: Math.random() * 0.2 + 0.05,
-  }));
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-primary/20"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-            filter: "blur(1px)",
-          }}
-          animate={{
-            y: [0, -30, 0, 30, 0],
-            x: [0, 15, -15, 10, 0],
-            opacity: [
-              particle.opacity,
-              particle.opacity * 1.5,
-              particle.opacity,
-            ],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            delay: particle.delay,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+const QuantumParticles = () => null;
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");
