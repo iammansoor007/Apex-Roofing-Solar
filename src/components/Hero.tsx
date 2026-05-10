@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Paintbrush, Palette, Droplets } from "lucide-react";
+import { Home, Sun, Droplets } from "lucide-react";
 import PaintDivider from "./ui/PaintDivider";
 
-import heroBg from "@/assets/drpaintbg.jpg";
+import heroBg from "@/assets/portfolio-hero.jpg";
 import {
   FiArrowRight,
   FiChevronDown,
@@ -29,19 +29,21 @@ import {
   FiCloudRain,
   FiAward,
   FiDroplet,
+  FiSearch,
+  FiMapPin,
 } from "react-icons/fi";
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
 import completeData from "../src/data/completeData.json";
 
 
 
-// MODERN PROFESSIONAL FORM COMPONENT - UPDATED FOR PAINTING SERVICES
-const PaintingInquiryForm = () => {
+// MODERN PROFESSIONAL FORM COMPONENT - UPDATED FOR ROOFING & SOLAR SERVICES
+const RoofingInquiryForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    serviceType: "residential-interior",
+    serviceType: "roof-inspection",
     serviceDetails: "",
     email: "",
     phone: "",
@@ -76,7 +78,7 @@ const PaintingInquiryForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Painting quote request:", formData);
+    console.log("Roofing quote request:", formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
     setTimeout(() => {
@@ -85,7 +87,7 @@ const PaintingInquiryForm = () => {
       setFormData({
         firstName: "",
         lastName: "",
-        serviceType: "residential-interior",
+        serviceType: "roof-inspection",
         serviceDetails: "",
         email: "",
         phone: "",
@@ -97,40 +99,40 @@ const PaintingInquiryForm = () => {
 
   const serviceOptions = [
     {
-      value: "residential-interior",
-      label: "Residential Interior",
+      value: "roof-inspection",
+      label: "Roof Inspection",
+      icon: FiSearch,
+      desc: "Thorough assessment of your property's condition",
+    },
+    {
+      value: "roof-replacement",
+      label: "Roof Replacement",
       icon: FiHome,
-      desc: "Transform your living spaces with expert interior painting",
+      desc: "Expert full roof installation services",
     },
     {
-      value: "residential-exterior",
-      label: "Residential Exterior",
-      icon: FiHome,
-      desc: "Protect and beautify your home's exterior",
+      value: "solar-services",
+      label: "Solar Services",
+      icon: FiSun,
+      desc: "Professional solar panel installation and removal",
     },
     {
-      value: "commercial-painting",
-      label: "Commercial Painting",
-      icon: FiBriefcase,
-      desc: "Professional solutions for business properties",
-    },
-    {
-      value: "cabinet-painting",
-      label: "Cabinet Painting",
+      value: "roof-repair",
+      label: "Roof Repair",
       icon: FiTool,
-      desc: "Give your kitchen a fresh look with refinished cabinets",
+      desc: "Fixing leaks, damage, and wear",
     },
     {
-      value: "drywall-repair",
-      label: "Drywall Repair",
+      value: "maintenance",
+      label: "Maintenance",
       icon: FiTool,
-      desc: "Patching and texture matching for a smooth finish",
+      desc: "Tune-ups and cleaning to extend roof life",
     },
     {
-      value: "pressure-washing",
-      label: "Pressure Washing",
+      value: "gutters",
+      label: "Gutters",
       icon: FiDroplet,
-      desc: "Deep cleaning for exterior surfaces",
+      desc: "Complete gutter installation and cleaning",
     },
   ];
 
@@ -164,7 +166,7 @@ const PaintingInquiryForm = () => {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground">
-                    Free Painting Estimate
+                    Free Roofing Estimate
                   </h3>
                   <p className="text-muted-foreground text-sm mt-0.5">
                     Get your quote in 3 easy steps
@@ -514,7 +516,7 @@ const PaintingInquiryForm = () => {
                 Estimate Request Sent!
               </h3>
               <p className="text-muted-foreground text-sm max-w-xs mx-auto">
-                Thanks for contacting DR Paint. We'll reach out within 24 hours with your free estimate.
+                Thanks for contacting Apex Roofing & Solar. We'll reach out within 24 hours with your free estimate.
               </p>
             </motion.div>
           )}
@@ -530,8 +532,6 @@ const Hero = () => {
 
   const { badge, headlines, description, buttons, stats } = completeData.hero;
 
-
-
   const iconComponents = {
     FiArrowRight: FiArrowRight,
     RiBuildingLine: RiBuildingLine,
@@ -543,23 +543,29 @@ const Hero = () => {
     FiShield: FiShield,
     FiHome: FiHome,
     FiTool: FiTool,
+    FiMapPin: FiMapPin,
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-slate-900 isolate"
+      className="relative min-h-screen overflow-hidden bg-secondary isolate"
     >
       <div className="absolute inset-0 -z-10">
         <img
           src={heroBg}
-          alt="DR Paint - Professional painting services"
+          alt="Apex Roofing & Solar - Professional roofing services"
           loading="eager"
-          fetchPriority="high"
-          className="w-full h-full object-cover absolute inset-0 opacity-80"
+          {...({ fetchpriority: "high" } as any)}
+          className="w-full h-full object-cover absolute inset-0 opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
+        {/* Subtly reduced Overlays */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-primary/25 mix-blend-multiply" />
+        
+        {/* Softened Directional Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 min-h-screen flex items-center pt-32 pb-16 lg:py-24">
@@ -588,7 +594,7 @@ const Hero = () => {
               </motion.h1>
 
               <motion.p
-                className="text-base sm:text-xl text-white/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
+                className="text-base sm:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -669,14 +675,14 @@ const Hero = () => {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <PaintingInquiryForm />
+              <RoofingInquiryForm />
             </div>
           </div>
         </div>
       </div>
 
       {/* Integrated Paint Divider - Transitions to the next section */}
-      <div className="absolute bottom-0 left-0 w-full z-1 pointer-events-none">
+      <div className="absolute bottom-0 left-0 w-full z-1 pointer-events-none opacity-20">
         <PaintDivider color="hsl(var(--primary))" className="translate-y-[1px]" />
       </div>
     </section >

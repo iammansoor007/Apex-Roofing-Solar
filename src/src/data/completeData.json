@@ -2,54 +2,54 @@
   "navbar": {
     "services": [
       {
-        "title": "RESIDENTIAL PAINTING",
-        "description": "Transform your home with expert interior and exterior painting backed by our Free Paint Guarantee",
+        "title": "ROOFING SOLUTIONS",
+        "description": "Expert residential and commercial roofing installations and replacements",
         "icon": "Home",
         "items": [
-          "Interior Painting",
-          "Exterior Painting",
-          "Cabinet Painting",
-          "Deck & Fence Staining",
-          "Color Consultation"
+          "Shingle Roofing",
+          "Metal Roofing",
+          "Flat Roofing",
+          "Roof Repairs",
+          "Roof Replacement"
         ],
         "features": [
-          "Free Paint Guarantee",
-          "5-Year Labor Warranty",
-          "95% Satisfaction Rate"
+          "Quality Craftsmanship",
+          "Insurance Claims Assistance",
+          "Competitive Retail Pricing"
         ]
       },
       {
-        "title": "COMMERCIAL PAINTING",
-        "description": "Professional painting for offices, retail, restaurants and commercial properties with after-hours availability",
-        "icon": "Building2",
+        "title": "INSPECTIONS & MAINTENANCE",
+        "description": "Thorough assessments and tune-ups to protect your investment",
+        "icon": "ClipboardCheck",
         "items": [
-          "Office Painting",
-          "Retail Store Painting",
-          "Warehouse Painting",
-          "Restaurant Painting",
-          "Night & Weekend Service"
+          "Roof Inspections",
+          "Gutter Cleaning",
+          "Roof Tune-Ups",
+          "Sealing Accessories",
+          "Roof Algae Cleaning"
         ],
         "features": [
-          "Flexible Scheduling",
-          "Minimal Disruption",
-          "OSHA Compliant"
+          "Thorough Property Assessment",
+          "Preventative Maintenance",
+          "Extended Roof Longevity"
         ]
       },
       {
-        "title": "SPECIALTY SERVICES",
-        "description": "Complete property care beyond painting — from drywall to pressure washing and garage floors",
-        "icon": "Wrench",
+        "title": "SOLAR & ADDITIONAL",
+        "description": "Solar panel solutions and specialty roofing services",
+        "icon": "Sun",
         "items": [
-          "Drywall Repair",
-          "Pressure Washing",
-          "Garage Floor Coatings",
-          "Deck & Driveway Coating",
-          "Cabinet Refinishing"
+          "Solar Panel Installation",
+          "Solar Panel Removal",
+          "Skylight Installation",
+          "Attic Insulation",
+          "Gutter Installation"
         ],
         "features": [
-          "Veteran Crew Leaders",
-          "8-Point Staff Screening",
-          "Free Virtual Estimates"
+          "One-Stop Shop",
+          "Energy Efficiency",
+          "Professional Installation"
         ]
       }
     ],
@@ -60,19 +60,14 @@
         "icon": "Home"
       },
       {
-        "label": "About Us",
-        "href": "#about",
-        "icon": "Users"
-      },
-      {
         "label": "Services",
         "href": "#services",
         "icon": "Briefcase"
       },
       {
-        "label": "Our Work",
-        "href": "#portfolio",
-        "icon": "Image"
+        "label": "About",
+        "href": "#about",
+        "icon": "Users"
       },
       {
         "label": "Contact",
@@ -82,111 +77,111 @@
     ],
     "stats": [
       {
-        "value": "200+",
-        "label": "Google Reviews",
+        "value": "2023",
+        "label": "Established",
+        "icon": "Calendar"
+      },
+      {
+        "value": "Dallas",
+        "label": "Headquarters",
+        "icon": "MapPin"
+      },
+      {
+        "value": "100%",
+        "label": "Satisfaction Priority",
         "icon": "Star"
       },
       {
-        "value": "95%",
-        "label": "Satisfaction",
-        "icon": "ThumbsUp"
-      },
-      {
-        "value": "5",
-        "label": "Year Warranty",
-        "icon": "Shield"
-      },
-      {
-        "value": "8-Point",
-        "label": "Staff Screening",
-        "icon": "ClipboardCheck"
+        "value": "Free",
+        "label": "Consultation",
+        "icon": "MessageSquare"
       }
     ],
     "cta": {
-      "title": "Get Your Free Quote",
-      "description": "Same-day response from our painting pros",
-      "buttonText": "Call Now",
-      "buttonLink": "tel:+13862467999"
+      "title": "Get Your Free Consultation",
+      "description": "Expert roofing and solar solutions tailored to your needs",
+      "buttonText": "Contact Us",
+      "buttonLink": "#contact"
     }
   },
   "hero": {
-    "badge": "Veteran-Owned & Operated",
+    "badge": "Ascend to Excellence",
     "headlines": [
-      "Google's Most Rated",
-      "Palm Coast Painting",
-      "Contractor"
+      "Expert Roofing",
+      "& Solar Solutions",
+      "You Can Trust"
     ],
-    "description": "The Most Sought After Painter in Flagler, St. Johns and Volusia Counties. Turn your space into an oasis with the help of a 5-star painting contractor built on trust, integrity, and military precision.",
+    "description": "Whether it's residential or commercial, we ensure top-quality work. Our team's dedication to quality craftsmanship and exceptional customer care sets us apart. Contact us today for a free consultation!",
     "buttons": [
       {
-        "text": "Get Free Estimate",
+        "text": "Get Free Consultation",
         "href": "#contact",
         "primary": true,
         "icon": "FiArrowRight"
       },
       {
-        "text": "View Our Work",
-        "href": "#portfolio",
+        "text": "Our Services",
+        "href": "#services",
         "primary": false,
         "icon": "FiArrowRight"
       }
     ],
     "stats": [
       {
-        "value": "200+",
-        "label": "5-Star Google Reviews",
-        "icon": "FiStar"
+        "value": "Dallas, TX",
+        "label": "Headquarters",
+        "icon": "FiMapPin"
       },
       {
-        "value": "2014",
-        "label": "Established",
+        "value": "2023",
+        "label": "Founded",
         "icon": "RiBuildingLine"
       },
       {
-        "value": "95%",
-        "label": "Satisfaction Rate",
-        "icon": "FiThumbsUp"
+        "value": "5-Star",
+        "label": "Service",
+        "icon": "FiStar"
       },
       {
-        "value": "3",
-        "label": "Counties Served",
-        "icon": "RiShieldCheckLine"
+        "value": "Free",
+        "label": "Consultation",
+        "icon": "FiThumbsUp"
       }
     ]
   },
   "about": {
-    "badge": "Since 2014",
+    "badge": "Founded 2023",
     "headline": {
-      "prefix": "Dr. Paint —",
-      "highlight": "Veteran-Owned",
-      "suffix": "Painting Company."
+      "prefix": "Welcome to",
+      "highlight": "Apex Roofing",
+      "suffix": "& Solar."
     },
-    "description": "A <span class=\"font-semibold text-primary\">veteran-owned and operated</span> painting contractor built on trust, integrity, and flawless finishes. We do the prepping, take care of your property, and ensure no mess is left behind — so you can focus on enjoying your beautifully painted space.",
+    "description": "Our journey began in the heart of <span class=\"font-semibold text-primary\">Dallas, Texas</span>. With a focus on delivering exceptional roofing solutions for both residential and commercial properties, we pride ourselves on our professionalism and expertise. Whether you need assistance with insurance claims or prefer our competitive retail pricing, rest assured that we have you covered.",
     "image": {
-      "src": "DrPaintTeam",
-      "alt": "Dr. Paint veteran crew leaders painting a residential interior",
-      "badge": "Veteran-Owned Since 2014"
+      "src": "ApexRoofingTeam",
+      "alt": "Apex Roofing & Solar professional roofing team",
+      "badge": "Ascend to Excellence"
     },
     "stats": [
       {
-        "value": 200,
-        "suffix": "+",
-        "label": "5-Star Google Reviews"
-      },
-      {
-        "value": 95,
-        "suffix": "%",
-        "label": "Client Satisfaction"
-      },
-      {
-        "value": 5,
+        "value": 2023,
         "suffix": "",
-        "label": "Full-Time Painters"
+        "label": "Year Founded"
+      },
+      {
+        "value": 100,
+        "suffix": "%",
+        "label": "Client Satisfaction Priority"
+      },
+      {
+        "value": 0,
+        "suffix": "",
+        "label": "Hidden Fees"
       }
     ],
     "buttons": [
       {
-        "text": "FREE ESTIMATE",
+        "text": "FREE CONSULTATION",
         "href": "#contact",
         "primary": true
       },
@@ -197,299 +192,290 @@
       }
     ],
     "trustBadges": {
-      "veteranOwned": true,
-      "satisfactionRate": 95
+      "founded": 2023,
+      "headquarters": "Dallas, Texas"
     }
   },
   "aboutStory": {
     "badge": "Our Story",
     "headline": {
-      "prefix": "Meet Our",
-      "highlight": "Founder",
-      "suffix": "— Omar Rivera"
+      "prefix": "Meet the",
+      "highlight": "Owner",
+      "suffix": "— Luis Hermocilla"
     },
     "description": [
-      "Dr. Paint's founder, Omar Rivera, is a former Active Duty Air Force member who transitioned to the Air Force Reserve Component. In January 2014, he founded Dr. Paint in Palm Coast, FL.",
-      "Omar began as the estimator, then painter, and the 'marketing guy' before making Dr. Paint one of the fastest growing painting companies in Central Florida. In less than a year, Dr. Paint grew into 5 full-time, on-staff painters and 2 administrative professionals.",
-      "Now Dr. Paint serves not only Palm Coast but all of Volusia, Flagler, and all counties throughout the St. Johns area. We've collected hundreds of five-star testimonials from happy residential and commercial property owners."
+      "Our journey began in the heart of Dallas, Texas. The owner, Luis Hermocilla, grew tired of greedy contractors overpromising and underdelivering. After working in the roofing industry for several years, he created his own company with a mission to be different.",
+      "Founded in 2023, Apex Roofing & Solar aims to be the apex in roofing while providing exemplary service. We take immense pride in providing top-notch service to our valued customers.",
+      "Our team's dedication to quality craftsmanship and exceptional customer care sets us apart in the residential and commercial roofing industry. Whether you are dealing with an insurance claim or seeking retail pricing options, you can trust us to deliver unparalleled service from start to finish."
     ],
     "image": {
-      "src": "OmarRivera",
-      "alt": "Omar Rivera - Founder of Dr. Paint, veteran-owned painting company",
-      "badge": "Founder & CEO"
+      "src": "LuisHermocilla",
+      "alt": "Luis Hermocilla - Owner, Apex Roofing & Solar",
+      "badge": "Owner & Founder"
     },
     "stats": [
       {
-        "value": 2014,
+        "value": 2023,
         "suffix": "",
         "label": "Year Founded"
       },
       {
-        "value": 5,
+        "value": "Dallas",
         "suffix": "",
-        "label": "Full-Time Painters"
+        "label": "Headquarters"
       },
       {
-        "value": 3,
+        "value": "100%",
         "suffix": "",
-        "label": "Counties Served"
+        "label": "Satisfaction Focus"
       }
     ]
   },
   "services": {
     "badge": "Our Services",
     "headline": {
-      "prefix": "Professional Painting Services in",
-      "highlight": "Palm Coast, FL",
-      "suffix": "& Surrounding Areas"
+      "prefix": "Comprehensive",
+      "highlight": "Roofing & Solar",
+      "suffix": "Solutions"
     },
     "description": [
-      "Dr. Paint is one of the most highly-rated local painting contractors on Google with a great team of trustworthy painters who are always on time and have customer desires as top priorities.",
-      "From colors and materials to deadlines being adhered to, you'll always get what you asked for — and our <span class=\"font-semibold text-primary\">95% satisfaction rate</span> speaks for itself."
+      "Apex Roofing & Solar offers a comprehensive range of services to meet your roofing needs. From roof inspections and repairs to complete roof replacements, our experienced team ensures top-quality workmanship.",
+      "We specialize in shingle roofing, metal roofing, and flat roofing installations. Additionally, we provide gutter cleaning, skylight installation, and attic insulation services to enhance the functionality and longevity of your roof."
     ],
     "stats": [
       {
-        "value": 200,
-        "suffix": "+",
-        "label": "Google Reviews"
-      },
-      {
-        "value": 95,
-        "suffix": "%",
-        "label": "Satisfaction"
-      },
-      {
-        "value": 5,
+        "value": 3,
         "suffix": "",
-        "label": "Year Warranty"
+        "label": "Core Services"
+      },
+      {
+        "value": 8,
+        "suffix": "+",
+        "label": "Specialty Offerings"
+      },
+      {
+        "value": 100,
+        "suffix": "%",
+        "label": "Satisfaction Focus"
       }
     ],
     "services": [
       {
         "number": "01",
-        "title": "Residential Painting",
-        "description": "Expert interior and exterior painting services for your home. We transform living rooms, bedrooms, kitchens, and entire home exteriors with flawless finishes.",
-        "icon": "Home",
-        "tag": "Residential",
+        "title": "Roof Inspection",
+        "description": "A thorough assessment of your roof, gutters, skylights, chimneys, and property. Identify potential issues before they become costly problems.",
+        "icon": "Search",
+        "tag": "Inspection",
         "features": [
-          "Interior Painting",
-          "Exterior Painting",
-          "Cabinet Painting",
-          "Color Consultation"
-        ],
-        "image": "/src/assets/residentalpaint.jpg"
+          "Roof Assessment",
+          "Gutter Inspection",
+          "Skylight Check",
+          "Chimney Inspection"
+        ]
       },
       {
         "number": "02",
-        "title": "Commercial Painting",
-        "description": "Professional painting services for offices, retail stores, warehouses, and restaurants. We offer after-hours and weekend scheduling to minimize disruption.",
-        "icon": "Building2",
-        "tag": "Commercial",
+        "title": "Solar Panel Services",
+        "description": "Need to remove or install solar panels? We are your one-stop shop for all solar roofing needs with professional installation and removal.",
+        "icon": "Sun",
+        "tag": "Solar",
         "features": [
-          "Office Painting",
-          "Retail Stores",
-          "Warehouse Painting",
-          "Night/Weekend Service"
-        ],
-        "image": "https://www.alpinepaintingandrestoration.com/wp-content/uploads/2024/08/commercial-painting-explained-1536x1018.jpg"
+          "Solar Panel Installation",
+          "Solar Panel Removal",
+          "Seamless Integration",
+          "Energy Efficiency"
+        ]
       },
       {
         "number": "03",
-        "title": "Drywall Repair",
-        "description": "Full drywall repair and patching services. We fix holes, cracks, and scratches before painting to ensure a perfectly smooth finish.",
-        "icon": "Hammer",
-        "tag": "Repair",
+        "title": "Roof Maintenance & Tune-Ups",
+        "description": "Roof tune-ups including sealing all accessories and exposed nail heads. Gutter cleaning and roof algae cleaning services also available.",
+        "icon": "Wrench",
+        "tag": "Maintenance",
         "features": [
-          "Hole Patching",
-          "Crack Repair",
-          "Texture Matching",
-          "Pre-Paint Preparation"
-        ],
-        "image": "/src/assets/drywall.png"
+          "Sealing Accessories",
+          "Sealing Nail Heads",
+          "Gutter Cleaning",
+          "Roof Algae Cleaning"
+        ]
       },
       {
         "number": "04",
-        "title": "Pressure Washing",
-        "description": "Professional power washing for home exteriors, driveways, decks, and commercial buildings before painting or as standalone service.",
-        "icon": "Droplets",
-        "tag": "Exterior Care",
+        "title": "Shingle Roofing",
+        "description": "Professional shingle roofing installation and replacement for residential and commercial properties using premium materials.",
+        "icon": "Home",
+        "tag": "Installation",
         "features": [
-          "House Washing",
-          "Driveway Cleaning",
-          "Deck Cleaning",
-          "Pre-Paint Preparation"
-        ],
-        "image": "https://cdn-hgdmn.nitrocdn.com/xHAjjCwFvgmPXNuKFYowfWQDhlYRTAXv/assets/images/optimized/rev-24ded4d/wiseguysprowash.com/wp-content/uploads/2021/08/driveway-pressure-washing-1536x800.webp"
+          "Asphalt Shingles",
+          "Architectural Shingles",
+          "Full Replacement",
+          "New Construction"
+        ]
       },
       {
         "number": "05",
-        "title": "Garage Floor Coatings",
-        "description": "Specialized concrete staining and coating systems for garage floors, driveways, and pool decks for durable, attractive surfaces.",
-        "icon": "Car",
-        "tag": "Flooring",
+        "title": "Metal Roofing",
+        "description": "Durable, energy-efficient metal roofing systems offering superior protection and longevity for your property.",
+        "icon": "Hammer",
+        "tag": "Metal",
         "features": [
-          "Concrete Staining",
-          "Epoxy Coatings",
-          "Driveway Coating",
-          "Pool Deck Painting"
-        ],
-        "image": "/src/assets/garagedoor.png"
+          "Standing Seam",
+          "Metal Panels",
+          "Energy Efficient",
+          "Long Lifespan"
+        ]
       },
       {
         "number": "06",
-        "title": "Cabinet Painting",
-        "description": "Transform your kitchen or bathroom with professional cabinet painting and refinishing. A cost-effective alternative to full cabinet replacement.",
-        "icon": "PaintBucket",
-        "tag": "Refinishing",
+        "title": "Flat Roofing",
+        "description": "Expert flat roofing installations for commercial and residential applications with reliable, watertight systems.",
+        "icon": "Building2",
+        "tag": "Commercial",
         "features": [
-          "Kitchen Cabinets",
-          "Bathroom Vanities",
-          "Hardware Removal",
-          "Smooth Factory Finish"
-        ],
-        "image": "/src/assets/cabientpainting.png"
+          "TPO Systems",
+          "EPDM Roofing",
+          "Modified Bitumen",
+          "Commercial Grade"
+        ]
+      },
+      {
+        "number": "07",
+        "title": "Skylight Installation",
+        "description": "Enhance natural lighting and energy efficiency with professional skylight installation integrated with your roofing system.",
+        "icon": "CloudSun",
+        "tag": "Specialty",
+        "features": [
+          "Natural Lighting",
+          "Energy Savings",
+          "Custom Placement",
+          "Weather-Tight Seal"
+        ]
+      },
+      {
+        "number": "08",
+        "title": "Attic Insulation",
+        "description": "Improve energy efficiency and comfort with professional attic insulation services that complement your roofing system.",
+        "icon": "Thermometer",
+        "tag": "Insulation",
+        "features": [
+          "Energy Efficiency",
+          "Temperature Control",
+          "Moisture Protection",
+          "Cost Savings"
+        ]
+      },
+      {
+        "number": "09",
+        "title": "Gutter Services",
+        "description": "Complete gutter cleaning and installation services to protect your property from water damage.",
+        "icon": "Droplets",
+        "tag": "Drainage",
+        "features": [
+          "Gutter Cleaning",
+          "Gutter Installation",
+          "Downspout Service",
+          "Water Diversion"
+        ]
+      },
+      {
+        "number": "10",
+        "title": "Roof Repairs",
+        "description": "Expert roof repair services addressing leaks, storm damage, and general wear to extend the life of your roof.",
+        "icon": "Shield",
+        "tag": "Repair",
+        "features": [
+          "Leak Repair",
+          "Storm Damage Repair",
+          "Shingle Replacement",
+          "Emergency Service"
+        ]
       }
     ],
     "cta": {
-      "title": "Ready to Transform Your Space?",
-      "description": "Dr. Paint provides personalized painting solutions and specializes in residential and commercial projects. Contact us to schedule your free estimate.",
-      "buttonText": "Get Free Quote",
-      "buttonLink": "#contact"
-    }
-  },
-  "process": {
-    "badge": "Our Process",
-    "headline": {
-      "prefix": "How We",
-      "highlight": "Paint Your Home",
-      "suffix": "Step by Step"
-    },
-    "description": "At Dr. Paint, we believe that the dedication, care, and time we put into each paint job sets us apart. We've fine-tuned our processes over the years to become true painting pros.",
-    "interior": {
-      "title": "Interior Painting Process",
-      "steps": [
-        "Review the painting plan, colors, and details with you",
-        "Prepare the room: remove wall items, cover furniture, put down protective paper, cover ceiling fans, remove switch/outlet covers",
-        "Patch all holes, cracks, and scratches in drywall",
-        "Paint ceilings first, then walls using brushes and 9 or 18-inch rollers — top to bottom",
-        "Paint baseboards with brushes",
-        "Clean up: reinstall switch plates, outlet covers, remove drop cloths, return furniture",
-        "Final walkthrough with you to ensure complete satisfaction",
-        "Customer satisfaction survey"
-      ]
-    },
-    "exterior": {
-      "title": "Exterior Painting Process",
-      "steps": [
-        "Initial review: walk around property confirming colors and areas to paint",
-        "High-quality power washing of exterior walls, soffits, and foundation",
-        "Preparation: seal cracks with masonry patch, mask windows and doors, caulk frames, cover lamps and cameras, protect garden plants, trench around foundation",
-        "Spray chalk primer and sealer",
-        "Paint soffits, facia, and gutters with specialized spray paint",
-        "Paint body of building using spray application and paint rolling",
-        "Paint trim with rollers and brushes, then paint doors (removing weatherstripping and hardware)",
-        "Allow paint to dry, check for touch-ups, restore everything to original position",
-        "Final walkthrough with you",
-        "Customer satisfaction survey"
-      ]
-    },
-    "decks": {
-      "title": "Decks & Driveways Process",
-      "steps": [
-        "Meet with you to confirm colors and areas",
-        "Surface clean with power washer",
-        "Seal cracks with concrete base caulking",
-        "Apply specialized concrete stain with rollers for complete coverage",
-        "Allow curing process (can take a few days)",
-        "Final inspection with you",
-        "Customer satisfaction survey"
-      ]
-    },
-    "cta": {
-      "title": "Personalized Painting Solutions",
-      "description": "Every job needs a personal touch. We plan around YOUR individual needs and desires. We never cut corners or make assumptions.",
-      "buttonText": "Request Free Estimate",
+      "title": "Ready for Expert Roofing Service?",
+      "description": "Apex Roofing & Solar provides comprehensive roofing and solar solutions tailored to your specific needs. Contact us for your free consultation.",
+      "buttonText": "Book Now",
       "buttonLink": "#contact"
     }
   },
   "whyChooseUs": {
     "section": {
       "badge": "WHY CHOOSE US",
-      "headline": "Google's Most Rated <span class=\"text-primary\">Palm Coast Painting Contractor</span>",
-      "description": "We combine the best of three important factors we believe all successful businesses must have: trust, process, and leadership."
+      "headline": "Ascend to <span class=\"text-primary\">Excellence</span>",
+      "description": "At Apex Roofing & Solar, we take immense pride in providing top-notch service to our valued customers. Our team's dedication to quality craftsmanship and exceptional customer care sets us apart."
     },
     "features": [
       {
-        "icon": "Shield",
-        "title": "Trustworthy Iron-Clad Guarantee",
-        "description": "Trust is our best and most important asset. We always arrive on time and keep our word. With our Make-It-Right Guarantee, we will quickly and thoroughly respond to any concerns until you're completely satisfied. We back our work with a 5-year labor and material warranty."
-      },
-      {
-        "icon": "CheckSquare",
-        "title": "Unique Painting Processes",
-        "description": "Many contractors execute projects with no system, resulting in inconsistency. We produce consistent quality with standard operating procedures, daily checklists, and ongoing supervision on every single project."
-      },
-      {
         "icon": "Award",
-        "title": "Veteran Crew Leaders",
-        "description": "Good production systems are essential, but on-site leadership is critical. Our veteran crew leaders are thoroughly screened, field-tested, trained, and have years of experience. Problems are quickly anticipated and solved."
+        "title": "Quality Craftsmanship",
+        "description": "Our experienced team ensures top-quality workmanship on every project. We never cut corners and deliver results that stand the test of time."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Exceptional Customer Care",
+        "description": "We prioritize customer satisfaction with every project. From consultation to completion, you'll experience unparalleled service every step of the way."
+      },
+      {
+        "icon": "FileText",
+        "title": "Insurance Claims Assistance",
+        "description": "Need help navigating your insurance claim? We assist you through the entire process to ensure you get the coverage you deserve."
       },
       {
         "icon": "DollarSign",
-        "title": "Affordable & Transparent Pricing",
-        "description": "We prioritize getting the job done with efficiency while ensuring no hidden costs or surprise fees. Our experienced painters avoid costly mistakes, saving you hundreds in potential repairs."
+        "title": "Competitive Retail Pricing",
+        "description": "Prefer retail pricing? We offer competitive rates with complete transparency. No hidden fees, no surprise charges — just honest pricing."
       },
       {
-        "icon": "PaintBucket",
-        "title": "Free Paint Guarantee",
-        "description": "We take pride in delivering exactly what we promise. If our best efforts haven't satisfied you, the cost of your paint is on us. That's our commitment to 100% customer satisfaction."
+        "icon": "Shield",
+        "title": "Professional & Reliable",
+        "description": "Founded by Luis Hermocilla after years of seeing contractors overpromise and underdeliver. We do what we say and deliver what we promise."
       },
       {
-        "icon": "ShieldCheck",
-        "title": "Licensed, Insured & Veteran-Owned",
-        "description": "Every painter undergoes an 8-point screening process: application, questionnaire, personality assessment, in-person interview, reference check, hands-on test, and drug screening. Only the best wear the Dr. Paint uniform."
+        "icon": "Sun",
+        "title": "One-Stop Shop",
+        "description": "From roofing to solar, inspections to maintenance — we handle it all. No need to coordinate multiple contractors for your property needs."
       }
     ],
     "stats": [
       {
-        "value": "200",
-        "suffix": "+",
-        "label": "5-Star Reviews"
+        "value": "2023",
+        "suffix": "",
+        "label": "Established"
       },
       {
-        "value": "95",
+        "value": "Dallas",
+        "suffix": "",
+        "label": "Based In"
+      },
+      {
+        "value": "100",
         "suffix": "%",
-        "label": "Satisfaction"
+        "label": "Satisfaction Focus"
       },
       {
-        "value": "5",
+        "value": "Free",
         "suffix": "",
-        "label": "Year Warranty"
-      },
-      {
-        "value": "3",
-        "suffix": "",
-        "label": "Counties Served"
+        "label": "Consultation"
       }
     ],
     "cta": {
-      "badge": "AVOID COSTLY MISTAKES",
-      "title": "Ready to Work With <span class=\"text-primary block mt-2\">Florida's Trusted Painters?</span>",
-      "description": "Avoid the costly mistakes of hiring the wrong painter. Get your free estimate today.",
+      "badge": "GET STARTED",
+      "title": "Experience the Apex <span class=\"\">Difference Today</span>",
+      "description": "Contact our team today for a free consultation. No obligation, just expert advice from your trusted roofing and solar partner.",
       "trustBadges": [
-        "Veteran-Owned",
-        "Licensed",
-        "Insured"
+        "Professional",
+        "Reliable",
+        "Trusted"
       ],
       "buttons": [
         {
-          "text": "Get Free Quote",
+          "text": "Get Free Consultation",
           "href": "#contact",
           "primary": true
         },
         {
-          "text": "View Our Work",
-          "href": "#portfolio",
+          "text": "Our Services",
+          "href": "#services",
           "primary": false
         }
       ]
@@ -503,170 +489,151 @@
     "projects": [
       {
         "number": "01",
-        "title": "Residential Interior Transformation",
-        "category": "Residential Painting",
+        "title": "Dallas Residential Shingle Roof",
+        "category": "Residential",
         "image": "portfolio1",
-        "location": "Palm Coast, FL",
+        "location": "Dallas, TX",
         "year": "2025",
         "accent": "from-primary to-primary/80",
-        "scope": "Full Interior Repaint",
-        "desc": "Complete interior painting of a Palm Coast family home, including walls, ceilings, trim, and cabinet refinishing with premium low-VOC paints."
+        "scope": "Full Roof Replacement",
+        "desc": "Complete asphalt shingle roof replacement for a Dallas family home with upgraded architectural shingles and enhanced ventilation."
       },
       {
         "number": "02",
-        "title": "Coastal Home Renovation",
-        "category": "Exterior Painting",
+        "title": "Commercial Metal Roofing",
+        "category": "Commercial",
         "image": "portfolio2",
-        "location": "Flagler Beach, FL",
+        "location": "Plano, TX",
         "year": "2025",
         "accent": "from-primary to-primary/70",
-        "scope": "Full Exterior Repaint",
-        "desc": "Complete exterior painting of a coastal property including pressure washing, caulking, and application of weather-resistant elastomeric paint."
+        "scope": "New Installation",
+        "desc": "Standing seam metal roof installation for a commercial warehouse, providing durability and energy efficiency for decades."
       },
       {
         "number": "03",
-        "title": "Restaurant Refresh",
-        "category": "Commercial Painting",
+        "title": "Solar Panel Integration",
+        "category": "Solar",
         "image": "portfolio3",
-        "location": "St. Augustine, FL",
+        "location": "Richardson, TX",
         "year": "2024",
         "accent": "from-primary/90 to-primary/60",
-        "scope": "After-Hours Commercial",
-        "desc": "Full interior repaint of a popular St. Augustine restaurant completed during night hours to ensure zero disruption to business operations."
+        "scope": "Solar Installation",
+        "desc": "Seamless solar panel installation integrated with existing roofing system for maximum energy savings and curb appeal."
       },
       {
         "number": "04",
-        "title": "Retail Store Renovation",
-        "category": "Commercial Painting",
+        "title": "Storm Damage Restoration",
+        "category": "Repair",
         "image": "portfolio4",
-        "location": "Ormond Beach, FL",
-        "year": "2024",
+        "location": "Garland, TX",
+        "year": "2025",
         "accent": "from-primary to-primary/80",
-        "scope": "Weekend Completion",
-        "desc": "Interior and exterior painting for a retail store completed over a weekend to minimize impact on sales operations."
+        "scope": "Insurance Claim Repair",
+        "desc": "Complete storm damage restoration including insurance claim assistance, roof replacement, and gutter installation."
       },
       {
         "number": "05",
-        "title": "Garage Floor & Driveway Coating",
-        "category": "Specialty Coatings",
+        "title": "Flat Roof Commercial",
+        "category": "Commercial",
         "image": "portfolio5",
-        "location": "Palm Coast, FL",
-        "year": "2025",
+        "location": "Mesquite, TX",
+        "year": "2024",
         "accent": "from-primary/80 to-primary/60",
-        "scope": "Floor Coating System",
-        "desc": "Professional concrete staining and protective coating for a residential garage floor and extended driveway."
-      },
-      {
-        "number": "06",
-        "title": "Modern Office Transformation",
-        "category": "Commercial Painting",
-        "image": "portfolio1",
-        "location": "Palm Coast, FL",
-        "year": "2025",
-        "accent": "from-primary/90 to-primary/70",
-        "scope": "Interior Commercial",
-        "desc": "Complete interior repaint of a modern office complex, featuring high-durability coatings and a sophisticated color palette."
+        "scope": "Flat Roof System",
+        "desc": "TPO flat roofing system installation for a commercial retail building with enhanced insulation and waterproofing."
       }
     ],
     "button": {
-      "text": "See More Projects",
+      "text": "View All Projects",
       "link": "#portfolio"
     }
   },
   "testimonials": {
     "section": {
       "badge": "Client Testimonials",
-      "headline": "Real Stories from Real Clients",
-      "description": "With over 200 Google 5-Star Reviews, hear what our clients have to say about their experience with Dr. Paint",
-      "featured": "Google's Most Rated Palm Coast Painting Contractor"
+      "headline": "What Our Customers Say",
+      "description": "Hear from residential and commercial clients who have experienced the Apex Roofing & Solar difference",
+      "featured": "Trusted Roofing Partner in Dallas, TX"
     },
     "testimonials": [
       {
         "id": 1,
-        "name": "Sarah M.",
+        "name": "Robert J.",
         "position": "Homeowner",
         "company": "Residential Client",
-        "avatar": "SM",
-        "text": "Dr. Paint transformed our living room and kitchen! The team was punctual, professional, and the attention to detail was incredible. Our home has never looked better. Highly recommend!"
+        "avatar": "RJ",
+        "text": "Apex Roofing & Solar replaced our entire roof and did an amazing job. Luis and his team were professional, on time, and the quality of work exceeded our expectations. Highly recommend!"
       },
       {
         "id": 2,
-        "name": "David T.",
+        "name": "Maria S.",
         "position": "Business Owner",
-        "company": "Restaurant Owner",
-        "avatar": "DT",
-        "text": "They painted our restaurant overnight with zero disruption to our business. Opened the next morning to a completely transformed space. True professionals!"
+        "company": "Commercial Client",
+        "avatar": "MS",
+        "text": "We needed a flat roof for our retail store and Apex delivered. They handled everything from start to finish, including helping us with our insurance claim. True professionals."
       },
       {
         "id": 3,
-        "name": "Lisa R.",
-        "position": "Homeowner",
-        "company": "Residential Client",
-        "avatar": "LR",
-        "text": "The Free Paint Guarantee gave me peace of mind, but I never needed it — the job was perfect the first time. Omar's team is the best in Palm Coast."
+        "name": "David T.",
+        "position": "Property Manager",
+        "company": "Commercial Client",
+        "avatar": "DT",
+        "text": "As a property manager, I need contractors I can trust. Apex Roofing & Solar has been reliable, transparent, and their workmanship is top-tier. They're my go-to roofing partner."
       },
       {
         "id": 4,
-        "name": "Michael P.",
-        "position": "Property Manager",
-        "company": "Commercial Client",
-        "avatar": "MP",
-        "text": "As a property manager, I've worked with many painters. Dr. Paint stands out for their reliability, communication, and quality. They're my only call now."
+        "name": "Jennifer K.",
+        "position": "Homeowner",
+        "company": "Residential Client",
+        "avatar": "JK",
+        "text": "We had solar panels installed along with a roof inspection. Apex handled both seamlessly. It was so convenient working with one company for everything. Great experience!"
       },
       {
         "id": 5,
-        "name": "Omar Rivera",
-        "position": "Founder",
-        "company": "Dr. Paint",
-        "avatar": "OR",
-        "text": "We built Dr. Paint on trust, integrity, and military precision. Every project gets our full commitment to excellence — that's the veteran-owned difference."
+        "name": "Luis Hermocilla",
+        "position": "Owner",
+        "company": "Apex Roofing & Solar",
+        "avatar": "LH",
+        "text": "I founded Apex Roofing & Solar because I was tired of seeing contractors overpromise and underdeliver. Our commitment is simple: quality craftsmanship, exceptional care, and honest service every time."
       }
     ],
     "videos": [
       {
-        "id": 1,
-        "videoId": "Tk7kxG9o0HE",
-        "title": "Client Testimonial — Home Transformation",
-        "name": "Happy Homeowner"
+        "id": "v1",
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Residential Roof Replacement",
+        "name": "Robert J."
       },
       {
-        "id": 2,
-        "videoId": "p8fLtcZ7qoc",
-        "title": "Client Testimonial — Interior Painting",
-        "name": "Satisfied Client"
+        "id": "v2",
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Commercial Flat Roof Project",
+        "name": "Maria S."
       },
       {
-        "id": 3,
-        "videoId": "c7h3_pF8Xiw",
-        "title": "Client Testimonial — Exterior Project",
-        "name": "Verified Customer"
+        "id": "v3",
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Solar Panel Installation",
+        "name": "Jennifer K."
       },
       {
-        "id": 4,
-        "videoId": "R9-kmUESHV0",
-        "title": "Client Testimonial — Cabinet Refinishing",
-        "name": "5-Star Reviewer"
-      },
-      {
-        "id": 5,
-        "videoId": "mvSJ_yEiKpU",
-        "title": "Client Testimonial — Commercial Project",
-        "name": "Business Owner"
+        "id": "v4",
+        "videoId": "dQw4w9WgXcQ",
+        "title": "Emergency Roof Repair",
+        "name": "David T."
       }
     ],
     "stats": {
-      "reviews": "200+",
-      "rating": "5.0",
-      "platform": "Google Reviews",
-      "satisfaction": "95%",
-      "totalVideos": 200
+      "reviewPlatform": "Google Reviews",
+      "satisfactionFocus": "100% Priority",
+      "totalVideos": 24
     }
   },
   "faq": {
     "section": {
       "badge": "Knowledge Base",
       "headline": "Frequently Asked Questions",
-      "description": "Expert answers to common questions about painting, our process, warranties, and what to look for in a painting contractor."
+      "description": "Expert answers to common questions about roofing, solar, inspections, and our services."
     },
     "categories": [
       {
@@ -675,255 +642,263 @@
         "icon": null
       },
       {
-        "id": "general",
-        "label": "General",
+        "id": "roofing",
+        "label": "Roofing",
         "icon": "Home"
       },
       {
-        "id": "process",
-        "label": "Our Process",
-        "icon": "Tools"
+        "id": "solar",
+        "label": "Solar",
+        "icon": "Sun"
       },
       {
-        "id": "warranty",
-        "label": "Warranty & Payment",
+        "id": "insurance",
+        "label": "Insurance",
         "icon": "Shield"
       },
       {
-        "id": "commercial",
-        "label": "Commercial",
-        "icon": "Building2"
+        "id": "maintenance",
+        "label": "Maintenance",
+        "icon": "Wrench"
       }
     ],
     "items": [
       {
         "id": 1,
-        "category": "general",
-        "question": "What should I look for in a painting contractor?",
-        "answer": "Here are a few 'green flags' that you're working with a reputable company: the contractor is focused on reliability, integrity, and customer service; has multiple years of experience in your community; offers a warranty or quality guarantee; works with industry-leading products and reputable brands; can provide testimonials from satisfied customers; and hires experienced, trustworthy staff who take the time to listen to you.",
+        "category": "roofing",
+        "question": "What roofing services do you offer?",
+        "answer": "Apex Roofing & Solar offers a comprehensive range of roofing services including roof inspections, repairs, complete replacements, shingle roofing, metal roofing, and flat roofing installations. We also provide gutter services, skylight installation, and attic insulation to enhance your roof's functionality and longevity.",
         "metadata": [
           {
-            "label": "Key factors",
-            "value": "Experience, warranty, reviews"
+            "label": "Residential",
+            "value": "Shingle, metal, flat"
           },
           {
-            "label": "Red flag",
-            "value": "No references available"
+            "label": "Commercial",
+            "value": "All systems available"
           }
         ]
       },
       {
         "id": 2,
-        "category": "warranty",
-        "question": "Do you offer a warranty on your work?",
-        "answer": "Yes, we offer a 5-year labor and material warranty on our painting work. We will return if there is any issue with the work we did, even if it was completed days or weeks prior. This is part of our commitment to 100% customer satisfaction. We also offer our Free Paint Guarantee: if our best efforts haven't satisfied you, the cost of your paint is on us.",
+        "category": "solar",
+        "question": "Do you handle solar panel installation and removal?",
+        "answer": "Yes! We are your one-stop shop for solar panel services. Whether you need panels installed on a new or existing roof, or need them removed for roof work, our team handles it all professionally and efficiently.",
         "metadata": [
           {
-            "label": "Labor warranty",
-            "value": "5 years"
+            "label": "Installation",
+            "value": "Full service"
           },
           {
-            "label": "Paint guarantee",
-            "value": "Free if unsatisfied"
+            "label": "Removal",
+            "value": "Safe & professional"
           }
         ]
       },
       {
         "id": 3,
-        "category": "process",
-        "question": "How does your painting process work?",
-        "answer": "We begin by reviewing the painting plan, colors, and details with you. We then prepare the room by removing wall items, covering furniture, putting down protective paper, and covering fixtures. We patch any drywall damage, then paint top to bottom (ceilings first, then walls, then trim). After drying, we do a complete cleanup, restore everything to its original position, and conduct a final walkthrough with you to ensure satisfaction.",
+        "category": "insurance",
+        "question": "Can you help with insurance claims?",
+        "answer": "Absolutely. We assist homeowners and business owners with the insurance claim process. Whether you're dealing with storm damage, hail, or other covered events, we help document the damage, communicate with your insurance provider, and ensure you receive the coverage you deserve.",
         "metadata": [
           {
-            "label": "Interior steps",
-            "value": "Review → Prep → Paint → Clean → Walkthrough"
+            "label": "Claim assistance",
+            "value": "Full support"
           },
           {
-            "label": "Exterior",
-            "value": "Power wash → Seal → Paint → Final check"
+            "label": "Documentation",
+            "value": "We handle it"
           }
         ]
       },
       {
         "id": 4,
-        "category": "commercial",
-        "question": "Can you work for my business?",
-        "answer": "Yes! We offer a full suite of commercial painting services for offices, retail stores, warehouses, and restaurants. In order to keep your operations running smoothly during the day, we can even paint at night or during other non-business hours, including weekends.",
+        "category": "roofing",
+        "question": "How long does a roof replacement take?",
+        "answer": "Most residential roof replacements are completed within one to three days, depending on the size, material type, and weather conditions. Commercial projects may take longer. We provide a clear timeline during your free consultation so you know exactly what to expect.",
         "metadata": [
           {
-            "label": "Commercial spaces",
-            "value": "Offices, retail, restaurants"
+            "label": "Residential",
+            "value": "1-3 days typically"
           },
           {
-            "label": "Availability",
-            "value": "Nights & weekends"
+            "label": "Commercial",
+            "value": "Project dependent"
           }
         ]
       },
       {
         "id": 5,
-        "category": "general",
-        "question": "Do you offer virtual estimates?",
-        "answer": "Yes, we can do a project estimate via video chat. This allows us to see your space, understand your needs, and provide an accurate quote without requiring an in-person visit. It's a convenient option that many of our clients appreciate.",
+        "category": "maintenance",
+        "question": "What does a roof tune-up include?",
+        "answer": "Our roof tune-up service includes sealing all accessories and exposed nail heads, gutter cleaning, and roof algae cleaning. Regular maintenance extends the life of your roof and prevents minor issues from becoming major problems.",
         "metadata": [
           {
-            "label": "Virtual option",
-            "value": "Video chat available"
+            "label": "Tune-up includes",
+            "value": "Sealing, cleaning, inspection"
           },
           {
-            "label": "Response time",
-            "value": "Same-day typically"
+            "label": "Frequency",
+            "value": "As needed"
           }
         ]
       },
       {
         "id": 6,
-        "category": "warranty",
-        "question": "Do you offer payment plans?",
-        "answer": "Yes, we offer flexible payment plans to help make your painting project more affordable. Contact us to discuss financing options that work for your budget.",
+        "category": "roofing",
+        "question": "What is included in a roof inspection?",
+        "answer": "Our thorough roof inspection includes assessment of your roof, gutters, skylights, chimneys, and surrounding property. We identify potential issues, document findings, and provide recommendations to protect your investment.",
         "metadata": [
           {
-            "label": "Options",
-            "value": "Flexible plans available"
+            "label": "Areas inspected",
+            "value": "Roof, gutters, skylights, chimney"
           },
           {
-            "label": "How to apply",
-            "value": "Contact for details"
+            "label": "Outcome",
+            "value": "Detailed report"
           }
         ]
       },
       {
         "id": 7,
-        "category": "general",
-        "question": "Do you use low or no VOC paint?",
-        "answer": "Yes, we use premium, industry-leading paints including low-VOC and no-VOC options from trusted brands. We're happy to discuss the best paint products for your specific needs, especially if you have children, pets, or health concerns.",
+        "category": "roofing",
+        "question": "What roofing materials do you work with?",
+        "answer": "We specialize in asphalt shingle roofing, metal roofing, and flat roofing systems including TPO and EPDM. During your consultation, we'll help you choose the best material based on your budget, property type, and long-term goals.",
         "metadata": [
           {
-            "label": "VOC options",
-            "value": "Low & no-VOC available"
+            "label": "Shingle",
+            "value": "Asphalt, architectural"
           },
           {
-            "label": "Best for",
-            "value": "Families, pets, sensitive spaces"
+            "label": "Metal",
+            "value": "Standing seam, panels"
+          },
+          {
+            "label": "Flat",
+            "value": "TPO, EPDM"
           }
         ]
       },
       {
         "id": 8,
-        "category": "process",
-        "question": "Do you clean up after you paint?",
-        "answer": "Absolutely. Cleanup is a critical part of our process. We put back all items that were removed from the walls, reinstall switch plates and outlet covers, take away all drop cloths and protective paper, and return all furniture to its original position. We leave your space spotless.",
+        "category": "maintenance",
+        "question": "Do you offer gutter cleaning services?",
+        "answer": "Yes, gutter cleaning is part of our maintenance services. Clean gutters are essential for proper water drainage and protecting your roof and foundation from water damage.",
         "metadata": [
           {
-            "label": "Cleanup included",
-            "value": "Always"
+            "label": "Service",
+            "value": "Gutter cleaning available"
           },
           {
-            "label": "Result",
-            "value": "Spotless finish"
+            "label": "Frequency",
+            "value": "Recommended seasonally"
           }
         ]
       },
       {
         "id": 9,
-        "category": "general",
-        "question": "What forms of payment do you accept?",
-        "answer": "We accept multiple forms of payment for your convenience. Contact us to confirm the payment methods we currently support.",
+        "category": "roofing",
+        "question": "Do you offer free consultations?",
+        "answer": "Yes! We offer free consultations to assess your roofing or solar needs. Contact us by phone at (469) 396-4022 or email Luis@apexroofingandsolar.com to schedule yours today.",
         "metadata": [
           {
-            "label": "Payment methods",
-            "value": "Multiple options"
+            "label": "Consultation",
+            "value": "Free"
+          },
+          {
+            "label": "Contact",
+            "value": "Phone or email"
           }
         ]
       },
       {
         "id": 10,
-        "category": "process",
-        "question": "What happens if it rains when the job has already started?",
-        "answer": "For exterior painting projects affected by rain, we monitor weather conditions closely. If rain occurs, we pause exterior work and protect all prepped surfaces. We resume as soon as conditions are optimal for application. Your project timeline will be communicated transparently throughout.",
+        "category": "insurance",
+        "question": "Do you work with retail pricing or only insurance claims?",
+        "answer": "We offer both! Whether you prefer to use your insurance coverage or prefer our competitive retail pricing, we have you covered. We provide transparent pricing with no hidden fees regardless of which option you choose.",
         "metadata": [
           {
-            "label": "Rain protocol",
-            "value": "Pause & protect"
+            "label": "Retail pricing",
+            "value": "Competitive & transparent"
           },
           {
-            "label": "Communication",
-            "value": "Transparent updates"
+            "label": "Insurance claims",
+            "value": "Full assistance provided"
           }
         ]
       }
     ],
     "knowledgeCard": {
-      "title": "Don't See Your Question?",
-      "description": "Our painting specialists are ready to help with your specific project needs.",
+      "title": "Still Have Questions?",
+      "description": "Our roofing and solar experts are ready to help with your specific project needs.",
       "buttonText": "Contact Our Team",
       "buttonLink": "#contact"
     }
   },
   "quote": {
     "section": {
-      "badge": "GET YOUR FREE QUOTE",
-      "headline": "Request Your <span class=\"font-black italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Estimate</span>",
-      "description": "Avoid the costly mistakes of hiring the wrong painter. Get your free estimate today — same-day response from our painting pros."
+      "badge": "GET STARTED",
+      "headline": "Request Your <span class=\"font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Consultation</span>",
+      "description": "Let our skilled team know how we can assist you and anticipate exceptional service every step of the way. Choose the best way to stay in touch with us."
     },
     "services": [
       {
         "id": 1,
-        "title": "Residential Painting",
-        "desc": "Interior & exterior home painting",
+        "title": "Roof Inspection",
+        "desc": "Thorough property assessment",
         "icon": "⌗"
       },
       {
         "id": 2,
-        "title": "Commercial Painting",
-        "desc": "Business & office solutions",
+        "title": "Roof Replacement",
+        "desc": "Full roof installation",
         "icon": "⎔"
       },
       {
         "id": 3,
-        "title": "Drywall Repair",
-        "desc": "Patching & texture matching",
+        "title": "Solar Panel Services",
+        "desc": "Installation & removal",
         "icon": "⌖"
       },
       {
         "id": 4,
-        "title": "Pressure Washing",
-        "desc": "House, deck & driveway cleaning",
+        "title": "Roof Maintenance",
+        "desc": "Tune-ups & cleaning",
         "icon": "⌘"
       },
       {
         "id": 5,
-        "title": "Garage Floors",
-        "desc": "Concrete staining & coatings",
+        "title": "Gutter Services",
+        "desc": "Cleaning & installation",
         "icon": "⚡"
       },
       {
         "id": 6,
-        "title": "Cabinet Painting",
-        "desc": "Kitchen & bath refinishing",
+        "title": "Other Services",
+        "desc": "Skylights, insulation & more",
         "icon": "◈"
       }
     ],
     "projectTypes": [
       {
-        "value": "residential-interior",
-        "label": "Residential Interior"
+        "value": "residential",
+        "label": "Residential"
       },
       {
-        "value": "residential-exterior",
-        "label": "Residential Exterior"
+        "value": "commercial",
+        "label": "Commercial"
       },
       {
-        "value": "commercial-interior",
-        "label": "Commercial Interior"
+        "value": "solar",
+        "label": "Solar Services"
       },
       {
-        "value": "commercial-exterior",
-        "label": "Commercial Exterior"
+        "value": "inspection",
+        "label": "Inspection Only"
       },
       {
-        "value": "specialty",
-        "label": "Specialty (Drywall, Floors, etc.)"
+        "value": "maintenance",
+        "label": "Maintenance & Tune-Up"
       }
     ],
     "timelines": [
@@ -944,152 +919,172 @@
         "label": "Future Project (3+ months)"
       }
     ],
-    "email": "info@drpaint.com",
+    "email": "Luis@apexroofingandsolar.com",
     "success": {
-      "title": "Estimate Request Received",
-      "message": "Your painting project inquiry has been sent to our team.",
-      "response": "We'll respond with your free estimate within 24 hours.",
+      "title": "Consultation Request Received",
+      "message": "Your inquiry has been sent to our team at Apex Roofing & Solar.",
+      "response": "We'll respond promptly to schedule your free consultation.",
       "buttonText": "Close"
     }
   },
   "footer": {
     "company": {
-      "name": "Dr. Paint",
-      "tagline": "TRUST • INTEGRITY • FLAWLESS FINISHES",
-      "description": "Veteran-owned and operated painting company serving Palm Coast, Flagler, Volusia, and St. Johns counties since 2014. Built on trust, military precision, and an unwavering commitment to customer satisfaction."
+      "name": "Apex Roofing & Solar",
+      "tagline": "ASCEND TO EXCELLENCE",
+      "description": "Expert roofing and solar solutions for residential and commercial properties. Founded in Dallas, Texas, with a commitment to quality craftsmanship and exceptional customer care."
     },
     "services": {
       "title": "Our Services",
       "main": [
         {
-          "label": "Residential Painting",
-          "href": "/residential-painting",
+          "label": "Roof Inspections",
+          "href": "/roof-inspection",
+          "icon": "Search"
+        },
+        {
+          "label": "Roof Replacement",
+          "href": "/roof-replacement",
           "icon": "Home"
         },
         {
-          "label": "Commercial Painting",
-          "href": "/commercial-painting",
-          "icon": "Building2"
+          "label": "Shingle Roofing",
+          "href": "/shingle-roofing",
+          "icon": "Home"
         },
         {
-          "label": "Drywall Repair",
-          "href": "/drywall-repair",
+          "label": "Metal Roofing",
+          "href": "/metal-roofing",
           "icon": "Hammer"
         },
         {
-          "label": "Pressure Washing",
-          "href": "/pressure-washing",
+          "label": "Flat Roofing",
+          "href": "/flat-roofing",
+          "icon": "Building2"
+        },
+        {
+          "label": "Solar Panel Services",
+          "href": "/solar",
+          "icon": "Sun"
+        },
+        {
+          "label": "Roof Maintenance",
+          "href": "/maintenance",
+          "icon": "Wrench"
+        },
+        {
+          "label": "Gutter Services",
+          "href": "/gutter-services",
           "icon": "Droplets"
         },
         {
-          "label": "Garage Floor Coatings",
-          "href": "/garage-floors",
-          "icon": "Car"
+          "label": "Skylight Installation",
+          "href": "/skylights",
+          "icon": "CloudSun"
         },
         {
-          "label": "Cabinet Painting",
-          "href": "/cabinet-painting",
-          "icon": "PaintBucket"
+          "label": "Attic Insulation",
+          "href": "/insulation",
+          "icon": "Thermometer"
         }
       ],
       "materials": {
         "title": "Service Areas",
         "items": [
           {
-            "label": "Palm Coast, FL",
-            "href": "/palm-coast"
+            "label": "Dallas, TX",
+            "href": "/dallas"
           },
           {
-            "label": "Flagler County",
-            "href": "/flagler-county"
+            "label": "Plano, TX",
+            "href": "/plano"
           },
           {
-            "label": "Volusia County",
-            "href": "/volusia-county"
+            "label": "Richardson, TX",
+            "href": "/richardson"
           },
           {
-            "label": "St. Johns County",
-            "href": "/st-johns-county"
+            "label": "Garland, TX",
+            "href": "/garland"
           }
         ]
       }
     },
     "contact": {
-      "title": "Reach Us",
-      "email": "info@drpaint.com",
-      "phone": "+1 (386) 246-7999",
-      "address": "1504 Old Moody Blvd Unit 1, Bunnell, FL 32110",
+      "title": "Contact Us",
+      "email": "Luis@apexroofingandsolar.com",
+      "phone": "+1 (469) 396-4022",
+      "address": "695 Main St Ste 400, Lavon, Texas 75166",
       "emergency": "",
-      "areas": "Palm Coast • Flagler County • Volusia County • St. Johns County & Surrounding Florida Communities"
+      "areas": "Dallas • Plano • Richardson • Garland • Mesquite • Lavon & Surrounding Texas Communities"
     },
     "certifications": [
       {
-        "cert": "Veteran-Owned",
-        "number": "Since 2014",
-        "icon": "Shield"
+        "cert": "Founded",
+        "number": "2023",
+        "icon": "Calendar"
+      },
+      {
+        "cert": "Headquarters",
+        "number": "Dallas, TX",
+        "icon": "MapPin"
       },
       {
         "cert": "Licensed",
-        "number": "Florida",
+        "number": "Texas",
         "icon": "Warranty"
       },
       {
         "cert": "Insured",
         "number": "Full Coverage",
-        "icon": "Warranty"
+        "icon": "Shield"
       },
       {
-        "cert": "5-Star Rated",
-        "number": "200+ Reviews",
-        "icon": "Star"
+        "cert": "Free",
+        "number": "Consultation",
+        "icon": "MessageSquare"
       },
       {
-        "cert": "5-Year Warranty",
-        "number": "Labor & Material",
-        "icon": "Warranty"
-      },
-      {
-        "cert": "Free Paint",
-        "number": "Guarantee",
-        "icon": "ThumbsUp"
+        "cert": "Insurance",
+        "number": "Claim Assistance",
+        "icon": "FileText"
       }
     ],
     "quickLinks": [
       {
-        "label": "Free Estimate",
+        "label": "Free Consultation",
         "href": "#contact",
         "icon": "Phone"
       },
       {
-        "label": "Our Process",
-        "href": "#process",
-        "icon": "ClipboardCheck"
+        "label": "Insurance Claims",
+        "href": "#faq",
+        "icon": "Shield"
       },
       {
-        "label": "FAQ",
-        "href": "#faq",
-        "icon": "MessageSquare"
+        "label": "About Us",
+        "href": "#about",
+        "icon": "Users"
       }
     ],
     "social": [
       {
+        "platform": "Email",
+        "icon": "Mail",
+        "href": "mailto:Luis@apexroofingandsolar.com"
+      },
+      {
+        "platform": "Phone",
+        "icon": "Phone",
+        "href": "tel:+14693964022"
+      },
+      {
         "platform": "Google",
         "icon": "Star",
-        "href": "#"
-      },
-      {
-        "platform": "Facebook",
-        "icon": "Facebook",
-        "href": "#"
-      },
-      {
-        "platform": "Instagram",
-        "icon": "Instagram",
         "href": "#"
       }
     ],
     "bottom": {
-      "copyright": "© 2026 Dr. Paint",
+      "copyright": "© 2026 Apex Roofing & Solar",
       "rights": "All rights reserved",
       "links": [
         {
@@ -1105,42 +1100,41 @@
           "href": "/sitemap"
         }
       ],
-      "tagline": "TRUST • INTEGRITY • FLAWLESS FINISHES",
-      "designCredits": "Website Design By Purely Digital Marketing"
+      "tagline": "ASCEND TO EXCELLENCE"
     },
     "marquee": {
       "texts": [
-        "VETERAN-OWNED • TRUST • INTEGRITY",
-        "SINCE 2014",
-        "FREE PAINT GUARANTEE • 5-YEAR WARRANTY"
+        "ASCEND TO EXCELLENCE",
+        "ESTABLISHED 2023",
+        "QUALITY CRAFTSMANSHIP • EXCEPTIONAL CARE"
       ]
     }
   },
   "leadership": {
     "section": {
-      "badge": "Leadership",
-      "headline": "Built on <span class=\"text-primary\">Trust</span> & Military Precision",
-      "description": "Our leadership team brings decades of experience and a commitment to excellence that defines the Dr. Paint difference."
+      "badge": "OUR LEADERSHIP",
+      "headline": "Committed to <span class=\"text-primary\">Excellence</span>",
+      "description": "At Apex Roofing & Solar, our leadership is driven by a singular mission: to provide the highest quality roofing and solar solutions with integrity and transparency."
     },
     "ceo": {
-      "name": "Omar Rivera",
-      "title": "Founder & CEO",
-      "alt": "Omar Rivera - Founder of Dr. Paint",
-      "badges": {
-        "top": "Veteran-Owned",
-        "bottom": "Founder & CEO"
-      },
+      "name": "Luis Hermocilla",
+      "title": "OWNER & FOUNDER",
       "quotes": [
-        "We built Dr. Paint on trust, integrity, and military precision. Every project gets our full commitment to excellence — that's the veteran-owned difference."
+        "I founded Apex Roofing & Solar because I was tired of seeing contractors overpromise and underdeliver. Our commitment is simple: quality craftsmanship, exceptional care, and honest service every time."
       ],
       "description": [
-        "Omar Rivera is a former Active Duty Air Force member who founded Dr. Paint in 2014 with a vision to bring military-grade precision and reliability to the painting industry.",
-        "Under his leadership, Dr. Paint has grown into one of the most trusted painting contractors in Central Florida, serving thousands of happy residential and commercial clients."
+        "After working in the roofing industry for several years, Luis created Apex Roofing & Solar with a mission to be different. He saw a need for a company that prioritizes quality and customer trust above all else.",
+        "Based in Dallas, Texas, Luis leads a team dedicated to providing top-notch service to every homeowner and business owner we serve."
       ],
       "social": {
         "linkedin": "#",
-        "email": "info@drpaint.com"
-      }
+        "email": "Luis@apexroofingandsolar.com"
+      },
+      "badges": {
+        "top": "Industry Expert",
+        "bottom": "Customer Focused"
+      },
+      "alt": "Luis Hermocilla - Owner of Apex Roofing & Solar"
     }
   }
 }

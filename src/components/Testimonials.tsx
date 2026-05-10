@@ -225,7 +225,7 @@ const TestimonialCard = ({
           }
         `}
       >
-        {/* Subtle Paint Stroke Texture */}
+        {/* Subtle Industrial Texture */}
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] mix-blend-overlay" />
         {/* Dynamic Background Gradient */}
         <div className={`absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"}`} />

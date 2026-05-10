@@ -233,12 +233,12 @@ const CTASection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6 leading-tight">
             Ready to transform your<br />
             <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-              painting project?
+              roofing project?
             </span>
           </h2>
 
           <p className="text-muted-foreground text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Join hundreds of satisfied homeowners who trust DR Paint with their most important investment.
+            Join hundreds of satisfied homeowners who trust Apex Roofing & Solar with their most important investment.
           </p>
         </div>
 
@@ -262,7 +262,7 @@ const CTASection = () => {
                 <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
                   <Icons.Flag />
                   <span className="text-xs font-medium tracking-wider text-primary">
-                    DR Paint • Veteran Owned
+                    Apex Roofing & Solar • Veteran Owned
                   </span>
                 </div>
 

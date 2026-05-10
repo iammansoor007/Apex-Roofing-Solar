@@ -1,21 +1,30 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 import {
   motion,
   useInView,
   useMotionValue,
   useSpring,
   useTransform,
+  useReducedMotion
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "../src/data/completeData.json";
+import vectorimage2 from '../assets/faqvector.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
+type WhyChooseUsData = {
+  section: any;
+  features: any;
+  stats: any;
+  cta: any;
+};
+
 const Icons = {
   WhyChoose: {
-    Veteran: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Veteran: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M12 2L2 7l10 5 10-5-10-5z"
           stroke="currentColor"
@@ -28,8 +37,8 @@ const Icons = {
         />
       </svg>
     ),
-    Experience: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Experience: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
         <path
           d="M12 7v5l3 3"
@@ -39,8 +48,8 @@ const Icons = {
         />
       </svg>
     ),
-    Warranty: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Warranty: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M12 2L15 9H22L17 14L19 21L12 17L5 21L7 14L2 9H9L12 2Z"
           stroke="currentColor"
@@ -48,8 +57,8 @@ const Icons = {
         />
       </svg>
     ),
-    Financing: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Financing: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <circle
           cx="12"
           cy="12"
@@ -60,8 +69,8 @@ const Icons = {
         <path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
-    Certified: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Certified: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M12 2L3 7v7c0 5.5 9 8 9 8s9-2.5 9-8V7l-9-5z"
           stroke="currentColor"
@@ -75,8 +84,8 @@ const Icons = {
         />
       </svg>
     ),
-    Community: () => (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    Community: ({ className }: { className?: string }) => (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
           stroke="currentColor"
@@ -95,8 +104,8 @@ const Icons = {
         />
       </svg>
     ),
-    ArrowRight: () => (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    ArrowRight: ({ className }: { className?: string }) => (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M5 12h14M12 5l7 7-7 7"
           stroke="currentColor"
@@ -106,8 +115,8 @@ const Icons = {
         />
       </svg>
     ),
-    Sparkle: () => (
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+    Sparkle: ({ className }: { className?: string }) => (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className={className}>
         <path
           d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z"
           stroke="currentColor"
@@ -118,6 +127,32 @@ const Icons = {
     ),
   },
 };
+
+const ANIMATION_VARIANTS = {
+  float: {
+    initial: { y: 0 },
+    animate: {
+      y: [0, -12, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  },
+};
+
+const TrustBadge = ({ label, color }: { label: string; color: string }) => {
+  const dotColor = color === "green" ? "#4ade80" : color === "blue" ? "#60a5fa" : color === "yellow" ? "#fbbf24" : "#f87171";
+  return (
+    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
+      <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: dotColor }} />
+      <span className="text-[10px] font-bold text-white uppercase tracking-wider">{label}</span>
+    </div>
+  );
+};
+
+const vectoroverlay = vectorimage2; // Using the user's imported image
 
 const iconMap = {
   Veteran: Icons.WhyChoose.Veteran,
@@ -218,11 +253,11 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
     const rect = cardRef.current.getBoundingClientRect();
     const xPos = e.clientX - rect.left;
     const yPos = e.clientY - rect.top;
-    
+
     // Set motion values for tilt
     x.set(xPos / rect.width - 0.5);
     y.set(yPos / rect.height - 0.5);
-    
+
     // Set state for particles
     setMousePosition({ x: xPos, y: yPos });
   };
@@ -554,115 +589,217 @@ const StatCounter = ({
   );
 };
 
-const AwardCTABanner = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const { cta } = completeData.whyChooseUs;
+interface CTASectionProps {
+  cta: WhyChooseUsData['cta'];
+}
+
+const CTASection = memo(({ cta }: CTASectionProps) => {
+  const prefersReducedMotion = useReducedMotion();
+
+  const floatAnimation = prefersReducedMotion
+    ? {}
+    : {
+      initial: "initial",
+      animate: "animate",
+      variants: ANIMATION_VARIANTS.float,
+    };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.3 }}
-      className="relative mt-20 overflow-hidden"
-    >
-      <div className="relative bg-card border border-border rounded-2xl">
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rotate-12"
-            animate={{ rotate: [12, 15, 12] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 -rotate-12"
-            animate={{ rotate: [-12, -15, -12] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-        </div>
-
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
-          animate={{ x: ["100%", "-100%"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+    <div className="relative mt-16 md:mt-24 lg:mt-32">
+      {/* CTA Container */}
+      <div className="relative rounded-3xl overflow-hidden">
+        {/* Cinematic Background Layer */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(145deg, #450505 0%, #7c0a0a 50%, #450505 100%)"
+          }}
         />
 
-        <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary/30" />
-        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/30" />
-        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/30" />
-        <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary/30" />
+        {/* Technical Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.15]" 
+          style={{ 
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
 
-        <div className="relative px-8 py-16 md:px-20 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-10 z-30">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex items-center gap-2 mb-4"
-            >
-              <span className="w-8 h-[2px] bg-primary" />
-              <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">
-                {cta.badge}
-              </span>
-            </motion.div>
+        {/* Ambient Glow Effects */}
+        <div className="hidden md:block absolute right-[10%] top-[10%] w-[400px] h-[400px] bg-white/5 blur-[140px] rounded-full pointer-events-none" />
+        <div className="hidden md:block absolute left-[5%] bottom-[20%] w-[250px] h-[250px] bg-black/40 blur-[100px] rounded-full pointer-events-none" />
 
-            <h3
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight"
-              dangerouslySetInnerHTML={{ __html: cta.title }}
-            />
+        {/* Vignette Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_60%,rgba(0,0,0,0.3))]" />
 
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg">
-              {cta.description}
-            </p>
+        {/* Main Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
 
-            <div className="flex items-center gap-6 mt-6">
-              {cta.trustBadges.map((badge: string, i: number) => (
-                <div key={i} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  <span className="text-xs text-muted-foreground">{badge}</span>
-                </div>
-              ))}
+          {/* Desktop Layout - Two columns with floating image */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Text Content */}
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block mb-6"
+              >
+                <span className="px-4 py-2 text-sm font-bold bg-background/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                  READY TO BUILD
+                </span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.2] tracking-tight text-white [&_span]:text-white"
+                dangerouslySetInnerHTML={{ __html: cta.title }}
+              />
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-4 text-white font-medium text-lg max-w-lg"
+              >
+                {cta.description}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8 flex flex-wrap gap-4"
+              >
+                {cta.buttons.map((button, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={button.href}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`
+                                            px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-lg
+                                            flex items-center gap-2
+                                            ${button.primary
+                        ? 'bg-background text-primary hover:bg-muted shadow-[0_10px_40px_rgba(0,0,0,0.3)]'
+                        : 'bg-transparent text-white border-2 border-white/30 hover:bg-background/10 backdrop-blur-sm'
+                      }
+                                        `}
+                  >
+                    {button.text}
+                    <Icons.WhyChoose.ArrowRight />
+                  </motion.a>
+                ))}
+              </motion.div>
+
+              {/* Trust Badges */}
+              <div className="mt-8 flex gap-4">
+                <TrustBadge label="Licensed & Insured" color="green" />
+                <TrustBadge label="Free Estimate" color="blue" />
+                <TrustBadge label="24/7 Support" color="red" />
+              </div>
+            </div>
+
+            {/* Right Column - Floating Image */}
+            <div className="relative">
+              <motion.div
+                {...floatAnimation}
+                className="absolute right-0 bottom-[-47rem] w-[115%] lg:w-[125%]"
+                style={{ right: '-20%' }}
+              >
+                <img
+                  src={vectoroverlay}
+                  alt="Mega Contracting Professional"
+                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                />
+              </motion.div>
             </div>
           </div>
 
-          {/* REDESIGNED BUTTONS SECTION */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            {cta.buttons.map((button: any, idx: number) => (
-              <motion.a
-                key={idx}
-                href={button.href}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative px-8 py-4 bg-white text-primary border-2 border-primary font-bold rounded-full shadow-sm hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300 overflow-hidden flex items-center justify-center gap-2"
-              >
-                <span className="relative z-10 flex items-center gap-2 text-sm md:text-base">
+          {/* Mobile Layout - Centered text, no image */}
+          <div className="md:hidden text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-3 py-1.5 text-xs font-semibold bg-background/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
+                APEX ROOFING & SOLAR
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-4xl font-bold leading-[1.2] text-white [&_span]:text-white"
+              dangerouslySetInnerHTML={{ __html: cta.title }}
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-3 text-white font-medium text-base max-w-md mx-auto"
+            >
+              {cta.description}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+            >
+              {cta.buttons.map((button, idx) => (
+                <motion.a
+                  key={idx}
+                  href={button.href}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`
+                                        px-6 py-3 rounded-full font-bold transition-all duration-300 shadow-lg
+                                        flex items-center justify-center gap-2
+                                        ${button.primary
+                      ? 'bg-background text-primary hover:bg-gray-100'
+                      : 'bg-transparent text-white border-2 border-white/30 hover:bg-background/10'
+                    }
+                                    `}
+                >
                   {button.text}
-                  <motion.svg
-                    className="w-4 h-4 text-primary transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </motion.svg>
-                </span>
-              </motion.a>
-            ))}
+                  <Icons.WhyChoose.ArrowRight />
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Trust Badges - Mobile */}
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <TrustBadge label="Licensed & Insured" color="green" />
+              <TrustBadge label="Free Estimate" color="blue" />
+              <TrustBadge label="24/7 Support" color="red" />
+            </div>
           </div>
         </div>
+
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
       </div>
-    </motion.div>
+    </div>
   );
-};
+});
+
+CTASection.displayName = "CTASection";
 
 const WhyChooseUs = () => {
   const sectionRef = useRef(null);
@@ -705,7 +842,7 @@ const WhyChooseUs = () => {
     <section
       ref={sectionRef}
       className="relative bg-background py-20 md:py-24 lg:py-32 overflow-hidden"
-      aria-label="Why Choose DR Paint"
+      aria-label="Why Choose Apex Roofing & Solar"
     >
       <CinematicBackground />
 
@@ -754,7 +891,7 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        <AwardCTABanner />
+        <CTASection cta={cta} />
       </div>
     </section>
   );

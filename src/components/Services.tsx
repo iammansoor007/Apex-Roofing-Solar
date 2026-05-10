@@ -1,585 +1,362 @@
 import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useInView,
-  useMotionValue,
-} from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import serviceDetail from "@/assets/drpaintimage3.png";
-import {
-  Wrench,
-  Home,
-  Building2,
-  Sun,
-  CloudRain,
-  Shield,
-  TreePine,
-  Droplets,
-  Hammer,
-  Square,
-  Award,
-  ArrowRight,
-  Layout,
-  Building,
-  CheckCircle,
-  Clock,
-  Star,
+  Wrench, Home, Building2, Sun, CloudRain, Shield,
+  TreePine, Droplets, Hammer, Square, ArrowRight,
+  Layout, Building, CheckCircle, Phone, Zap,
 } from "lucide-react";
 import completeData from "../src/data/completeData.json";
 import PaintDivider from "./ui/PaintDivider";
-import residentialPaint from "@/assets/residentalpaint.jpg";
-import drywallRepair from "@/assets/drywall.png";
-import garageDoor from "@/assets/garagedoor.png";
-import cabinetPainting from "@/assets/cabientpainting.png";
-
-gsap.registerPlugin(ScrollTrigger);
+import residentialRoof from "@/assets/portfolio-1.jpg";
+import commercialRoof from "@/assets/portfolio-2.jpg";
+import roofRepair from "@/assets/portfolio-3.jpg";
+import solarInstallation from "@/assets/portfolio-4.jpg";
 
 const serviceImageMap: Record<string, string> = {
-  "01": residentialPaint,
-  "02": "https://www.alpinepaintingandrestoration.com/wp-content/uploads/2024/08/commercial-painting-explained-1536x1018.jpg",
-  "03": drywallRepair,
-  "04": "https://cdn-hgdmn.nitrocdn.com/xHAjjCwFvgmPXNuKFYowfWQDhlYRTAXv/assets/images/optimized/rev-24ded4d/wiseguysprowash.com/wp-content/uploads/2021/08/driveway-pressure-washing-1536x800.webp",
-  "05": garageDoor,
-  "06": cabinetPainting,
+  "01": residentialRoof,
+  "02": solarInstallation,
+  "03": roofRepair,
+  "04": residentialRoof,
+  "05": roofRepair,
+  "06": commercialRoof,
 };
 
-const Counter = ({ value, suffix = "" }: { value: number; suffix: string }) => {
-  const ref = useRef(null);
+const iconMap: Record<string, React.ElementType> = {
+  Wrench, Home, Building2, Sun, CloudRain, Shield,
+  TreePine, Droplets, Hammer, Square, Layout, Building,
+  Search: Zap, CloudSun: Sun, Thermometer: Zap,
+};
+
+// ── Animated Number ───────────────────────────────────────────────
+const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(0);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const started = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
-
-    let startTime: number;
-    const duration = 2000;
-    const startValue = 0;
-    const endValue = value;
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(startValue + (endValue - startValue) * eased);
-      setDisplay(current);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setDisplay(endValue);
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        let t0: number;
+        const run = (ts: number) => {
+          if (!t0) t0 = ts;
+          const p = Math.min((ts - t0) / 2000, 1);
+          setDisplay(Math.floor(value * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(run);
+          else setDisplay(value);
+        };
+        requestAnimationFrame(run);
       }
-    };
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
 
-    requestAnimationFrame(animate);
-  }, [inView, value]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {display}
-      {suffix}
-    </span>
-  );
+  return <span ref={ref} className="tabular-nums">{display}{suffix}</span>;
 };
 
-const iconMap = {
-  Wrench: Wrench,
-  Home: Home,
-  Building2: Building2,
-  Sun: Sun,
-  CloudRain: CloudRain,
-  Shield: Shield,
-  TreePine: TreePine,
-  Droplets: Droplets,
-  Hammer: Hammer,
-  Square: Square,
-  Layout: Layout,
-  Building: Building,
-};
-
-const CompactServiceCard = ({ service }: { service: any }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const ServiceIcon = iconMap[service.icon as keyof typeof iconMap] || Wrench;
+// ── Service Card ──────────────────────────────────────────────────
+const ServiceCard = ({
+  service, index, orphan = false,
+}: { service: any; index: number; orphan?: boolean }) => {
+  const [hovered, setHovered] = useState(false);
+  const Icon = iconMap[service.icon as keyof typeof iconMap] || Wrench;
+  const img = serviceImageMap[service.number];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
+    <motion.a
+      href="#contact"
+      initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative group cursor-pointer"
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className={`group relative bg-white rounded-2xl overflow-hidden border border-border
+        shadow-sm hover:shadow-2xl hover:shadow-primary/10
+        transition-all duration-500 hover:-translate-y-1 flex flex-col cursor-pointer transform-gpu
+        ${orphan ? "md:col-start-2" : ""}`}
     >
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500" />
-      <div className="relative bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 p-6">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full" />
+      {/* Red left accent bar */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary
+                      scale-y-0 group-hover:scale-y-100
+                      transition-transform duration-500 origin-top z-10" />
 
-        <div className="relative z-10 flex items-start gap-4">
-          <div className="relative">
-            <div className="p-2 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-              <ServiceIcon className="w-6 h-6 text-primary" />
-            </div>
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden shrink-0 bg-gradient-to-br from-primary/5 to-primary/10">
+        {img ? (
+          <>
+            <img src={img} alt={service.title} loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          </>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <Icon className="w-20 h-20 text-primary/20" />
           </div>
-          <div className="flex-1">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="text-lg font-bold text-card-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h4>
-              <span className="text-xs font-mono text-primary/60 bg-primary/5 px-2 py-1 rounded-full">
-                {service.number}
-              </span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {service.description}
-            </p>
-            <motion.div
-              className="flex items-center gap-2 mt-4"
-              animate={isHovered ? { x: 5 } : { x: 0 }}
-            >
-              <span className="text-xs font-semibold tracking-wider uppercase text-primary">
-                Learn more
-              </span>
-              <ArrowRight className="w-3 h-3 text-primary" />
-            </motion.div>
-          </div>
+        )}
+        <div className="absolute top-4 left-4">
+          <span className="bg-primary text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
+            {service.tag}
+          </span>
+        </div>
+        <div className="absolute bottom-4 right-4">
+          <span className="text-white/40 font-black text-4xl leading-none select-none">
+            {service.number}
+          </span>
         </div>
       </div>
-    </motion.div>
-  );
-};
 
-const ServiceCard = ({ service, index }: { service: any; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  const cardRef = useRef(null);
-  const ServiceIcon = iconMap[service.icon as keyof typeof iconMap] || Wrench;
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springX = useSpring(x, { stiffness: 100, damping: 10 });
-  const springY = useSpring(y, { stiffness: 100, damping: 10 });
-
-  const rotateX = useTransform(springY, [-0.5, 0.5], [4, -4]);
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-4, 4]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = (cardRef.current as HTMLElement).getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.4;
-    const yPct = (mouseY / rect.height - 0.5) * 0.4;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
-      style={{
-        rotateX: rotateX,
-        rotateY: rotateY,
-        transformPerspective: 1000,
-      }}
-      className="relative group"
-    >
-      {/* Animated border gradient */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur group-hover:blur-md" />
-
-      {/* Card content */}
-      <div className="relative bg-card rounded-2xl overflow-hidden border border-border group-hover:border-primary/30 transition-all duration-500">
-        {/* Image Section - FIXED: Removed dark overlay that was causing fading */}
-        <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
-          {(serviceImageMap[service.number] || service.image) && !imageError ? (
-            <>
-              <motion.img
-                src={serviceImageMap[service.number] || service.image}
-                alt={service.title}
-                loading="lazy"
-                className="w-full h-full object-cover"
-                animate={{
-                  scale: isHovered ? 1.1 : 1,
-                }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                onError={() => setImageError(true)}
-              />
-              {/* Lighter gradient overlay for better text readability without fading image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-              <ServiceIcon className="w-20 h-20 text-primary/30" />
-            </div>
-          )}
-
-          {/* Category badge */}
-          <div className="absolute top-4 left-4 z-10">
-            <div className="bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/20 shadow-lg">
-              {service.tag}
-            </div>
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-6">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center
+                          group-hover:bg-primary transition-colors duration-300 shrink-0">
+            <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
           </div>
-
-          {/* Number badge */}
-          <div className="absolute bottom-4 right-4 z-10">
-            <div className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-              {service.number}
-            </div>
-          </div>
+          <h3 className="text-lg font-black text-foreground group-hover:text-primary
+                         transition-colors duration-300 leading-tight">
+            {service.title}
+          </h3>
         </div>
 
-        {/* Content section */}
-        <div className="p-6">
-          <div className="flex items-start justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-lg bg-primary/10">
-                <ServiceIcon className="w-4 h-4 text-primary" />
-              </div>
-              <h3 className="text-lg font-bold text-card-foreground group-hover:text-primary transition-colors line-clamp-1">
-                {service.title}
-              </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
+          {service.description}
+        </p>
+
+        <div className="grid grid-cols-2 gap-2 mb-5 flex-1">
+          {service.features?.slice(0, 4).map((f: string, i: number) => (
+            <div key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <CheckCircle className="w-3 h-3 text-primary shrink-0" />
+              <span className="truncate">{f}</span>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
-            {service.description}
-          </p>
-
-          {/* Features list */}
-          <div className="space-y-2 mb-6">
-            {service.features?.slice(0, 3).map((feature: string, i: number) => (
-              <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                <CheckCircle className="w-3 h-3 text-primary flex-shrink-0" />
-                <span>{feature}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Button - Always Visible */}
-          <div className="relative mt-auto">
-            <motion.a
-              href="#contact"
-              whileHover={{ x: 4 }}
-              whileTap={{ scale: 0.98 }}
-              className="group/btn relative w-full flex items-center justify-between gap-3 bg-primary hover:bg-foreground text-white px-5 py-4 transition-all duration-300"
-            >
-              <span className="font-black text-xs uppercase tracking-widest">
-                Get Free Estimate
-              </span>
-              <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
-            </motion.a>
-          </div>
+        <div className="mt-auto flex items-center gap-2 text-sm font-black uppercase tracking-widest
+                        text-primary group-hover:text-foreground transition-colors duration-300">
+          <span>Get Free Estimate</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 shrink-0" />
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };
 
+// ── Main Component ────────────────────────────────────────────────
 const Services = () => {
-  const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
+  const { badge, headline, description, stats, services, cta } = completeData.services;
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 350,
-    damping: 28,
-    restDelta: 0.001,
-  });
-
-  const clipPathLeftToRight = useTransform(
-    smoothProgress,
-    [0, 0.1],
-    ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"],
-  );
-
-  const imageScale = useTransform(smoothProgress, [0, 0.1], [1.15, 1]);
-  const overlayOpacity = useTransform(smoothProgress, [0, 0.08], [0.5, 0.1]);
-
-  const { badge, headline, description, stats, services, cta } =
-    completeData.services;
-  const featuredService = services[0];
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!sectionRef.current || !isClient) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".split-text",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [isClient]);
-
-  if (!isClient) {
-    return null;
-  }
+  useEffect(() => { setIsClient(true); }, []);
+  if (!isClient) return null;
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-gradient-to-b from-background via-background to-primary/5 overflow-hidden py-20 md:py-28"
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(var(--primary)/0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,_hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,_hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
-        <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
-      </div>
+    <section className="relative bg-background overflow-hidden py-20 md:py-28">
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-28">
-          <div className="lg:col-span-5">
+      {/* Top accent */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+
+        {/* ══ HEADER — split, heading left / desc+stats right ════ */}
+        <div className="mb-14 md:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+            {/* LEFT: Badge + Headline */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.55 }}
             >
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 mb-6">
-                <Award className="w-4 h-4 text-primary" />
-                <span className="text-primary uppercase tracking-wider text-xs font-semibold">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20
+                              px-4 py-2 rounded-full mb-5">
+                <span className="w-2 h-2 bg-primary rounded-full" />
+                <span className="text-primary text-[11px] font-black uppercase tracking-[0.2em]">
                   {badge}
                 </span>
               </div>
 
-              {/* Heading */}
-              <div className="overflow-hidden mb-6">
-                <h2 className="split-text text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.15] tracking-tight">
-                  {headline.prefix}
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
-                    {headline.highlight}
-                  </span>
-                  <br />
-                  <span className="text-foreground">{headline.suffix}</span>
-                </h2>
-              </div>
+              <h2 className="text-4xl md:text-5xl xl:text-[3.25rem] font-black text-foreground
+                             leading-[1.1] tracking-tight">
+                {headline.prefix}{" "}
+                <span className="text-primary">{headline.highlight}</span>{" "}
+                <span>{headline.suffix}</span>
+              </h2>
+            </motion.div>
 
-              {/* Description */}
-              <div className="space-y-4 mb-8">
-                {description.map((text: string, idx: number) => (
-                  <p
-                    key={idx}
-                    className="text-muted-foreground text-base leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: text }}
-                  />
-                ))}
-              </div>
+            {/* RIGHT: Description + Stat cards */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="flex flex-col gap-8"
+            >
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                {description[0]}
+              </p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mb-8 pt-6 border-t border-border">
-                {stats.map((stat: any, idx: number) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
-                      <Counter value={stat.value} suffix={stat.suffix} />
+              {/* Stat cards — 3 equal bordered boxes with red top bar */}
+              <div className="grid grid-cols-3 gap-3">
+                {stats.map((stat: any) => (
+                  <div
+                    key={stat.label}
+                    className="relative bg-white border border-border rounded-xl p-4
+                               overflow-hidden hover:border-primary/40 hover:shadow-md
+                               transition-all duration-300"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary rounded-t-xl" />
+                    <div className="text-2xl md:text-3xl font-black text-primary leading-none mb-1 pt-1">
+                      <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <div className="text-[9px] md:text-[10px] font-bold text-muted-foreground
+                                    uppercase tracking-widest leading-tight">
                       {stat.label}
                     </div>
                   </div>
                 ))}
               </div>
-
-
             </motion.div>
           </div>
 
-          {/* Image Section */}
-          <div className="lg:col-span-7">
-            <div className="relative">
-              <motion.div
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-                style={{ clipPath: clipPathLeftToRight }}
-              >
-                <div className="relative aspect-[4/5]">
-                  <motion.img
-                    src={serviceDetail}
-                    alt="DR Paint"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{ scale: imageScale }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent"
-                    style={{ opacity: overlayOpacity }}
-                  />
+          {/* Separator line */}
+          <div className="mt-12 h-px bg-gradient-to-r from-primary/30 via-border to-transparent" />
+        </div>
 
-                  {/* Floating badge */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                    className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-5 py-3 rounded-xl shadow-xl border border-primary/20"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                      <span className="text-sm font-semibold text-white">
-                        24/7 Emergency Service
-                      </span>
-                    </div>
-                  </motion.div>
+        {/* ══ SERVICES GRID ══════════════════════════════════════ */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-12 md:mb-16">
+          {services.map((service: any, index: number) => {
+            const isOrphan = services.length % 3 === 1 && index === services.length - 1;
+            return (
+              <ServiceCard key={service.number} service={service} index={index} orphan={isOrphan} />
+            );
+          })}
+        </div>
+
+        {/* ══ PREMIUM GRADIENT CTA ═══════════════════════════════ */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="relative overflow-hidden rounded-3xl"
+          style={{ background: "linear-gradient(135deg, #3a0000 0%, #6b0000 35%, #4a0000 65%, #200000 100%)" }}
+        >
+          {/* Grid lines — white so they're visible on red bg */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+          }} />
+
+          {/* Diagonal accent lines */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.07]" style={{
+            backgroundImage: "repeating-linear-gradient(60deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 60px)",
+          }} />
+
+          {/* Top-right radial glow — warm highlight */}
+          <div className="absolute -top-24 -right-24 w-[480px] h-[480px] pointer-events-none"
+            style={{ background: "radial-gradient(ellipse, rgba(255,120,120,0.4) 0%, transparent 65%)" }} />
+
+          {/* Bottom-left dark shadow glow */}
+          <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] pointer-events-none"
+            style={{ background: "radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 70%)" }} />
+
+          {/* Centre horizontal glow strip */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                          w-[700px] h-[180px] pointer-events-none"
+            style={{ background: "radial-gradient(ellipse, rgba(255,200,200,0.12) 0%, transparent 65%)" }} />
+
+          {/* Inset border */}
+          <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{
+            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.12), 0 32px 80px -16px rgba(196,18,18,0.6)",
+          }} />
+
+          {/* Content */}
+          <div className="relative z-10 px-8 py-14 md:px-16 md:py-16">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+
+              {/* Left text */}
+              <div className="text-center lg:text-left max-w-xl">
+                <div className="inline-flex items-center gap-2.5 mb-6 border border-white/10
+                                bg-white/5 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="text-white/90 text-[10px] font-black uppercase tracking-[0.25em]">
+                    Free Consultation Available
+                  </span>
                 </div>
-              </motion.div>
 
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl" />
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl" />
-            </div>
-          </div>
-        </div>
-
-        {/* Services Grid Section */}
-        <div>
-          <div className="flex items-center justify-between mb-12">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-primary/60" />
-              <span className="text-sm font-semibold tracking-wider uppercase text-primary">
-                Our Services
-              </span>
-            </div>
-            <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Professional</span>
-              <span className="w-1 h-1 rounded-full bg-primary" />
-              <span>Licensed</span>
-              <span className="w-1 h-1 rounded-full bg-primary" />
-              <span>Insured</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service: any, index: number) => (
-              <ServiceCard
-                key={service.number}
-                service={service}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section - Industrial Bold Style */}
-        <div className="mt-28 relative z-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-primary rounded-xl p-10 md:p-16 relative overflow-hidden shadow-[0_30px_60px_-15px_rgba(var(--primary-rgb),0.3)]"
-          >
-            {/* Subtle Texture Overlay */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] mix-blend-overlay" />
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
-              <div className="text-center lg:text-left max-w-2xl">
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-6">
+                <h3 className="text-3xl md:text-4xl xl:text-5xl font-black text-white
+                               leading-[1.05] tracking-tight mb-5">
                   {cta.title}
                 </h3>
-                <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed">
+
+                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-7">
                   {cta.description}
                 </p>
+
+                {/* Trust badges */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+                  {["Licensed & Insured", "Veteran Owned", "Free Estimates"].map((t) => (
+                    <div key={t} className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-full bg-primary/20 border border-primary/50
+                                      flex items-center justify-center shrink-0">
+                        <CheckCircle className="w-2.5 h-2.5 text-primary" />
+                      </div>
+                      <span className="text-white/90 text-xs font-semibold">{t}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex flex-col items-center gap-4 w-full lg:max-w-md mx-auto">
+              {/* Right buttons */}
+              <div className="flex flex-col gap-3 w-full lg:w-auto lg:min-w-[240px] shrink-0">
+
+                {/* Primary — red gradient */}
                 <motion.a
                   href={cta.buttonLink}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group/cta w-full px-8 py-6 bg-gradient-to-b from-white to-gray-100 text-primary font-black rounded-none uppercase tracking-[0.3em] text-center shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-4"
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group/b1 relative flex items-center justify-center gap-3
+                             px-10 py-5 rounded-2xl overflow-hidden font-black text-sm
+                             uppercase tracking-widest text-white transition-all duration-300"
+                  style={{ background: "linear-gradient(135deg,#c41212,#ff4444,#c41212)" }}
                 >
-                  <span>{cta.buttonText}</span>
-                  <ArrowRight className="w-6 h-6 group-hover/cta:translate-x-2 transition-transform" />
+                  <div className="absolute inset-0 bg-white/0 group-hover/b1:bg-white/10 transition-all duration-300" />
+                  <span className="relative">{cta.buttonText}</span>
+                  <ArrowRight className="relative w-4 h-4 group-hover/b1:translate-x-1 transition-transform" />
                 </motion.a>
 
+                {/* Secondary — gradient border */}
                 <motion.a
                   href="tel:+1234567890"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-6 text-white font-black border-2 border-white/40 rounded-none hover:bg-white/10 hover:border-white uppercase tracking-[0.3em] text-center transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-sm"
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group/b2 relative flex items-center justify-center gap-3
+                             px-10 py-5 rounded-2xl overflow-hidden font-bold text-sm
+                             uppercase tracking-widest text-white/80
+                             hover:text-white transition-all duration-300"
+                  style={{
+                    background: "linear-gradient(#0f0f0f,#0f0f0f) padding-box, linear-gradient(135deg,rgba(196,18,18,0.6),rgba(255,100,100,0.3)) border-box",
+                    border: "1px solid transparent",
+                  }}
                 >
-                  <span>Call Now</span>
+                  <div className="absolute inset-0 bg-white/0 group-hover/b2:bg-white/5 transition-all duration-300" />
+                  <Phone className="relative w-4 h-4" />
+                  <span className="relative">Call Now</span>
                 </motion.a>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
-        <svg
-          viewBox="0 0 1440 60"
-          className="relative block w-full h-10 md:h-12"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="url(#redGradient)"
-            d="M0,24L60,26.7C120,29,240,34,360,34C480,34,600,29,720,26.7C840,24,960,24,1080,26.7C1200,29,1320,34,1380,36.7L1440,39L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"
-          />
-          <defs>
-            <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop
-                offset="0%"
-                stopColor="hsl(var(--primary))"
-                stopOpacity="0.04"
-              />
-              <stop
-                offset="50%"
-                stopColor="hsl(var(--primary))"
-                stopOpacity="0.06"
-              />
-              <stop
-                offset="100%"
-                stopColor="hsl(var(--primary))"
-                stopOpacity="0.04"
-              />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Integrated Paint Divider - Transitions to next section */}
-      <div className="absolute bottom-0 left-0 w-full z-1 pointer-events-none">
+      {/* Divider */}
+      <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
         <PaintDivider color="hsl(var(--primary))" className="translate-y-[1px]" />
       </div>
     </section>

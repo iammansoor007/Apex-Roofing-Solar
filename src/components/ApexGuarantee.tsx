@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, ArrowRight, Star } from "lucide-react";
 
-const PaintGuarantee = () => {
+const ApexGuarantee = () => {
   return (
     <section className="relative bg-background border-t border-border overflow-hidden">
 
@@ -32,7 +32,7 @@ const PaintGuarantee = () => {
               {/* Headline — fluid, scales from 300px up */}
               <h2 className="text-[2.4rem] xs:text-[2.8rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[7rem] font-black text-foreground uppercase tracking-tighter leading-[0.85] italic">
                 Free<br />
-                <span className="text-primary">Paint</span><br />
+                <span className="text-primary">Apex</span><br />
                 Guarantee
               </h2>
             </div>
@@ -40,13 +40,13 @@ const PaintGuarantee = () => {
             {/* Body copy */}
             <div className="space-y-3 sm:space-y-4 max-w-lg">
               <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed">
-                Dr. Paint has a{" "}
+                Apex Roofing & Solar has a{" "}
                 <strong className="text-foreground">95% customer satisfaction rating</strong>
-                {" "}and a FREE paint guarantee to ensure every promise is fulfilled.
+                {" "}and a FREE roofing guarantee to ensure every promise is fulfilled.
               </p>
               <p className="text-foreground/60 text-sm sm:text-base leading-relaxed">
                 If our best efforts haven't satisfied you —{" "}
-                <strong className="text-primary">the cost of your paint is on us.</strong>
+                <strong className="text-primary">the cost of your service is on us.</strong>
               </p>
             </div>
 
@@ -78,7 +78,7 @@ const PaintGuarantee = () => {
                 </div>
               </div>
               <div>
-                <p className="text-foreground font-black uppercase tracking-wider text-xs sm:text-sm leading-tight">DR. Paint</p>
+                <p className="text-foreground font-black uppercase tracking-wider text-xs sm:text-sm leading-tight">Apex Roofing</p>
                 <p className="text-primary font-black uppercase tracking-wider text-xs sm:text-sm leading-tight">Guarantee</p>
                 <div className="flex gap-0.5 sm:gap-1 mt-1.5 sm:mt-2">
                   {[...Array(5)].map((_, i) => (
@@ -120,4 +120,4 @@ const PaintGuarantee = () => {
   );
 };
 
-export default PaintGuarantee;
+export default ApexGuarantee;

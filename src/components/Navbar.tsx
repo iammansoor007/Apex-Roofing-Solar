@@ -19,8 +19,8 @@ import {
   ShieldCheck,
   Zap
 } from "lucide-react";
-import logo from "../assets/drpaintlogo.png";
-import logo2nd from "../assets/drpaintlogo.png";
+import logo from "../assets/logo.png";
+import logo2nd from "../assets/logosecond.png";
 import completeData from "../src/data/completeData.json";
 
 const iconMap = {
@@ -76,11 +76,11 @@ const Navbar = () => {
 
   return (
     <><nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-xl py-1 border-b border-white/20"
+          ? "bg-white/80 backdrop-blur-md shadow-xl py-1 border-b border-white/20"
           : "bg-white/80 py-2"
       }`}
     >
@@ -102,7 +102,7 @@ const Navbar = () => {
               onMouseLeave={handleServicesMouseLeave}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all text-black hover:bg-black/5`}
             >
-              <PaintBucket className="h-4 w-4" />
+              <Zap className="h-4 w-4" />
               Services
               <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${activeMegaMenu === "services" ? "rotate-180" : ""}`} />
             </button>
@@ -119,7 +119,7 @@ const Navbar = () => {
                     setIsHoveringMegaMenu(false);
                     setActiveMegaMenu(null);
                   }}
-                  className="absolute left-0 top-full mt-4 w-[800px] bg-white/95 backdrop-blur-2xl rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border border-white/20 p-8 flex gap-8"
+                  className="absolute left-0 top-full mt-4 w-[800px] bg-white/95 backdrop-blur-lg rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border border-white/20 p-8 flex gap-8 transform-gpu"
                 >
                   {/* Visual Feature Sidebar */}
                   <div className="w-64 bg-gradient-to-br from-primary to-primary/80 rounded-[1.5rem] p-8 text-white flex flex-col justify-between overflow-hidden relative group">
@@ -254,7 +254,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               className="w-full bg-primary text-white py-6 rounded-2xl text-center font-black uppercase tracking-widest"
             >
-              Book Your Transformation
+              Get Your Free Quote
             </a>
           </motion.div>
         )}

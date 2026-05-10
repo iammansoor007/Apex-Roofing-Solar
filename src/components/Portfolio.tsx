@@ -12,18 +12,20 @@ import {
 } from "lucide-react";
 import completeData from "../src/data/completeData.json";
 
-import residentialPaint from "@/assets/residentalpaint.jpg";
-import drywallRepair from "@/assets/drywall.png";
-import garageDoor from "@/assets/garagedoor.png";
-import cabinetPainting from "@/assets/cabientpainting.png";
+import residentialRoof from "@/assets/portfolio-1.jpg";
+import commercialRoof from "@/assets/portfolio-2.jpg";
+import roofRepair from "@/assets/portfolio-3.jpg";
+import solarInstallation from "@/assets/portfolio-4.jpg";
+import flatRoof from "@/assets/portfolio-5.jpg";
+import orrRoofing from "@/assets/orrroofing4.jpg";
 
 const projectImages: Record<string, string> = {
-  portfolio1: residentialPaint, 
-  portfolio2: "https://www.alpinepaintingandrestoration.com/wp-content/uploads/2024/08/commercial-painting-explained-1536x1018.jpg", 
-  portfolio3: drywallRepair, 
-  portfolio4: "https://cdn-hgdmn.nitrocdn.com/xHAjjCwFvgmPXNuKFYowfWQDhlYRTAXv/assets/images/optimized/rev-24ded4d/wiseguysprowash.com/wp-content/uploads/2021/08/driveway-pressure-washing-1536x800.webp", 
-  portfolio5: garageDoor,
-  portfolio6: cabinetPainting,
+  portfolio1: residentialRoof,
+  portfolio2: commercialRoof,
+  portfolio3: roofRepair,
+  portfolio4: solarInstallation,
+  portfolio5: flatRoof,
+  portfolio6: orrRoofing,
 };
 
 const MasonryCard = forwardRef<HTMLDivElement, { project: any; index: number }>(({ project, index }, ref) => {
@@ -116,7 +118,7 @@ const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("All");
   const { section, projects } = completeData.portfolio;
 
-  const categories = ["All", "Residential", "Commercial", "Exterior", "Refinishing"];
+  const categories = ["All", "Residential", "Commercial", "Roofing", "Solar"];
 
   const filteredProjects = useMemo(() => {
     if (activeTab === "All") return projects;
@@ -200,7 +202,7 @@ const Portfolio = () => {
               Ready to see more?
             </h4>
             <p className="text-muted-foreground text-[10px] md:text-sm uppercase tracking-widest mt-1">
-              Browse our complete archive of professional finishes
+              Browse our complete archive of professional installations
             </p>
           </div>
           <motion.a

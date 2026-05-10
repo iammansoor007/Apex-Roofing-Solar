@@ -4,13 +4,12 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 
 // Lazy load heavy components
-const PaintingExperts = lazy(() => import("@/components/PaintingExperts"));
+const RoofingExperts = lazy(() => import("@/components/RoofingExperts"));
 const Services = lazy(() => import("@/components/Services"));
 const TeamValues = lazy(() => import("@/components/TeamValues"));
 const Portfolio = lazy(() => import("@/components/Portfolio"));
 const HowWeWork = lazy(() => import("@/components/HowWeWork"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
-const PaintGuarantee = lazy(() => import("@/components/PaintGuarantee"));
 const QAForm = lazy(() => import("@/components/QAForm"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -29,19 +28,22 @@ const Index = () => {
         <Navbar />
         <Hero />
         <Suspense fallback={<div className="h-96 bg-background" />}>
-          <section id="paintingexperts" className="bg-background">
-            <PaintingExperts />
+          <section id="roofingexperts" className="bg-background">
+            <RoofingExperts />
           </section>
 
-          <section id="services" className="bg-muted/50">
+          <section id="services" className="bg-background">
             <Services />
           </section>
+          
           <TeamValues />
+          
           <section id="portfolio">
             <Portfolio />
           </section>
-          <PaintGuarantee />
+
           <Testimonials />
+
           <section id="about">
             <HowWeWork />
           </section>
@@ -49,9 +51,11 @@ const Index = () => {
           <section id="contact">
             <QAForm />
           </section>
+
           <section id="faq">
             <FAQ />
           </section>
+
           <Footer />
 
           {/* ✅ Quick Quote Widget - Only appears on Index page */}

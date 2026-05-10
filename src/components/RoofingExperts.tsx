@@ -1,6 +1,6 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import AboutImg from "@/assets/drpaintimage1.png";
+import AboutImg from "@/assets/orrroofing4.jpg";
 import completeData from "../src/data/completeData.json";
 import PaintDivider from "./ui/PaintDivider";
 
@@ -102,7 +102,7 @@ const StatCard = memo(
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="relative bg-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-border shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 w-full"
+        className="relative bg-card p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-border shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 w-full transform-gpu"
       >
         <div className="relative">
           <span className="text-2xl sm:text-3xl md:text-4xl font-black text-primary">
@@ -110,7 +110,8 @@ const StatCard = memo(
           </span>
           <div className="absolute -bottom-1 sm:-bottom-2 left-0 w-8 sm:w-12 h-0.5 bg-primary rounded-full" />
         </div>
-        <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-muted-foreground mt-2 sm:mt-3 leading-tight">
+        <p className="text-[10px] sm:text-xs font-bold text-muted-foreground
+                       mt-3 leading-tight uppercase tracking-wide">
           {label}
         </p>
       </motion.div>
@@ -173,7 +174,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       className="relative bg-background overflow-hidden py-6 md:py-8 lg:py-12"
-      aria-label="About DR Paint"
+      aria-label="About Apex Roofing & Solar"
     >
       <div className="absolute inset-0">
         <ParticlesBackground />
@@ -196,7 +197,7 @@ export default function AboutSection() {
             custom={0}
             className="relative group h-full w-full "
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 blur-lg transition-all duration-700 transform-gpu" />
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50 h-full">
               <div className="relative h-full min-h-[400px] lg:min-h-full">
@@ -239,10 +240,11 @@ export default function AboutSection() {
             <motion.div
               variants={variants}
               custom={2}
-              className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10 w-fit"
+              className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2
+                         rounded-full border border-primary/20 w-fit"
             >
-              <span className="text-primary text-lg">⚡</span>
-              <span className="text-primary uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
+              <span className="w-2 h-2 bg-primary rounded-full" />
+              <span className="text-primary uppercase tracking-[0.2em] text-xs font-black">
                 {badge}
               </span>
             </motion.div>
@@ -251,26 +253,25 @@ export default function AboutSection() {
               <motion.h2
                 variants={variants}
                 custom={3}
-                className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black
+                           leading-[1.08] tracking-tight text-foreground"
               >
-                <span className="block text-foreground">{headline.prefix}</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-                  {headline.highlight}
-                </span>
-                <span className="block text-foreground">{headline.suffix}</span>
+                {headline.prefix}{" "}
+                <span className="text-primary">{headline.highlight}</span>{" "}
+                <span>{headline.suffix}</span>
               </motion.h2>
 
               <motion.div
                 variants={variants}
                 custom={4}
-                className="w-24 h-1.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
+                className="w-20 h-1 bg-primary rounded-full"
               />
             </div>
 
             <motion.p
               variants={variants}
               custom={5}
-              className="text-muted-foreground text-lg md:text-xl leading-relaxed"
+              className="text-muted-foreground text-base md:text-lg leading-relaxed"
               dangerouslySetInnerHTML={{ __html: description }}
             />
 
@@ -283,7 +284,9 @@ export default function AboutSection() {
                 {coreValues.map((value: string) => (
                   <span
                     key={value}
-                    className="px-3 py-1.5 bg-secondary/10 text-secondary text-xs font-medium rounded-full border border-secondary/20"
+                    className="px-3 py-1.5 bg-primary/8 text-primary text-[11px]
+                               font-bold rounded-full border border-primary/20
+                               uppercase tracking-wide"
                   >
                     {value}
                   </span>

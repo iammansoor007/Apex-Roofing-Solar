@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ownerImg from "@/assets/drpaintowner.webp";
+import ownerImg from "@/assets/about-image.jpg";
 import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -279,19 +279,19 @@ const Leadership = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
         <div className="max-w-3xl mx-auto text-center mb-20 leadership-reveal">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-[2px] bg-gradient-to-r from-primary/30 to-primary" />
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
+            <div className="w-8 h-[2px] bg-primary" />
+            <span className="text-xs font-black tracking-[0.25em] uppercase text-primary">
               {section.badge}
             </span>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-primary to-primary/30" />
+            <div className="w-8 h-[2px] bg-primary" />
           </div>
 
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-[1.1] tracking-tight"
             dangerouslySetInnerHTML={{ __html: section.headline }}
           />
 
-          <p className="text-muted-foreground text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
             {section.description}
           </p>
         </div>
@@ -303,23 +303,23 @@ const Leadership = () => {
 
           <div className="space-y-8 leadership-reveal">
             <div>
-              <h3 className="text-3xl md:text-4xl font-light text-foreground mb-3">
+              <h3 className="text-3xl md:text-4xl font-black text-foreground mb-1 leading-tight tracking-tight">
                 {ceo.name}
-                <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
+                <span className="block text-sm font-black text-primary mt-2 tracking-[0.2em] uppercase">
                   {ceo.title}
                 </span>
               </h3>
 
-              <div className="mt-6 relative">
-                <div className="absolute -left-4 top-0 text-primary/20">
+              <div className="mt-8 relative">
+                <div className="absolute -left-6 -top-2 text-primary/10">
                   <Icons.Quote />
                 </div>
                 {ceo.quotes.map((quote: string, idx: number) => (
                   <p
                     key={idx}
-                    className="text-muted-foreground text-base md:text-lg leading-relaxed pl-6"
+                    className="text-foreground text-lg md:text-xl font-medium leading-relaxed pl-6 italic"
                   >
-                    {quote}
+                    "{quote}"
                   </p>
                 ))}
               </div>
@@ -327,7 +327,7 @@ const Leadership = () => {
               {ceo.description.map((desc: string, idx: number) => (
                 <p
                   key={idx}
-                  className="mt-6 space-y-3 text-muted-foreground text-sm md:text-base"
+                  className="mt-6 text-muted-foreground text-base leading-relaxed"
                 >
                   {desc}
                 </p>

@@ -14,72 +14,66 @@
     --background: 0 0% 100%;
     /* White */
 
-    --foreground: 222 47% 11%;
-    /* Deep black/navy */
+    --foreground: 0 0% 0%;
+    /* Pure Black */
 
+    --popover-foreground: 0 0% 0%;
+    --card-foreground: 0 0% 0%;
     --card: 0 0% 100%;
-
-    --card-foreground: 222 47% 11%;
-
     --popover: 0 0% 100%;
 
-    --popover-foreground: 222 47% 11%;
-
-    /* OFFICIAL DR PAINT BLUE */
-    --primary: 212 54% 37%;
-    /* #2b5a93 */
+    /* OFFICIAL APEX RED */
+    --primary: 0 84% 44%;
+    /* #c41212 */
 
     --primary-foreground: 0 0% 100%;
     /* White */
 
     /* BLACK / DARK SURFACE */
-    --secondary: 222 47% 11%;
-    /* Dark black-blue */
+    --secondary: 0 0% 7%;
+    /* #121212 */
 
     --secondary-foreground: 0 0% 100%;
 
     /* RED CTA */
-    --accent: 0 78% 52%;
+    --accent: 0 84% 44%;
     /* Strong professional red */
 
     --accent-foreground: 0 0% 100%;
     /* White */
 
-    --muted: 210 20% 96%;
-
-    --muted-foreground: 215 16% 35%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 89%;
+    --input: 0 0% 100%;
 
     --destructive: 0 78% 52%;
 
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-
-    --input: 214 20% 96%;
-
-    --ring: 212 54% 37%;
+    --ring: 0 84% 44%;
 
     --radius: 0.55rem;
 
     /* CUSTOM BRAND */
-    --deep: 222 47% 11%;
+    --deep: 0 0% 7%;
     --surface: 0 0% 100%;
-    --surface-light: 210 20% 97%;
-    --text-dark: 222 47% 11%;
+    --surface-light: 0 0% 100%;
+    --text-dark: 0 0% 7%;
 
     /* SIDEBAR */
-    --sidebar-background: 222 47% 11%;
+    --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 100%;
 
-    --sidebar-primary: 212 54% 37%;
+    --sidebar-primary: 0 84% 44%;
     --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-accent: 0 78% 52%;
+    --sidebar-accent: 0 84% 44%;
     --sidebar-accent-foreground: 0 0% 100%;
 
     --sidebar-border: 220 25% 18%;
 
-    --sidebar-ring: 212 54% 37%;
+    --sidebar-ring: 0 84% 44%;
 
     /* TYPOGRAPHY */
     --font-heading: 'Space Grotesk', sans-serif;
@@ -136,6 +130,7 @@
   .navbar,
   header {
     content-visibility: visible !important;
+    will-change: transform, opacity;
   }
 }
 
@@ -248,15 +243,15 @@
   /* NAVBAR */
   .navbar-glass {
     background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(43, 90, 147, 0.08);
   }
 
   /* HERO OVERLAY */
   .hero-overlay {
     background: linear-gradient(135deg,
-        rgba(43, 90, 147, 0.9),
-        rgba(27, 31, 41, 0.82));
+        rgba(196, 18, 18, 0.9),
+        rgba(0, 0, 0, 0.85));
   }
 
   /* RED HIGHLIGHT */

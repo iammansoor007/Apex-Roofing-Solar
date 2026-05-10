@@ -706,7 +706,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl shadow-primary/30">
                   <span className="text-primary-foreground font-bold text-sm text-center leading-tight">
-                    DP
+                    AR
                   </span>
                 </div>
                 <div>

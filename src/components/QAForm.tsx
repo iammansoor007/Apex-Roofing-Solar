@@ -746,7 +746,7 @@ const GetQuote = () => {
       .join(", ");
 
     const emailContent = `
-🖌️ DR PAINT QUOTE REQUEST
+🏠 Apex Roofing & Solar QUOTE REQUEST
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -773,7 +773,7 @@ ${formData.message}
     try {
       try {
         const response = await fetch(
-          "https://formsubmit.co/ajax/contact@drpaint.com",
+          "https://formsubmit.co/ajax/Luis@apexroofingandsolar.com",
           {
             method: "POST",
             headers: {
@@ -781,7 +781,7 @@ ${formData.message}
               Accept: "application/json",
             },
             body: JSON.stringify({
-              _subject: `🖌️ DR Paint Quote Request - ${formData.name}`,
+              _subject: `🏠 Apex Roofing & Solar Quote Request - ${formData.name}`,
               name: formData.name,
               email: formData.email,
               phone: formData.phone,
@@ -820,7 +820,7 @@ ${formData.message}
         console.log("FormSubmit failed, using mailto fallback");
       }
 
-      window.location.href = `mailto:${email}?subject=🖌️ DR Paint Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+      window.location.href = `mailto:${email}?subject=🖌️ Apex Roofing & Solar Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
       setShowSuccess(true);
       setFormStep(1);
       setSelectedServices([]);
