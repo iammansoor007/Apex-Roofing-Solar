@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Home, Sun, Droplets } from "lucide-react";
 import PaintDivider from "./ui/PaintDivider";
 
-import heroBg from "@/assets/portfolio-hero.jpg";
+import heroBg from "@/assets/bgimage.png";
 import {
   FiArrowRight,
   FiChevronDown,
@@ -155,10 +155,10 @@ const RoofingInquiryForm = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-border"
+        className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] overflow-hidden border border-white/20 will-change-transform transform-gpu"
       >
-        <div className="relative flex-shrink-0 bg-gradient-to-r from-primary/5 to-primary/10 border-b border-border">
-          <div className="px-5 sm:px-6 md:px-8 py-5 sm:py-6">
+        <div className="relative flex-shrink-0 bg-gradient-to-r from-primary/10 to-primary/5 border-b border-white/10">
+          <div className="px-5 sm:px-6 md:px-8 py-4 sm:py-5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -203,9 +203,9 @@ const RoofingInquiryForm = () => {
           {!isSubmitted ? (
             <form
               onSubmit={handleSubmit}
-              className="px-4 sm:px-6 md:px-8 py-5 sm:py-8"
+              className="px-4 sm:px-6 md:px-8 py-4 sm:py-6"
             >
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-center justify-between">
                   {[1, 2, 3].map((s) => {
                     const StepIcon = stepIcons[s - 1];
@@ -231,11 +231,11 @@ const RoofingInquiryForm = () => {
                           )}
                         </div>
                         <span
-                          className={`text-xs font-semibold mt-2 transition-colors ${isActive
+                          className={`text-xs font-bold mt-2 transition-colors ${isActive
                             ? "text-primary"
                             : isCompleted
-                              ? "text-foreground/80"
-                              : "text-muted-foreground/60"
+                              ? "text-primary/60"
+                              : "text-black/40"
                             }`}
                         >
                           {stepLabels[s - 1]}
@@ -263,7 +263,7 @@ const RoofingInquiryForm = () => {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.25 }}
-                      className="space-y-5"
+                      className="space-y-4"
                     >
                       <div className="bg-primary/5 rounded-xl p-3 flex items-center gap-2 mb-2">
                         <FiUser className="w-4 h-4 text-primary" />
@@ -282,7 +282,7 @@ const RoofingInquiryForm = () => {
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleChange}
-                            className="w-full border-2 border-border rounded-xl py-3.5 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                            className="w-full border-2 border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
                             placeholder="John"
                             required
                           />
@@ -299,7 +299,7 @@ const RoofingInquiryForm = () => {
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleChange}
-                            className="w-full border-2 border-border rounded-xl py-3.5 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                            className="w-full border-2 border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
                             placeholder="Doe"
                             required
                           />
@@ -316,7 +316,7 @@ const RoofingInquiryForm = () => {
                             name="address"
                             value={formData.address}
                             onChange={handleChange}
-                            className="w-full border-2 border-border rounded-xl py-3.5 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                            className="w-full border-2 border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
                             placeholder="123 Main St, Canton, MI"
                             required
                           />
@@ -345,7 +345,7 @@ const RoofingInquiryForm = () => {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.25 }}
-                      className="space-y-5"
+                      className="space-y-4"
                     >
                       <div className="bg-primary/5 rounded-xl p-3 flex items-center gap-2 mb-2">
                         <FiTool className="w-4 h-4 text-primary" />
@@ -437,7 +437,7 @@ const RoofingInquiryForm = () => {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.25 }}
-                      className="space-y-5"
+                      className="space-y-4"
                     >
                       <div className="bg-primary/5 rounded-xl p-3 flex items-center gap-2 mb-2">
                         <FiShield className="w-4 h-4 text-primary" />
@@ -456,7 +456,7 @@ const RoofingInquiryForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full border-2 border-border rounded-xl py-3.5 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                            className="w-full border-2 border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
                             placeholder="hello@example.com"
                             required
                           />
@@ -473,7 +473,7 @@ const RoofingInquiryForm = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full border-2 border-border rounded-xl py-3.5 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                            className="w-full border-2 border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:bg-white transition-all"
                             placeholder="+1 (386) 246-7999"
                             required
                           />
@@ -552,17 +552,20 @@ const Hero = () => {
       className="relative min-h-screen overflow-hidden bg-secondary isolate"
     >
       <div className="absolute inset-0 -z-10">
-        <img
+        <motion.img
           src={heroBg}
           alt="Apex Roofing & Solar - Professional roofing services"
           loading="eager"
           {...({ fetchpriority: "high" } as any)}
-          className="w-full h-full object-cover absolute inset-0 opacity-90"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, ease: "easeOut" }}
+          className="w-full h-full object-cover absolute inset-0 opacity-90 will-change-transform"
         />
         {/* Subtly reduced Overlays */}
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 bg-primary/25 mix-blend-multiply" />
-        
+
         {/* Softened Directional Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-transparent to-transparent" />

@@ -9,6 +9,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     /* DR PAINT EXACT BRAND THEME */
     --background: 0 0% 100%;

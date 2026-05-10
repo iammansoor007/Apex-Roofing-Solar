@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ownerImg from "@/assets/about-image.jpg";
+import ownerImg from "@/assets/owner.jpg";
 import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -219,8 +219,8 @@ const Leadership = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.15,
+          duration: 0.8,
+          stagger: 0.08,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,

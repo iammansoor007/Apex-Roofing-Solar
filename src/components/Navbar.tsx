@@ -170,19 +170,21 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          {companyLinks.slice(1).map((link) => {
-            const Icon = iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all text-black hover:bg-black/5`}
-              >
-                <Icon />
-                {link.label}
-              </a>
-            );
-          })}
+          {companyLinks
+            .filter((link) => link.label !== "Services" && link.label !== "Home")
+            .map((link) => {
+              const Icon = iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all text-black hover:bg-black/5`}
+                >
+                  <Icon />
+                  {link.label}
+                </a>
+              );
+            })}
         </div>
 
         {/* CTA & Mobile Menu */}

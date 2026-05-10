@@ -35,26 +35,30 @@ const Index = () => {
           <section id="services" className="bg-background">
             <Services />
           </section>
-          
-          <TeamValues />
-          
+
+          <section id="team">
+            <TeamValues />
+          </section>
+
           <section id="portfolio">
             <Portfolio />
           </section>
 
-          <Testimonials />
+
 
           <section id="about">
             <HowWeWork />
+          </section> <section id="faq">
+            <FAQ />
           </section>
 
           <section id="contact">
             <QAForm />
+          </section> <section id="testimonials">
+            <Testimonials />
           </section>
 
-          <section id="faq">
-            <FAQ />
-          </section>
+
 
           <Footer />
 

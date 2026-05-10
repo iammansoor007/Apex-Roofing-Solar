@@ -528,7 +528,7 @@ const StatCounter = ({
     if (!inView) return;
 
     let startTime: number;
-    const duration = 2000;
+    const duration = 1200;
     const end = numericValue;
 
     const animate = (timestamp: number) => {
@@ -550,7 +550,7 @@ const StatCounter = ({
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.4, delay }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="text-center group cursor-pointer"
@@ -822,9 +822,9 @@ const WhyChooseUs = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
+          duration: 0.8,
+          stagger: 0.08,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%",

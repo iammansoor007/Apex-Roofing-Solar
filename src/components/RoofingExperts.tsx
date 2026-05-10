@@ -1,6 +1,6 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import AboutImg from "@/assets/orrroofing4.jpg";
+import AboutImg from "@/assets/aboutimageaoex.png";
 import completeData from "../src/data/completeData.json";
 import PaintDivider from "./ui/PaintDivider";
 

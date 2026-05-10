@@ -65,14 +65,19 @@
         "icon": "Briefcase"
       },
       {
+        "label": "Portfolio",
+        "href": "#portfolio",
+        "icon": "FileText"
+      },
+      {
         "label": "About",
         "href": "#about",
         "icon": "Users"
       },
       {
-        "label": "Contact",
-        "href": "#contact",
-        "icon": "Phone"
+        "label": "FAQ",
+        "href": "#faq",
+        "icon": "MessageSquare"
       }
     ],
     "stats": [

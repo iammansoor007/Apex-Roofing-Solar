@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 import { motion } from "framer-motion";
 import {
   Wrench, Home, Building2, Sun, CloudRain, Shield,
@@ -7,18 +7,28 @@ import {
 } from "lucide-react";
 import completeData from "../src/data/completeData.json";
 import PaintDivider from "./ui/PaintDivider";
-import residentialRoof from "@/assets/portfolio-1.jpg";
-import commercialRoof from "@/assets/portfolio-2.jpg";
-import roofRepair from "@/assets/portfolio-3.jpg";
-import solarInstallation from "@/assets/portfolio-4.jpg";
+import roofInspection from "@/assets/roofinspection.jpg";
+import solarServices from "@/assets/solar.jpg";
+import roofMaintenance from "@/assets/roofmaintaince.jpg";
+import shingleRoofing from "@/assets/shingleroofing.jpg";
+import metalRoofing from "@/assets/metalroofing.jpg";
+import flatRoofing from "@/assets/flatroofing.jpg";
+import skylightInstallation from "@/assets/skylight.jpg";
+import atticInsulation from "@/assets/attic.jpg";
+import gutterServices from "@/assets/gutter.jpg";
+import roofRepairImg from "@/assets/roofingbg.jpg";
 
 const serviceImageMap: Record<string, string> = {
-  "01": residentialRoof,
-  "02": solarInstallation,
-  "03": roofRepair,
-  "04": residentialRoof,
-  "05": roofRepair,
-  "06": commercialRoof,
+  "01": roofInspection,
+  "02": solarServices,
+  "03": roofMaintenance,
+  "04": shingleRoofing,
+  "05": metalRoofing,
+  "06": flatRoofing,
+  "07": skylightInstallation,
+  "08": atticInsulation,
+  "09": gutterServices,
+  "10": roofRepairImg,
 };
 
 const iconMap: Record<string, React.ElementType> = {
@@ -58,7 +68,7 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix: string 
 };
 
 // ── Service Card ──────────────────────────────────────────────────
-const ServiceCard = ({
+const ServiceCard = memo(({
   service, index, orphan = false,
 }: { service: any; index: number; orphan?: boolean }) => {
   const [hovered, setHovered] = useState(false);
@@ -68,15 +78,13 @@ const ServiceCard = ({
   return (
     <motion.a
       href="#contact"
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+      initial={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className={`group relative bg-white rounded-2xl overflow-hidden border border-border
         shadow-sm hover:shadow-2xl hover:shadow-primary/10
-        transition-all duration-500 hover:-translate-y-1 flex flex-col cursor-pointer transform-gpu
+        transition-all duration-500 hover:-translate-y-1 flex flex-col cursor-pointer transform-gpu will-change-transform
         ${orphan ? "md:col-start-2" : ""}`}
     >
       {/* Red left accent bar */}
@@ -88,8 +96,8 @@ const ServiceCard = ({
       <div className="relative h-48 overflow-hidden shrink-0 bg-gradient-to-br from-primary/5 to-primary/10">
         {img ? (
           <>
-            <img src={img} alt={service.title} loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img src={img} alt={service.title} loading="eager"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform transform-gpu" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           </>
         ) : (
@@ -143,15 +151,13 @@ const ServiceCard = ({
       </div>
     </motion.a>
   );
-};
+});
+
+ServiceCard.displayName = "ServiceCard";
 
 // ── Main Component ────────────────────────────────────────────────
 const Services = () => {
-  const [isClient, setIsClient] = useState(false);
   const { badge, headline, description, stats, services, cta } = completeData.services;
-
-  useEffect(() => { setIsClient(true); }, []);
-  if (!isClient) return null;
 
   return (
     <section className="relative bg-background overflow-hidden py-20 md:py-28">
