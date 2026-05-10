@@ -19,8 +19,8 @@ import {
   ShieldCheck,
   Zap
 } from "lucide-react";
-import logo from "../assets/logo.png";
-import logo2nd from "../assets/logosecond.png";
+import logo from "../assets/apexlogoreal.png";
+import logo2nd from "../assets/apexlogoreal.png";
 import completeData from "../src/data/completeData.json";
 
 const iconMap = {
@@ -54,7 +54,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrolled(currentScrollY > 20);
-      
+
       // Hide on scroll down, show on scroll up
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setHidden(true);
@@ -76,13 +76,11 @@ const Navbar = () => {
 
   return (
     <><nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      } ${
-        scrolled
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${hidden ? "-translate-y-full" : "translate-y-0"
+        } ${scrolled
           ? "bg-white/80 backdrop-blur-md shadow-xl py-1 border-b border-white/20"
           : "bg-white/80 py-2"
-      }`}
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo Section */}

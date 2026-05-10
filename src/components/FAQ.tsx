@@ -758,7 +758,8 @@ const KnowledgeCard = () => {
                 <img
                   src={faqvector}
                   alt="FAQ Support"
-                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                  loading="lazy"
+                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)] will-change-transform transform-gpu"
                 />
               </motion.div>
             </div>

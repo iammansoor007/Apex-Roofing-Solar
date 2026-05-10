@@ -352,12 +352,11 @@ const NewsletterForm = () => {
       <form onSubmit={handleSubmit} className="relative">
         <div
           className={`
-          relative flex items-center bg-muted backdrop-blur-sm rounded-full border transition-all duration-500
-          ${
-            isFocused
+          relative flex items-center bg-white/5 backdrop-blur-sm rounded-full border transition-all duration-500
+          ${isFocused
               ? "border-primary/50 shadow-[0_0_30px_hsl(var(--primary)/0.1)]"
-              : "border-border hover:border-border/80"
-          }
+              : "border-white/10 hover:border-white/20"
+            }
         `}
         >
           <input
@@ -405,7 +404,7 @@ const ServiceLinks = () => {
 
   return (
     <div className="space-y-4">
-      <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground flex items-center gap-2">
+      <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/40 flex items-center gap-2">
         <Icons.Sparkle />
         {services.title}
       </h4>
@@ -418,9 +417,9 @@ const ServiceLinks = () => {
               key={service.label}
               href={service.href}
               whileHover={{ x: 5 }}
-              className="inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group py-1"
+              className="inline-flex items-center gap-3 text-sm text-white/60 hover:text-primary transition-all duration-300 group py-1"
             >
-              <span className="text-muted-foreground/60 group-hover:text-primary transition-colors">
+              <span className="text-white/40 group-hover:text-primary transition-colors">
                 <ServiceIcon />
               </span>
               <span>{service.label}</span>
@@ -446,7 +445,7 @@ const MaterialsSection = () => {
             key={material.label}
             href={material.href}
             whileHover={{ x: 5 }}
-            className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-primary/80 transition-colors"
+            className="inline-flex items-center gap-2 text-xs text-white/40 hover:text-primary transition-colors"
           >
             <span className="text-[8px] text-primary/40">●</span>
             {material.label}
@@ -463,37 +462,37 @@ const ContactInfo = () => {
   return (
     <div className="space-y-6">
       <div className="space-y-4">
-        <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground flex items-center gap-2">
+        <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/40 flex items-center gap-2">
           <Icons.Sparkle />
           {contact.title}
         </h4>
         <div className="space-y-4">
           <a
             href={`mailto:${contact.email}`}
-            className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+            className="flex items-center gap-3 text-sm text-white/60 hover:text-primary transition-colors group"
           >
-            <span className="text-muted-foreground/60 group-hover:text-primary">
+            <span className="text-white/40 group-hover:text-primary">
               <Icons.Mail />
             </span>
             {contact.email}
           </a>
           <a
             href={`tel:${contact.phone}`}
-            className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+            className="flex items-center gap-3 text-sm text-white/60 hover:text-primary transition-colors group"
           >
-            <span className="text-muted-foreground/60 group-hover:text-primary">
+            <span className="text-white/40 group-hover:text-primary">
               <Icons.Phone />
             </span>
             {contact.phone}
           </a>
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span className="text-muted-foreground/60">
+          <div className="flex items-center gap-3 text-sm text-white/60">
+            <span className="text-white/40">
               <Icons.Location />
             </span>
             <span>{contact.address}</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span className="text-muted-foreground/60">
+          <div className="flex items-center gap-3 text-sm text-white/60">
+            <span className="text-white/40">
               <Icons.Infinity />
             </span>
             <span>{contact.emergency}</span>
@@ -528,7 +527,7 @@ const CertificationsGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="relative p-3 bg-muted backdrop-blur-sm rounded-lg border border-border hover:border-primary/30 transition-all duration-300 group"
+            className="relative p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-primary/30 transition-all duration-300 group"
           >
             <div className="flex items-center gap-2">
               <span className="text-muted-foreground/60 group-hover:text-primary transition-colors">
@@ -538,7 +537,7 @@ const CertificationsGrid = () => {
                 <span className="text-xs font-mono text-primary/80">
                   {cert.cert}
                 </span>
-                <p className="text-[10px] text-muted-foreground">
+                <p className="text-[10px] text-white/40">
                   {cert.number}
                 </p>
               </div>
@@ -564,7 +563,7 @@ const SocialLinks = () => {
             href={socialItem.href}
             whileHover={{ y: -3, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="relative w-10 h-10 rounded-full bg-muted border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
+            className="relative w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
             aria-label={socialItem.platform}
           >
             <SocialIcon />
@@ -585,7 +584,7 @@ const LegacyMarquee = () => {
   const { marquee } = completeData.footer;
 
   return (
-    <div className="relative overflow-hidden py-8 border-t border-border">
+    <div className="relative overflow-hidden py-8 border-t border-white/10">
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: [0, -1000] }}
@@ -596,19 +595,19 @@ const LegacyMarquee = () => {
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground/40 group-hover:text-muted-foreground transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white/60 transition-colors duration-300">
               {marquee.texts[0]}
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground/40 group-hover:text-muted-foreground transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white/60 transition-colors duration-300">
               {marquee.texts[1]}
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground/40 group-hover:text-muted-foreground transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white/60 transition-colors duration-300">
               {marquee.texts[2]}
             </span>
           </div>
@@ -656,28 +655,75 @@ const Footer = () => {
   if (!isClient) return null;
 
   return (
-    <footer ref={sectionRef} className="relative bg-background overflow-hidden">
+    <footer ref={sectionRef} className="relative bg-secondary overflow-hidden">
+      {/* Cinematic Background Architecture */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Technical Grid Pattern - More Prominent */}
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage: `
               linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
               linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
             `,
-            backgroundSize: "60px 60px",
+            backgroundSize: "40px 40px",
           }}
+        />
+
+        {/* Radial Center Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-[160px] rounded-full" />
+      </div>
+
+      {/* Floating Cinematic Blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-primary/10 blur-[80px] rounded-full will-change-transform transform-gpu"
+        />
+        <motion.div
+          animate={{
+            x: [0, -80, 0],
+            y: [0, 120, 0],
+            scale: [1.2, 1, 1.2],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[20%] -right-[5%] w-[400px] h-[400px] bg-primary/5 blur-[70px] rounded-full will-change-transform transform-gpu"
+        />
+        <motion.div
+          animate={{
+            y: [0, -100, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[10%] left-[20%] w-[300px] h-[300px] bg-primary/8 blur-[60px] rounded-full will-change-transform transform-gpu"
         />
       </div>
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-primary/15 to-transparent opacity-80 blur-3xl" />
 
       <ParallaxLayer speed={0.03} className="z-0">
         <div className="absolute top-40 right-0 w-2/5 h-2/5">
           <img
             src={Images.Abstract}
             alt="Abstract architecture"
-            className="w-full h-full object-cover opacity-[0.02]"
+            className="w-full h-full object-cover opacity-[0.05]"
           />
         </div>
       </ParallaxLayer>
@@ -687,7 +733,8 @@ const Footer = () => {
           <img
             src={Images.Pattern}
             alt="Heritage pattern"
-            className="w-full h-full object-cover opacity-[0.02]"
+            loading="lazy"
+            className="w-full h-full object-cover opacity-[0.05] will-change-transform transform-gpu"
           />
         </div>
       </ParallaxLayer>
@@ -695,7 +742,7 @@ const Footer = () => {
       <QuantumParticles />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-white/10">
           <div className="lg:col-span-3 space-y-6 footer-reveal">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -710,16 +757,16 @@ const Footer = () => {
                   </span>
                 </div>
                 <div>
-                  <span className="text-foreground font-light text-lg block">
+                  <span className="text-white font-light text-lg block">
                     {company.name}
                   </span>
-                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">
+                  <span className="text-[10px] text-primary/80 font-mono tracking-wider">
                     {company.tagline}
                   </span>
                 </div>
               </div>
 
-              <p className="text-muted-foreground text-xs leading-relaxed">
+              <p className="text-white/60 text-xs leading-relaxed">
                 {company.description}
               </p>
 
@@ -727,7 +774,7 @@ const Footer = () => {
             </motion.div>
 
             <div className="space-y-3">
-              <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-muted-foreground">
+              <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/40">
                 Subscribe to insights
               </h4>
               <NewsletterForm />
@@ -741,7 +788,7 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-[10px] text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                    className="text-[10px] text-white/40 hover:text-primary transition-colors flex items-center gap-1"
                   >
                     <LinkIcon /> {link.label}
                   </a>
@@ -759,12 +806,12 @@ const Footer = () => {
             <ContactInfo />
 
             {hours && (
-              <div className="mt-6 pt-4 border-t border-border">
-                <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground flex items-center gap-2 mb-3">
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/40 flex items-center gap-2 mb-3">
                   <Icons.Sparkle />
                   Office Hours
                 </h4>
-                <div className="space-y-1 text-xs text-muted-foreground">
+                <div className="space-y-1 text-xs text-white/60">
                   <div className="flex justify-between">
                     <span>Monday - Friday:</span>
                     <span>{hours.monday}</span>
@@ -781,8 +828,8 @@ const Footer = () => {
               </div>
             )}
 
-            <div className="mt-6 pt-4 border-t border-border">
-              <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-muted-foreground flex items-center gap-2 mb-3">
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/40 flex items-center gap-2 mb-3">
                 <Icons.Sparkle />
                 Certifications & Accreditations
               </h4>
@@ -793,10 +840,10 @@ const Footer = () => {
 
         <LegacyMarquee />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-white/40">
           <div className="flex items-center gap-4">
             <span>{bottom.copyright}</span>
-            <span className="w-1 h-1 rounded-full bg-border" />
+            <span className="w-1 h-1 rounded-full bg-white/10" />
             <span>{bottom.rights}</span>
           </div>
           <div className="flex items-center gap-6">
@@ -814,7 +861,7 @@ const Footer = () => {
             href="https://www.dynamicdesignsagency.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+            className="text-white/30 hover:text-primary transition-colors duration-300"
           >
             <span className="font-mono">{bottom.tagline}</span>
           </a>

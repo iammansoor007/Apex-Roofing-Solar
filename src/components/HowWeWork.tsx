@@ -167,7 +167,7 @@ const CinematicBackground = () => {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <motion.div
-        className="absolute top-20 left-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px]"
+        className="absolute top-20 left-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px] will-change-transform transform-gpu"
         animate={{
           x: [0, 50, 0],
           y: [0, -30, 0],
@@ -179,7 +179,7 @@ const CinematicBackground = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px]"
+        className="absolute bottom-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[80px] will-change-transform transform-gpu"
         animate={{
           x: [0, -50, 0],
           y: [0, 30, 0],
@@ -716,7 +716,8 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                 <img
                   src={vectoroverlay}
                   alt="Mega Contracting Professional"
-                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                  loading="lazy"
+                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)] will-change-transform transform-gpu"
                 />
               </motion.div>
             </div>
