@@ -79,15 +79,11 @@
 
     --sidebar-ring: 0 84% 44%;
 
-    /* TYPOGRAPHY */
+    /* TYPOGRAPHY — self-hosted via @fontsource, no network request, no FOUT */
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
   }
 
-  @font-face {
-    font-family: 'Space Grotesk';
-    font-display: optional;
-  }
 }
 
 @layer base {

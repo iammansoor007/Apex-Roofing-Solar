@@ -12,7 +12,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "../src/data/completeData.json";
-import vectorimage from '../assets/ctavector.png'
+import vectorimage from '../assets/faqvector.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -656,9 +656,9 @@ const KnowledgeCard = () => {
         />
 
         {/* Technical Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.15]" 
-          style={{ 
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}

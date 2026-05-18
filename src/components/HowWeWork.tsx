@@ -10,7 +10,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "../src/data/completeData.json";
-import vectorimage2 from '../assets/faqvector.png'
+import vectorimage2 from '../assets/ctavector.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -617,9 +617,9 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
         />
 
         {/* Technical Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.15]" 
-          style={{ 
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
@@ -709,7 +709,6 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
             {/* Right Column - Floating Image */}
             <div className="relative">
               <motion.div
-                {...floatAnimation}
                 className="absolute right-0 bottom-[-47rem] w-[115%] lg:w-[125%]"
                 style={{ right: '-20%' }}
               >
