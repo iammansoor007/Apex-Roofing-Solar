@@ -129,7 +129,7 @@ const VideoThumbnailCard = ({ video, onClick }: { video: any; onClick: () => voi
   const [isHovered, setIsHovered] = useState(false);
   const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`);
   const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
+  const isInView = useInView(cardRef, { once: true, margin: "0px" });
 
   return (
     <motion.div

@@ -141,7 +141,7 @@ ${formData.message}
                 onClick={() => setIsOpen(true)}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="fixed bottom-8 right-8 z-50 group"
+                className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[9999] group"
                 initial={{ scale: 0, opacity: 0, rotate: -180 }}
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
                 whileHover={{ scale: 1.15 }}

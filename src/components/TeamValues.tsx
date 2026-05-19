@@ -109,7 +109,7 @@ const ParallaxLayer = ({
 const CeoPortrait = () => {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, margin: "0px" });
 
   const { ceo: ceoData } = completeData.leadership;
 

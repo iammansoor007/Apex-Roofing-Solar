@@ -54,18 +54,17 @@ const Index = () => {
 
           <section id="contact">
             <QAForm />
-          </section> <section id="testimonials">
+          </section>
+          <section id="testimonials">
             <Testimonials />
           </section>
 
 
 
           <Footer />
-
-          {/* ✅ Quick Quote Widget - Only appears on Index page */}
-          <QuickQuote />
         </Suspense>
       </div>
+
     </div>
   );
 };

@@ -234,7 +234,7 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(cardRef, { once: true, margin: "-100px" });
+  const inView = useInView(cardRef, { once: true, margin: "0px" });
 
   const FeatureIcon =
     iconMap[feature.icon as keyof typeof iconMap] || Icons.WhyChoose.Veteran;
@@ -521,7 +521,7 @@ const StatCounter = ({
   const ref = useRef(null);
   const [displayValue, setDisplayValue] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, margin: "0px" });
   const numericValue = parseInt(value);
 
   useEffect(() => {

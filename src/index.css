@@ -81,7 +81,7 @@
 
     /* TYPOGRAPHY — self-hosted via @fontsource, no network request, no FOUT */
     --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
   }
 
 }
